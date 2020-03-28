@@ -16,3 +16,16 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+//----------test giao diệm----------
+//admin
+Route::view('admin-sample','admin.admin-sample');
+Route::view('admin-login','admin.other.login');
+Route::view('admin-index','admin.other.index');
+Route::view('admin-table-sample','admin.admin-table-sample');
+//home
+Route::view('home-login','home.other.login');
+Route::view('home-index','home.index');
+//student
+Route::view('student-login','student.other.login');
+Route::view('student-index','student.index');
+
