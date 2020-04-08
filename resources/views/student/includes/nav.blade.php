@@ -10,25 +10,25 @@
                 <li class="nav-item active">
                     <a class="nav-link" href="#"> <i class="fas fa-home nav-icon"></i> </a>
                 </li>
-                @if(!Auth::check())
+                @if(!Auth::guard('student')->check())
                     <li class="nav-item active">
                         <button type="button" class="btn btn-default" data-toggle="modal" data-target="#loginModal">
                             Đăng nhập
                         </button>
                     </li>
                 @endif
-                @if(Auth::check())
+                @if(Auth::guard('student')->check())
 
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown"
                            aria-haspopup="true" aria-expanded="false">
-                            User name
+                            {{Auth::guard('student')->user()->name}}
                         </a>
 
                         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                             <a class="dropdown-item" href="#">Thông tin cá nhân</a>
 {{--                            <a class="dropdown-item" href="#">Thông tin ứng tuyển</a>--}}
-                            <a class="dropdown-item" href="#">Đăng xuất</a>
+                            <a class="dropdown-item" href="{{route('student.get.logout')}}">Đăng xuất</a>
                         </div>
 
                     </li>

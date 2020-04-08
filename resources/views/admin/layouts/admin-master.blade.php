@@ -1,5 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
+
+<?php
+//use Illuminate\Support\Facades\Auth;
+//use App\admin;
+//$a = Auth::guard('admin')->user()->id;
+//$b = admin::find($a);
+//$adminAvatar = $b['avatar'];
+?>
+
 @include('admin.includes.head')
 <body class="hold-transition sidebar-mini sidebar-collapse ">
 <div class="wrapper">

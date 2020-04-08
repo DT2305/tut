@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>AdminLTE 3 | Log in</title>
+    <title>Admin - đăng nhập</title>
     <!-- Tell the browser to be responsive to screen width -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -21,14 +21,15 @@
 <body class="hold-transition login-page">
 <div class="login-box">
     <div class="login-logo">
-        <a href="#"><img src="img/CTUT_logo.png" class="w-50" alt=""></a>
+        {{--        <a href="#"><img src="" class="w-50" alt=""></a>--}}
     </div>
     <!-- /.login-logo -->
     <div class="card">
         <div class="card-body login-card-body">
-            <form action="dashboard/index3.html" method="post">
+            <form action="{{route('admin.post.login')}}" method="post">
+                {{ csrf_field() }}
                 <div class="input-group mb-3">
-                    <input type="email" class="form-control" name="email" id="email" placeholder="Email">
+                    <input type="text" class="form-control" name="username" id="username" placeholder="Username">
                     <div class="input-group-append">
                         <div class="input-group-text">
                             <span class="fas fa-envelope"></span>
@@ -43,40 +44,19 @@
                         </div>
                     </div>
                 </div>
-{{--                <div class="row">--}}
-{{--                    <div class="col-8">--}}
-{{--                        <div class="icheck-primary">--}}
-{{--                            <input type="checkbox" id="remember">--}}
-{{--                            <label for="remember">--}}
-{{--                                Ghi nhớ đăng nhập--}}
-{{--                            </label>--}}
-{{--                        </div>--}}
-{{--                    </div>--}}
-                    <!-- /.col -->
-                    <div class="col-5 mx-auto">
-                        <button type="submit" class="btn btn-primary btn-block">Đăng nhập</button>
+
+                @if(session('error'))
+                    <div class="alert alert-danger alert-dismissible">
+                        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                        <h5><i class="icon fas fa-ban"></i> Cảnh báo</h5>
+                        {{session('error')}}
                     </div>
-                    <!-- /.col -->
+                @endif
+                <div class="col-5 mx-auto">
+                    <button type="submit" class="btn btn-primary btn-block">Đăng nhập</button>
                 </div>
+                <!-- /.col -->
             </form>
-
-{{--            <div class="social-auth-links text-center mb-3">--}}
-{{--                <p>- OR -</p>--}}
-{{--                <a href="#" class="btn btn-block btn-primary">--}}
-{{--                    <i class="fab fa-facebook mr-2"></i> Sign in using Facebook--}}
-{{--                </a>--}}
-{{--                <a href="#" class="btn btn-block btn-danger">--}}
-{{--                    <i class="fab fa-google-plus mr-2"></i> Sign in using Google+--}}
-{{--                </a>--}}
-{{--            </div>--}}
-            <!-- /.social-auth-links -->
-
-{{--            <p class="mb-1">--}}
-{{--                <a href="forgot-password.html">Quên mật khẩu</a>--}}
-{{--            </p>--}}
-{{--            <p class="mb-0">--}}
-{{--                <a href="register.html" class="text-center">Register a new membership</a>--}}
-{{--            </p>--}}
         </div>
         <!-- /.login-card-body -->
     </div>

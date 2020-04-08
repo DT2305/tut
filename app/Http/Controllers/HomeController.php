@@ -1,0 +1,55 @@
+<?php
+
+namespace App\Http\Controllers;
+
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+use Auth;
+use Hash;
+use App\User;
+
+class HomeController extends Controller
+{
+    public function getIndex(){
+        /*TODO: thêm giao diện hiện thị tin tức cho ứng viên*/
+//        return view('home.index');
+        if (Auth::check()){
+            return view('home.index');
+        }
+        return view('home.other.login');
+    }
+
+    public function  getLogin(){
+        if (Auth::check()){
+//            return back();
+            return view('home.index');
+        }
+        return view('home.other.login');
+    }
+
+    public function postLogin(Request $rq){
+        if(Auth::check()){
+            return back();
+        }
+
+        $phone_number = $rq->phone_number;
+        $password = $rq->password;
+
+        if(Auth::attempt(['phone_number' => $phone_number , 'password' => $password])){
+            return redirect()->route('home.get.index');
+        }
+        else{
+            return back()->with('error','Đăng nhập không thành công!!!');
+        }
+    }
+
+    public function getLogout(){
+        if(!Auth::check()){
+            return back();
+        }
+        Auth::logout();
+        return redirect()->route('home.get.index');
+    }
+
+
+}

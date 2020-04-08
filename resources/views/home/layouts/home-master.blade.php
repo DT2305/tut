@@ -1,5 +1,16 @@
 <!doctype html>
 <html lang="en">
+<?php
+//use App\Categories;
+//use Illuminate\Support\Facades\Auth;
+//use Illuminate\Support\Facades\DB;
+//
+//$cate = Categories::all();
+//$new = DB::table('news')->orderBy('view', 'desc')->get();
+//
+//$user = Auth::user();
+?>
+
 @include('home.includes.head')
 @section('title','home')
 <body>

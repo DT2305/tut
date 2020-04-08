@@ -10,7 +10,8 @@
 
             <!-- Modal body -->
             <div class="modal-body">
-                <form action="" method="get">
+                <form action="" method="post">
+                    {{ csrf_field() }}
                     <div class="input-group form-group">
                         <div class="input-group-prepend">
                             <span class="input-group-text"><i class="fas fa-user "></i></span>
@@ -77,7 +78,7 @@
                     {{--                        <input type="checkbox">Remember Me--}}
                     {{--                    </div>--}}
                     <div class="form-group text-center">
-                        <div class="btn btn-default" style="background: #000166; color: white">Đăng nhập</div>
+                        <div class="btn btn-default" style="background: #000166; color: white">Đăng ký</div>
                     </div>
                 </form>
             </div>
