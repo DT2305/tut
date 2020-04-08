@@ -17,12 +17,26 @@ use Illuminate\Support\Str;
 |
 */
 
+//$factory->define(User::class, function (Faker $faker) {
+//    return [
+//        'name' => $faker->name,
+//        'email' => $faker->unique()->safeEmail,
+//        'email_verified_at' => now(),
+//        'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', // password
+//        'remember_token' => Str::random(10),
+//    ];
+//});
+
 $factory->define(User::class, function (Faker $faker) {
     return [
         'name' => $faker->name,
-        'email' => $faker->unique()->safeEmail,
+        'email' => $faker->unique()->freeEmail,
+        'phone_number'=>$faker->unique()->numerify('0#########'),
+        'identify_number'=>$faker->unique()->numerify('############'),
+        'birthday'=>$faker->date($format = 'Y-m-d', $max = 'now'),
         'email_verified_at' => now(),
-        'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', // password
+        'password' => '$2y$10$mDiApZUTGuhootggH3U9Ru9DvY8NUgnzPd13hbmeOSvKw0vuXGj5i', // password: 1
         'remember_token' => Str::random(10),
     ];
 });
+

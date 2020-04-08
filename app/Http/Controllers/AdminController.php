@@ -22,9 +22,11 @@ class AdminController extends Controller
     {
         $admin = DB::table('admins')->count();
         $user = DB::table('users')->count();
+        $new = DB::table('news')->count();
+        $student = DB::table('students')->count();
 
 
-        return view('admin.index', ['admin' => $admin,'user' => $user]);
+        return view('admin.index', ['admin' => $admin,'user' => $user,'new'=>$new,'student'=>$student]);
     }
 
     public function getLogout()

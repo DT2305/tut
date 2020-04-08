@@ -28,7 +28,8 @@ Route::group(['prefix' => 'home'], function (){
     /*TODO: Thêm Route lấy tin tức , lấy danh mục tin tức, thể loại*/
 
     Route::group(['prefix'=>'user'],function (){
-        /*TODO: Thêm dăng ký user*/
+        Route::get('/register','HomeController@getRegis')->name('home.get.regis');
+        Route::post('/register','HomeController@postRegis')->name('home.post.regis');
 
         Route::get('/login','HomeController@getLogin')->name('home.get.login');
         Route::post('/login','HomeController@postLogin')->name('home.post.login');
@@ -45,7 +46,6 @@ Route::group(['prefix' => 'student'], function (){
     /*TODO: Thêm Route lấy tin tức , lấy danh mục tin tức, thể loại*/
 
     Route::group(['prefix'=>'user'],function (){
-        /*TODO: Thêm dăng ký user*/
 
         Route::get('/login','StudentController@getLogin')->name('student.get.login');
         Route::post('/login','StudentController@postLogin')->name('student.post.login');

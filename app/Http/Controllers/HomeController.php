@@ -7,9 +7,26 @@ use Illuminate\Support\Facades\DB;
 use Auth;
 use Hash;
 use App\User;
+use App\Http\Requests\RegisterUserRequest   ;
 
 class HomeController extends Controller
 {
+    public function getRegis(){
+        if(Auth::check()){
+            return back();
+        }
+        return view('home.other.regis');
+    }
+
+    public function postRegis(RegisterUserRequest $request){
+        if(Auth::check()){
+            return back();
+        }
+        $user = User::create($request->validated());
+
+        return redirect()->route('home.get.login');
+    }
+
     public function getIndex(){
         /*TODO: thêm giao diện hiện thị tin tức cho ứng viên*/
 //        return view('home.index');

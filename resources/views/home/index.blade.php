@@ -1,4 +1,5 @@
 @extends('home.layouts.home-master')
+@section('title','Trang chủ')
 @section('content')
     <div class="row">
         <div class="col-sm-4">

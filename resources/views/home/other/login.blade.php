@@ -46,7 +46,7 @@
 
                         <button class="btn btn-lg btn-primary btn-block text-uppercase" type="submit">Đăng nhập</button>
 
-                        <a class="d-block text-center mt-2 small" href="#"><i>Chưa có tài khoản?</i> Đăng ký</a>
+                        <a class="d-block text-center mt-2 small" href="{{route('home.get.regis')}}"><i>Chưa có tài khoản?</i> Đăng ký</a>
                         <hr class="my-4">
 
                     </form>

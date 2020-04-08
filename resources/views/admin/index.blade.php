@@ -26,7 +26,7 @@
             <div class="small-box bg-warning">
                 <div class="inner">
 {{--                    <h3>53<sup style="font-size: 20px">%</sup></h3>--}}
-                    <h3>0</h3>
+                    <h3>{{$new}}</h3>
 
                     <p>Tin tức</p>
                 </div>
@@ -41,7 +41,7 @@
             <!-- small box -->
             <div class="small-box bg-success">
                 <div class="inner">
-                    <h3>44</h3>
+                    <h3>{{$student}}</h3>
 
                     <p>Sinh viên</p>
                 </div>
