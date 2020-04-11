@@ -7,7 +7,7 @@ use Illuminate\Support\Facades\DB;
 use Auth;
 use Hash;
 use App\User;
-use App\Http\Requests\RegisterUserRequest   ;
+use App\Http\Requests\HomeUserRequest;
 
 class HomeController extends Controller
 {
@@ -18,7 +18,7 @@ class HomeController extends Controller
         return view('home.other.regis');
     }
 
-    public function postRegis(RegisterUserRequest $request){
+    public function postRegis(HomeUserRequest $request){
         if(Auth::check()){
             return back();
         }
@@ -66,6 +66,15 @@ class HomeController extends Controller
         }
         Auth::logout();
         return redirect()->route('home.get.index');
+    }
+
+    public function getEdit(){
+        if(!Auth::check()){
+            return back();
+        }
+        $id = Auth::user()->id;
+        $user = User::find($id);
+        return view('home.edit',['user' => $user]);
     }
 
 

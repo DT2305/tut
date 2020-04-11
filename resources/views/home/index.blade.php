@@ -6,6 +6,10 @@
             <h2>About Me</h2>
             <h5>Photo of me:</h5>
             <div class="fakeimg">Fake Image</div>
+
+            <img src="images/userImages\{{Auth::user()->avatar}}" alt="">
+
+
             <p>Some text about me in culpa qui officia deserunt mollit anim..</p>
             <h3>Some Links</h3>
             <p>Lorem ipsum dolor sit ame.</p>

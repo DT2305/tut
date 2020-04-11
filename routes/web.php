@@ -28,13 +28,15 @@ Route::group(['prefix' => 'home'], function (){
     /*TODO: Thêm Route lấy tin tức , lấy danh mục tin tức, thể loại*/
 
     Route::group(['prefix'=>'user'],function (){
+
         Route::get('/register','HomeController@getRegis')->name('home.get.regis');
         Route::post('/register','HomeController@postRegis')->name('home.post.regis');
 
         Route::get('/login','HomeController@getLogin')->name('home.get.login');
         Route::post('/login','HomeController@postLogin')->name('home.post.login');
 
-        /*TODO: Thêm Route chỉnh sửa thông tin người dùng*/
+        Route::get('/edit','HomeController@getEdit')->name('home.get.edit');
+        Route::post('/edit','HomeController@postEdit')->name('home.post.edit');
 
         Route::get('/logout','HomeController@getLogout')->name('home.get.logout');
     });

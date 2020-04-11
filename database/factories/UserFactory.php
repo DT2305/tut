@@ -4,6 +4,7 @@
 
 use App\User;
 use Faker\Generator as Faker;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Str;
 
 /*
@@ -28,15 +29,18 @@ use Illuminate\Support\Str;
 //});
 
 $factory->define(User::class, function (Faker $faker) {
-    return [
-        'name' => $faker->name,
+    return array(
+        'name' => $faker->name(null),
         'email' => $faker->unique()->freeEmail,
-        'phone_number'=>$faker->unique()->numerify('0#########'),
-        'identify_number'=>$faker->unique()->numerify('############'),
         'birthday'=>$faker->date($format = 'Y-m-d', $max = 'now'),
-        'email_verified_at' => now(),
-        'password' => '$2y$10$mDiApZUTGuhootggH3U9Ru9DvY8NUgnzPd13hbmeOSvKw0vuXGj5i', // password: 1
+        'identify_number'=>$faker->unique()->numerify('############'),
+        'phone_number'=>$faker->unique()->numerify('0#########'),
+        'address'=>$faker->address,
+        'password' => '1',
+//        'avatar'=>$faker->image('public/images/userImages', 135, 180, 'cats',false,false),
+//        'email_verified_at' => now(),
+
         'remember_token' => Str::random(10),
-    ];
+    );
 });
 
