@@ -11,7 +11,7 @@
     <script src={{asset("bootstrap-4.0.0/js/popper.min.js")}}></script>
     <script src={{asset("bootstrap-4.0.0/js/bootstrap.bundle.min.js")}}></script>
     {{--    Custom css--}}
-    <link rel="stylesheet" href={{asset("/css/student-login.css")}}>
+    <link rel="stylesheet" href={{asset("student_layout/css/student-login.css")}}>
 
     <title>Sinh viên - Đăng nhập</title>
 </head>
@@ -37,7 +37,7 @@
                 @endif
                 <div class="form-group">
                     <label>Mã số sinh viên</label>
-                    <input type="text" class="form-control" id="student_code" name="student_code" placeholder="Mã số sinh viên">
+                    <input type="text" class="form-control" id="student_code" name="student_code" placeholder="Mã số sinh viên" autofocus autocomplete="true">
                 </div>
                 <div class="form-group">
                     <label>Mật khẩu</label>

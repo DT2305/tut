@@ -12,15 +12,19 @@
 ?>
 
 @include('home.includes.head')
-@section('title','home')
+
 <body>
+@include('home.includes.jumbotron')
 @include('home.includes.nav')
 <div class="container" style="margin-top:30px">
-@yield('content')
+    <div class="row">
+        @yield('content')
+        @include('home.includes.sidebar')
+
+    </div>
 </div>
 
-@include('home.other.login-modal')
-@include('home.other.regis-modal')
+@include('home.includes.changepass-modal')
 
 </body>
 </html>

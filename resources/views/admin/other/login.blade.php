@@ -29,7 +29,7 @@
             <form action="{{route('admin.post.login')}}" method="post">
                 {{ csrf_field() }}
                 <div class="input-group mb-3">
-                    <input type="text" class="form-control" name="username" id="username" placeholder="Username">
+                    <input type="text" class="form-control" name="username" id="username" placeholder="Username" autofocus>
                     <div class="input-group-append">
                         <div class="input-group-text">
                             <span class="fas fa-envelope"></span>

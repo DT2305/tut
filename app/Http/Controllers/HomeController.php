@@ -24,7 +24,13 @@ class HomeController extends Controller
         }
         $user = User::create($request->validated());
 
-        return redirect()->route('home.get.login');
+
+        $user['password'] = bcrypt($request['password']);
+        $user -> save();
+
+        return redirect()->route('home.get.login')->with(['uname' => $request['username'] , 'phanquyen' => 'Tạo tài khoản thành công !']);
+
+//        return redirect()->route('home.get.login');
     }
 
     public function getIndex(){
@@ -75,6 +81,37 @@ class HomeController extends Controller
         $id = Auth::user()->id;
         $user = User::find($id);
         return view('home.edit',['user' => $user]);
+    }
+
+    public function postChangePass(Request $rq){
+
+        if(!empty($rq['oldpass']) && !empty($rq['newpass']) && !empty($rq['renewpass'])){
+
+            $ad = Auth::user();
+            $id = $ad['id'];
+            $user = User::find($id);
+            $password = $user -> password;
+            $oldpass = $rq-> oldpass;
+            hash::check($oldpass,$password);
+
+            if(!hash::check($oldpass,$password)){
+                echo 'Mật khẩu cũ không chính xác !';
+            }
+            elseif ($rq -> newpass != $rq -> renewpass){
+                echo 'Mật khẩu nhập lại không khớp !';
+            }
+            else{
+                $user -> password = bcrypt($rq -> newpass);
+
+                $user -> save();
+                echo 'Đổi mật khẩu thành công !';
+            }
+
+        }
+        else{
+            echo 'Vui lòng nhập đầy đủ thông tin !';
+        }
+
     }
 
 

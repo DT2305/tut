@@ -37,9 +37,5 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-    /*TODO: Cái này để mã hóa mật khẩu*/
-    public function setPasswordAttribute($password)
-    {
-        $this->attributes['password'] = bcrypt($password);
-    }
+
 }

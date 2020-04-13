@@ -14,6 +14,7 @@ class StudentsTableSeeder extends Seeder
         DB::table('students')->insert([
             [
                 'name' => 'Nguyễn Văn Anh',
+                'gender'=>'Nam',
                 'email' => 'nvanh123@gmail.com',
                 'phone_number'  =>  '0987665445',
                 'identify_number'  =>  '123321321321',
@@ -23,6 +24,7 @@ class StudentsTableSeeder extends Seeder
             ],
             [
                 'name' => 'Trần Thi Anh',
+                'gender'=>'Nữ',
                 'email' => 'ttanh456@gmail.com',
                 'phone_number'  =>  '0987654321',
                 'identify_number'  =>  '456456456456',
@@ -31,6 +33,7 @@ class StudentsTableSeeder extends Seeder
                 'password' => bcrypt('1'),
             ],[
                 'name' => 'Trương Công Danh Toại',
+                'gender'=>'Nam',
                 'email' => 'danhtoai@gmail.com',
                 'phone_number'  =>  '0846925554',
                 'identify_number'  =>  '098098098098',

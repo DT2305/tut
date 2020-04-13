@@ -12,7 +12,7 @@
     <script src={{asset("bootstrap-4.0.0/js/popper.min.js")}}></script>
     <script src={{asset("bootstrap-4.0.0/js/bootstrap.bundle.min.js")}}></script>
     {{--    Custom css--}}
-    <link rel="stylesheet" href={{asset("/css/home-login.css")}}>
+    <link rel="stylesheet" href={{asset("home_layout/css/home-login.css")}}>
 </head>
 <body>
 <div class="container">
@@ -35,7 +35,7 @@
                                 </div>
                             @endif
                         <div class="form-label-group">
-                            <input type="text" id="phone_number" name="phone_number" class="form-control" placeholder="Số điện thoại" required autofocus>
+                            <input type="text" id="phone_number" name="phone_number" class="form-control" autocomplete="on" placeholder="Số điện thoại" required autofocus>
                             <label for="phone_number">Số điện thoại</label>
                         </div>
 
@@ -47,7 +47,7 @@
                         <button class="btn btn-lg btn-primary btn-block text-uppercase" type="submit">Đăng nhập</button>
 
                         <a class="d-block text-center mt-2 small" href="{{route('home.get.regis')}}"><i>Chưa có tài khoản?</i> Đăng ký</a>
-                        <hr class="my-4">
+{{--                        <hr class="my-4">--}}
 
                     </form>
                 </div>

@@ -14,6 +14,6 @@
     <link rel="stylesheet" href={{asset("fontawesome/all.css")}}>
 
     {{--    custom css--}}
-    <link rel="stylesheet" href={{asset("css/student-main.css")}}>
+    <link rel="stylesheet" href={{asset("student_layout/css/student-main.css")}}>
 </head>
 </head>

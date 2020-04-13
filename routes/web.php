@@ -35,6 +35,8 @@ Route::group(['prefix' => 'home'], function (){
         Route::get('/login','HomeController@getLogin')->name('home.get.login');
         Route::post('/login','HomeController@postLogin')->name('home.post.login');
 
+        Route::post('/changepass','HomeController@postChangePass')->name('home.post.changepass');
+
         Route::get('/edit','HomeController@getEdit')->name('home.get.edit');
         Route::post('/edit','HomeController@postEdit')->name('home.post.edit');
 
@@ -51,6 +53,8 @@ Route::group(['prefix' => 'student'], function (){
 
         Route::get('/login','StudentController@getLogin')->name('student.get.login');
         Route::post('/login','StudentController@postLogin')->name('student.post.login');
+
+        Route::post('/changepass','StudentController@postChangePass')->name('student.post.changepass');
 
         /*TODO: Thêm Route chỉnh sửa thông tin người dùng*/
 
@@ -82,7 +86,7 @@ Route::view('admin-table-sample','admin.admin-table-sample');
 //home
 Route::view('home-register','home.other.regis');
 Route::view('home-login','home.other.login');
-Route::view('home-login2','home.other.login-v2');
+//Route::view('home-login2','home.other.login-v2');
 Route::view('home-index','home.index');
 //student
 Route::view('student-login','student.other.login');

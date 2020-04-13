@@ -7,8 +7,10 @@ use Faker\Generator as Faker;
 use Illuminate\Support\Str;
 
 $factory->define(Student::class, function (Faker $faker) {
+    $gender = $faker->randomElement(['Nam', 'Nữ']);
     return [
-        'name' => $faker->name(null),
+        'name' => $faker->name($gender),
+        'gender'=>$gender,
         'email' => $faker->unique()->freeEmail,
         'phone_number'=>$faker->unique()->numerify('0#########'),
         'identify_number'=>$faker->unique()->numerify('############'),
