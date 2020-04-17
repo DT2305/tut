@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\Cache;
 
 class Student extends Authenticatable
 {
+    use Notifiable;
     protected $table    =   'students';
     protected $guard    =   'student';
 
@@ -18,7 +19,17 @@ class Student extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name','email','birthday','identify_number','phone_number','address','avatar','student_code', 'password','remember_token',
+        'name',
+        'email',
+        'gender',
+        'birthday',
+        'identify_number',
+        'phone_number',
+        'address',
+        'avatar',
+        'student_code',
+        'password',
+        'remember_token',
     ];
 
     /**

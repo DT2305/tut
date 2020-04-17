@@ -56,7 +56,8 @@ Route::group(['prefix' => 'student'], function (){
 
         Route::post('/changepass','StudentController@postChangePass')->name('student.post.changepass');
 
-        /*TODO: Thêm Route chỉnh sửa thông tin người dùng*/
+        Route::get('/edit','StudentController@getEdit')->name('student.get.edit');
+        Route::post('/edit','StudentController@postEdit')->name('student.post.edit');
 
         Route::get('/logout','StudentController@getLogout')->name('student.get.logout');
     });
@@ -88,6 +89,7 @@ Route::view('home-register','home.other.regis');
 Route::view('home-login','home.other.login');
 //Route::view('home-login2','home.other.login-v2');
 Route::view('home-index','home.index');
+Route::view('home_jik','home.just_in_case.saction');
 //student
 Route::view('student-login','student.other.login');
 Route::view('student-index','student.index');

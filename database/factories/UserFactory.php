@@ -17,7 +17,7 @@ $factory->define(User::class, function (Faker $faker) {
         'phone_number'=>$faker->unique()->numerify('0#########'),
         'address'=>$faker->address,
         'password' => '1',
-//        'avatar'=>$faker->image('public/images/userImages', 135, 180, 'cats',false,false),
+//        'avatar'=>$faker->image('public/images/user_images', 135, 180, 'cats',false,false),
 //        'email_verified_at' => now(),
 
         'remember_token' => Str::random(10),

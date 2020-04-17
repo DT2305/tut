@@ -16,4 +16,3 @@
     {{--    custom css--}}
     <link rel="stylesheet" href={{asset("home_layout/css/home-main.css")}}>
 </head>
-</head>

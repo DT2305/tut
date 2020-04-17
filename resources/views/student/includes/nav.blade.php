@@ -37,7 +37,7 @@
                             </a>
 
                             <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                                <a class="dropdown-item" href="#">Thông tin cá nhân</a>
+                                <a class="dropdown-item" href="{{route('student.get.edit')}}">Cập nhật thông tin cá nhân</a>
                                 <a class="dropdown-item" href="#" data-toggle="modal" data-target="#myModal">Thay đổi mật khẩu</a>
                                 <div class="dropdown-divider"></div>
                                 <a class="dropdown-item xacnhan" href="{{route('student.get.logout')}}">Đăng xuất</a>

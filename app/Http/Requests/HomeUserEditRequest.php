@@ -3,8 +3,9 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Validation\Rule;
 
-class HomeUserRequest extends FormRequest
+class HomeUserEditRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -26,11 +27,11 @@ class HomeUserRequest extends FormRequest
         return [
             'name'=>'required',
             'gender'=>'required',
-            'identify_number'=>'required|numeric|unique:users,identify_number|regex:/[0-9]{12}/',
-            'email'=>'required|email|unique:users,email',
+            'identify_number'=>"required|numeric|regex:/[0-9]{12}/|unique:users,identify_number,{$this->user()->id}",
+            'email'=>"required|email|unique:users,email,{$this->user()->id}",
             'birthday'=>'required',
-            'phone_number'=>'required|numeric|unique:users,phone_number|regex:/(0)[0-9]{9}/',
-            'password'=>'required|confirmed',
+//            'phone_number'=>"required|numeric|regex:/(0)[0-9]/|unique:users,phone_number,{$this->user()->id}",
+
             'avatar'=>'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
             'address',
             'major_1',
@@ -42,6 +43,13 @@ class HomeUserRequest extends FormRequest
             'point_3',
             'priority',
             'area',
+        ];
+    }
+    public function attributes()
+    {
+        return [
+            'point_img'=>'Ảnh chụp bảng điểm',
+
         ];
     }
 }

@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Http\Requests\StudentEditRequest;
 use Illuminate\Http\Request;
 use Auth;
 use Hash;
@@ -42,6 +42,29 @@ class StudentController extends Controller
             return redirect()->route('student.get.index');
         }
         return back()->with('error', 'Đăng nhập không thành công !');
+    }
+
+    public function getEdit(){
+        if(!Auth("student")->check()){
+            return back();
+        }
+        $id = Auth("student")->user()->id;
+        $user = Student::find($id);
+        return view('student.edit',['user' => $user]);
+    }
+
+    public function postEdit(StudentEditRequest $request,Student $user){
+
+        $ad = Auth('student')->user();
+        $id = $ad['id'];
+        $admin = Student::find($id);
+        $user = Student::find($id);
+        $user->update($request->all());
+
+        $admin->save();
+
+        return redirect()->route('student.get.edit')->with('phanquyen' ,'Cập nhật thông tin thành công !');
+
     }
 
     public function postChangePass(Request $rq){

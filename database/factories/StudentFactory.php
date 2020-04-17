@@ -17,7 +17,7 @@ $factory->define(Student::class, function (Faker $faker) {
         'student_code'=>$faker->unique()->numerify('16#####'),
         'birthday'=>$faker->date($format = 'Y-m-d', $max = 'now'),
         'address'=>$faker->address,
-//        'avatar'=>$faker->image('public/images/studentImages', 135, 180, 'cats',false,false),
+//        'avatar'=>$faker->image('public/images/student_images', 135, 180, 'cats',false,false),
 
         'password' => '$2y$10$mDiApZUTGuhootggH3U9Ru9DvY8NUgnzPd13hbmeOSvKw0vuXGj5i', // password: 1
 

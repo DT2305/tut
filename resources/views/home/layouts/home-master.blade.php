@@ -25,6 +25,6 @@
 </div>
 
 @include('home.includes.changepass-modal')
-
+@include('home.includes.script')
 </body>
 </html>

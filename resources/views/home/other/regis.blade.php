@@ -12,7 +12,7 @@
     <script src={{asset("bootstrap-4.0.0/js/popper.min.js")}}></script>
     <script src={{asset("bootstrap-4.0.0/js/bootstrap.bundle.min.js")}}></script>
     {{--    Custom css--}}
-    <link rel="stylesheet" href={{asset("/css/home-register.css")}}>
+    <link rel="stylesheet" href={{asset("home_layout/css/home-register.css")}}>
 </head>
 <body>
 <div class="container">
@@ -26,17 +26,17 @@
                     <h5 class="card-title text-center">Đăng ký</h5>
                     <form class="form-signin" action="{{route('home.post.regis')}}" method="post">
                         {{ csrf_field() }}
-{{--                        @if(count($errors) > 0)--}}
-{{--                            <div class="alert alert-danger alert-dismissible">--}}
-{{--                                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>--}}
-{{--                                <h5><i class="icon fas fa-ban"></i> Cảnh báo!!!</h5>--}}
-{{--                                <ul>--}}
-{{--                                    @foreach($errors->all() as $error)--}}
-{{--                                        <li>{{$error}}</li>--}}
-{{--                                    @endforeach--}}
-{{--                                </ul>--}}
-{{--                            </div>--}}
-{{--                        @endif--}}
+                        @if(count($errors) > 0)
+                            <div class="alert alert-danger alert-dismissible">
+                                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                                <h5><i class="icon fas fa-ban"></i> Cảnh báo!!!</h5>
+                                <ul>
+                                    @foreach($errors->all() as $error)
+                                        <li>{{$error}}</li>
+                                    @endforeach
+                                </ul>
+                            </div>
+                        @endif
 {{--                        @if(\Session::has('success'))--}}
 {{--                            <div class="alert alert-success">--}}
 {{--                                <p>{{ \Session::get('success') }}</p>--}}
@@ -51,17 +51,13 @@
 
 
                         <div class="form-label-group">
-                            <div class="row">
-                                <div class="form-check pl-5">
-                                    <label class="form-check-label">
-                                        <input type="radio" class="form-check-input" name="gender" value="Nam">Nam
-                                    </label>
-                                </div>
-                                <div class="form-check pl-5">
-                                    <label class="form-check-label">
-                                        <input type="radio" class="form-check-input" name="gender" value="Nữ">Nữ
-                                    </label>
-                                </div>
+                            <div class="custom-control custom-radio custom-control-inline">
+                                <input type="radio" class="custom-control-input" id="gender1" name="gender" value="Nam" {{ old('gender') == "Nam" ? 'checked' : '' }}>
+                                <label class="custom-control-label" for="gender1">Nam</label>
+                            </div>
+                            <div class="custom-control custom-radio custom-control-inline">
+                                <input type="radio" class="custom-control-input" id="gender2" name="gender" value="Nữ" {{ old('gender') == "Nữ" ? 'checked' : '' }}>
+                                <label class="custom-control-label" for="gender2">Nữ</label>
                             </div>
                             @error('gender')<p style="color: red">{{$message}}</p> @enderror
                         </div>
@@ -106,7 +102,7 @@
                         </div>
 
                         <button class="btn btn-lg btn-primary btn-block text-uppercase" type="submit">Đăng ký</button>
-                        <a class="d-block text-center mt-2 small" href="#">Đăng nhập</a>
+                        <a class="d-block text-center mt-2 small" href="{{route('home.get.login')}}">Đăng nhập</a>
                         <hr class="my-4">
 
                     </form>
@@ -115,5 +111,13 @@
         </div>
     </div>
 </div>
+
+
+    @if(session('phanquyen'))
+    <script>
+    alert('{{session('phanquyen')}}');
+</script>
+@endif
+
 </body>
 </html>

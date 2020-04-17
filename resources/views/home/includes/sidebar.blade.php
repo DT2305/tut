@@ -1,33 +1,9 @@
+
 <div class="col-md-3 ">
     <div class="card">
         <div class="arow" id="arow">
-            <div class="card-header bg-ctut text-white collapsed" data-toggle="collapse" data-target="#collap1">Tin tức</div>
+            <div class="card-header bg-ctut text-white collapsed" data-toggle="collapse" data-target="#collap1">Thông tin cá nhân</div>
             <div class="collapse " id="collap1">
-                <div class="card-body " >
-                    <ul class="nav flex-column">
-                        <li class="nav-item">
-                            <a class="nav-link " href="#">Active</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Link</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Link</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link disabled" href="#">Disabled</a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-
-    </div>
-
-    <div class="card mt-3 mb-3">
-        <div class="arow" id="arow">
-            <div class="card-header bg-ctut text-white collapsed" data-toggle="collapse" data-target="#collap2">Tin tức</div>
-            <div class="collapse " id="collap2">
                 <div class="card-body " >
                     <ul class="nav flex-column">
                         <li class="nav-item">
@@ -75,6 +51,33 @@
         </div>
 
     </div>
+
+    <div class="card mt-3 mb-3">
+        <div class="arow" id="arow">
+            <div class="card-header bg-ctut text-white collapsed" data-toggle="collapse" data-target="#collap2">Tin tức</div>
+            <div class="collapse " id="collap2">
+                <div class="card-body " >
+                    <ul class="nav flex-column">
+                        <li class="nav-item">
+                            <a class="nav-link " href="#">Active</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Link</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Link</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link disabled" href="#">Disabled</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+
 
     <div class="card mt-3">
         <div class="card-header bg-ctut text-white ">Tin tức</div>
