@@ -22,7 +22,7 @@
             </div>
         @endif
         <div class="card mb-4">
-            <div class="card-header bg-ctut text-white">
+            <div class="card-header bg-ctut2 text-white">
                 <form action="{{route('student.post.edit')}}" method="POST" enctype="multipart/form-data">
                     {{ csrf_field() }}
                     <div class="row">
@@ -30,7 +30,7 @@
                             <h2>Thông tin cá nhân</h2>
                         </div>
                         <div class="col-md-3">
-                            <button type="submit" class="btn btn-primary bg-ctut2 float-right mt-1">Cập nhật</button>
+                            <button type="submit" class="btn btn-primary float-right mt-1">Cập nhật</button>
                         </div>
                     </div>
             </div>

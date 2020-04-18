@@ -2,7 +2,7 @@
     <div class="container">
 
 
-        <img src="/img/CTUT-kcc.png" alt="" >
+        <img src="/img/ctut-kcc.png" alt="" >
 
     </div>
 </div>

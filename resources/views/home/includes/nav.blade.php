@@ -30,7 +30,7 @@
                 </li>
                 <li class="nav-item ">
                     {{--                        <a class="nav-link" href="#" data-toggle="modal" data-target="#loginModal"> Đăng nhập </a>--}}
-                    <a class="nav-link" href="{{route('home.get.login')}}" > Đăng nhập </a>
+                    <a class="nav-link" href="{{route('home.get.login')}}"> Đăng nhập </a>
                 </li>
             @endif
             @if(Auth::check())
@@ -48,9 +48,10 @@
                     <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                         <a class="dropdown-item" href="#">{{ Auth::user()->name }}
                             {{ Auth::user()->phone_number }}</a>
-                        <a class="dropdown-item" href="#" data-toggle="modal" data-target="#myModal">Thay đổi mật khẩu</a>
+                        <a class="dropdown-item" href="#" data-toggle="modal" data-target="#myModal">Thay đổi mật
+                            khẩu</a>
                         <a class="dropdown-item" href="{{route('home.get.edit')}}">Cập nhật thông tin</a>
-{{--                        <a class="dropdown-item" href="#">Thông tin ứng tuyển</a>--}}
+                        {{--                        <a class="dropdown-item" href="#">Thông tin ứng tuyển</a>--}}
                         <div class="dropdown-divider"></div>
                         <a class="dropdown-item xacnhan" href="{{route('home.get.logout')}}">Đăng xuất</a>
                     </div>
@@ -61,11 +62,4 @@
     </div>
 </nav>
 
-<script>
-    $('.xacnhan').click(function(e) {
-        if (!confirm('Bạn chắc chắn không ? ')) {
-e.preventDefault();
-}
-});
 
-</script>

@@ -21,12 +21,11 @@ class CreateStudentsTable extends Migration
             $table->date('birthday');
             $table->string('identify_number')->unique();
             $table->string('phone_number')->unique();
-            $table->string('student_code')->unique();
-            $table->string('address')->nullable();
-
             $table->string('password');
-
             $table->string('avatar')->nullable();
+            $table->string('address')->nullable();
+            $table->string('student_code')->unique();
+            $table->rememberToken();
             $table->timestamps();
         });
     }

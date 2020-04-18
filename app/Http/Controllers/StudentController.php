@@ -15,7 +15,7 @@ class StudentController extends Controller
         if (Auth::guard('student')->check()){
             return view('student.index');
         }
-        return view('student.other.login');
+        return view('student.index');
     }
 
     public function  getLogin(){

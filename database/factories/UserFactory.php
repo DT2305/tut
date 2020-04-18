@@ -16,10 +16,11 @@ $factory->define(User::class, function (Faker $faker) {
         'identify_number'=>$faker->unique()->numerify('############'),
         'phone_number'=>$faker->unique()->numerify('0#########'),
         'address'=>$faker->address,
-        'password' => '1',
+
 //        'avatar'=>$faker->image('public/images/user_images', 135, 180, 'cats',false,false),
 //        'email_verified_at' => now(),
 
+        'password' => '$2y$10$mDiApZUTGuhootggH3U9Ru9DvY8NUgnzPd13hbmeOSvKw0vuXGj5i', // password: 1
         'remember_token' => Str::random(10),
     ];
 });

@@ -2,7 +2,7 @@
     <div class="container">
 
 
-        <img src="/img/CTUT-kcc.png" alt="" >
+        <img src="/img/CTUT_logo.png" alt="" style="width: 85px; height: 85px" >
 
     </div>
 </div>

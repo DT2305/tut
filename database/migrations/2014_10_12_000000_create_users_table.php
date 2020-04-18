@@ -32,16 +32,25 @@ class CreateUsersTable extends Migration
 //            $table->integer('english')->nullable()->default(0);
 //            $table->integer('literature')->nullable()->default(0);
 
-
+            /*Hình thức xét tuyển*/
+            $table->string('admission form')->nullable();
+            /*Ngành ứng tuyển*/
             $table->string('major_1')->nullable();
             $table->string('major_2')->nullable();
             $table->string('major_3')->nullable();
+            /*Tổ hợp môn*/
+            $table->string('subject_combination_1')->nullable();
+            $table->string('subject_combination_2')->nullable();
+            $table->string('subject_combination_3')->nullable();
+            /*Điểm*/
             $table->integer('point_1')->nullable()->default(0);
             $table->integer('point_2')->nullable()->default(0);
             $table->integer('point_3')->nullable()->default(0);
+            /*Ảnh xác thực điểm*/
             $table->string('point_img')->nullable();
-            $table->string('priority')->nullable();
-            $table->string('area')->nullable();
+            /*Ưu tiên và khu vực ưu tiên*/
+            $table->integer('priority')->nullable()->default(0);
+            $table->integer('area')->nullable()->default(0);
 
 //            $table->timestamp('email_verified_at')->nullable();
             $table->rememberToken();

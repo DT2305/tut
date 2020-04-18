@@ -1,3 +1,7 @@
+body{
+    background: #e9ebee;
+}
+
 .bg-ctut{
     /*background-color: #000166;*/
 
@@ -34,17 +38,17 @@
     content: "\f078";
 }
 
- body {
+/* body {*/
 
-     background-color: #fff;
-     color: black;
+/*     background-color: #fff;*/
+/*     color: black;*/
 
- }
+/* }*/
 
-.dark-mode {
-    background-color: #222;
-    color: white;
-}
+/*.dark-mode {*/
+/*    background-color: #222;*/
+/*    color: white;*/
+/*}*/
 
 
 

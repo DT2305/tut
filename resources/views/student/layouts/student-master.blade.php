@@ -4,6 +4,7 @@
 
 @include('student.includes.head')
 <body>
+@include('student.includes.jumbotron')
 @include('student.includes.nav')
 
 <div class="container" style="margin-top:30px">

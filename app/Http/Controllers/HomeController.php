@@ -36,7 +36,7 @@ class HomeController extends Controller
         if (Auth::check()){
             return view('home.index');
         }
-        return view('home.other.login');
+        return view('home.index');
     }
 
     public function  getLogin(){
@@ -73,7 +73,7 @@ class HomeController extends Controller
 
     public function getEdit(){
         if(!Auth::check()){
-            return back();
+            return view('home.other.login');
         }
         $id = Auth::user()->id;
         $user = User::find($id);

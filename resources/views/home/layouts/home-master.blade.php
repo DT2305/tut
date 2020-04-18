@@ -1,5 +1,6 @@
 <!doctype html>
 <html lang="en">
+<link rel="icon" href="/img/CTUT_logo.png">
 <?php
 //use App\Categories;
 //use Illuminate\Support\Facades\Auth;

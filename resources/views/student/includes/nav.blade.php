@@ -51,17 +51,5 @@
     </div>
 </nav>
 
-<script>
-    $('.xacnhan').click(function(e) {
-        if (!confirm('Bạn chắc chắn không ? ')) {
-            e.preventDefault();
-        }
-    });
 
-    function Dmode() {
-        var element = document.body;
-        element.classList.toggle("dark-mode");
-    }
-
-</script>
 
