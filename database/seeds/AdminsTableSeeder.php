@@ -13,10 +13,10 @@ class AdminsTableSeeder extends Seeder
     {
         DB::table('admins')->insert([
             [
-                'username' => 'admin-rank-1',
+                'username' => 'admin1',
                 'password' => bcrypt('1'),
-                'email' => 'rank1@admin.com',
-                'rank'  =>  '1',
+                'email' => 'admin1@admin.com',
+                'level'  =>  '1',
 
                 'phone_number'=>'0987654321',
                 'full_name'=>'Nguyễn Văn A',
@@ -24,20 +24,20 @@ class AdminsTableSeeder extends Seeder
 
             ],
             [
-                'username' => 'admin-rank-2',
+                'username' => 'admin2',
                 'password' => bcrypt('1'),
-                'email' => 'rank2@admin.com',
-                'rank'  =>  '2',
+                'email' => 'admin2@admin.com',
+                'level'  =>  '2',
 
                 'phone_number'=>'0987654322',
                 'full_name'=>'Nguyễn Văn B',
 
             ],
             [
-                'username' => 'admin-rank-3',
+                'username' => 'admin3',
                 'password' => bcrypt('1'),
-                'email' => 'rank3@admin.com',
-                'rank'  =>  '3',
+                'email' => 'admin3@admin.com',
+                'level'  =>  '3',
 
                 'phone_number'=>'0987654323',
                 'full_name'=>'Nguyễn Văn C',

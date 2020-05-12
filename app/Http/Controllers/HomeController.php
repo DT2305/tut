@@ -16,7 +16,7 @@ class HomeController extends Controller
         if(Auth::check()){
             return back();
         }
-        return view('home.other.regis');
+        return view('home.others.register');
     }
 
     public function postRegis(HomeUserRequest $request){
@@ -30,21 +30,28 @@ class HomeController extends Controller
         return redirect()->route('home.get.login')->with(['uname' => $request['username'] , 'phanquyen' => 'Tạo tài khoản thành công !']);
     }
 
+    public function getWelcome(){
+        return view('home.pages.welcome');
+    }
+    public function getHistory(){
+        return view('home.about.history');
+    }
+
     public function getIndex(){
         /*TODO: thêm giao diện hiện thị tin tức cho ứng viên*/
-//        return view('home.index');
+//        return view('home.pages.index');
         if (Auth::check()){
-            return view('home.index');
+            return view('home.pages.index');
         }
-        return view('home.index');
+        return view('home.others.login');
     }
 
     public function  getLogin(){
         if (Auth::check()){
 //            return back();
-            return view('home.index');
+            return view('home.pages.index');
         }
-        return view('home.other.login');
+        return view('home.others.login');
     }
 
     public function postLogin(Request $rq){
@@ -56,7 +63,7 @@ class HomeController extends Controller
         $password = $rq->password;
 
         if(Auth::attempt(['phone_number' => $phone_number , 'password' => $password])){
-            return redirect()->route('home.get.index');
+            return redirect()->route('home.get.welcome');
         }
         else{
             return back()->with('error','Đăng nhập không thành công!!!');
@@ -71,13 +78,32 @@ class HomeController extends Controller
         return redirect()->route('home.get.index');
     }
 
-    public function getEdit(){
+    public function getInfo(){
         if(!Auth::check()){
-            return view('home.other.login');
+            return view('home.others.login');
         }
+        $issued_place = DB::table('issued_places')->get();
+        $religions = DB::table('religions')->get();
+        $nations = DB::table('nations')->get();
+
+
         $id = Auth::user()->id;
         $user = User::find($id);
-        return view('home.edit',['user' => $user]);
+        return view('home.pages.info',['usr' => $user], ['isu' => $issued_place])->with(['rel' => $religions])->with(['nat' => $nations]);
+    }
+
+    public function getEdit(){
+        if(!Auth::check()){
+            return view('home.others.login');
+        }
+        $issued_place = DB::table('issued_places')->get();
+        $religions = DB::table('religions')->get();
+        $nations = DB::table('nations')->get();
+
+
+        $id = Auth::user()->id;
+        $user = User::find($id);
+        return view('home.pages.edit',['usr' => $user], ['isu' => $issued_place])->with(['rel' => $religions])->with(['nat' => $nations]);
     }
     public function postEdit(HomeUserEditRequest $request,User $user){
 
@@ -143,7 +169,7 @@ class HomeController extends Controller
 
         $admin->save();
 
-        return redirect()->route('home.get.edit')->with('phanquyen' ,'Cập nhật thông tin thành công !');
+        return redirect()->route('home.get.info')->with('phanquyen' ,'Cập nhật thông tin thành công !');
 
     }
 

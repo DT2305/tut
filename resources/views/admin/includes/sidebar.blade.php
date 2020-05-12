@@ -32,6 +32,7 @@
                         <p>
                             Quản trị viên
                             <i class="right fas fa-angle-left"></i>
+                            <span class="badge badge-danger right">{{$admin}}</span>
                         </p>
                     </a>
                     <ul class="nav nav-treeview">
@@ -56,6 +57,7 @@
                         <p>
                             Sinh viên
                             <i class="right fas fa-angle-left"></i>
+                            <span class="badge badge-success right">{{$student}}</span>
                         </p>
                     </a>
                     <ul class="nav nav-treeview">
@@ -80,6 +82,7 @@
                         <p>
                             Ứng cử viên
                             <i class="right fas fa-angle-left"></i>
+                            <span class="badge badge-primary right">{{$user}}</span>
                         </p>
                     </a>
                     <ul class="nav nav-treeview">
@@ -117,6 +120,7 @@
                         <p>
                             Tin tức
                             <i class="right fas fa-angle-left"></i>
+                            <span class="badge badge-warning right">{{$new}}</span>
                         </p>
                     </a>
                     <ul class="nav nav-treeview">
@@ -141,6 +145,7 @@
                         <p>
                             Thể loại
                             <i class="right fas fa-angle-left"></i>
+                            <span class="badge badge-secondary right">{{$category}}</span>
                         </p>
                     </a>
                     <ul class="nav nav-treeview">

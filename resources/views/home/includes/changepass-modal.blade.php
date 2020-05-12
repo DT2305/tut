@@ -26,11 +26,11 @@
                             <label for="pwd">Nhập lại mật khẩu mới</label>
                             <input type="password" class="form-control span5 renewpass"  placeholder="Nhập lại mật khẩu mới" name="renewpass">
                         </div>
-                        <div style="color:blue" id="ketqua"></div>
+                        <div style="color:red" id="ketqua"></div>
                     </div>
                     <!-- Modal footer -->
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-danger" data-dismiss="modal">Đóng</button>
+                        <button type="button" class="btn btn-danger text-white" data-dismiss="modal">Đóng</button>
                         <button type="submit" id="luu" class="btn btn-primary">Thay đổi</button>
                     </div>
                 </form>

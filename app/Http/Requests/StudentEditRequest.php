@@ -24,12 +24,14 @@ class StudentEditRequest extends FormRequest
     public function rules()
     {
         return [
-            'name'=>'required',
+//            'name'=>'required',
             'gender'=>'',
             'identify_number'=>"required|numeric|regex:/[0-9]{12}/|unique:students,identify_number,{$this->user('student')->id}",
             'email'=>"required|email|unique:students,email,{$this->user('student')->id}",
             'birthday'=>'required',
             'phone_number'=>"required|numeric|regex:/(0)[0-9]/|unique:students,phone_number,{$this->user('student')->id}",
+
+            'id_issue_place',
 
 //            'avatar'=>'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
             'address',

@@ -22,17 +22,24 @@ class AdminController extends Controller
     {
         $admin = DB::table('admins')->count();
         $user = DB::table('users')->count();
-        $new = DB::table('news')->count();
         $student = DB::table('students')->count();
+        $new = DB::table('news')->count();
+        $category = DB::table('categories')->count();
 
 
-        return view('admin.index', ['admin' => $admin,'user' => $user,'new'=>$new,'student'=>$student]);
+
+        return view('admin.index', ['admin' => $admin,'user' => $user,'student'=>$student,'new'=>$new,'category'=>$category]);
     }
 
     public function getLogout()
     {
         Auth::guard('admin')->logout();
         return redirect()->route('admin.get.login');
+    }
+
+    public function getListAdmin(){
+        $check = admin::all();
+        return view('admin.admin-profile.list',compact('check'));
     }
 
     public function postLogin(Request $request)

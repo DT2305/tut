@@ -6,24 +6,31 @@ use Illuminate\Http\Request;
 use Auth;
 use Hash;
 use App\Student;
+use App\Course;
+use App\Faculty;
+use Illuminate\Support\Facades\DB;
 
 class StudentController extends Controller
 {
+    public function getWelcome(){
+        return view('student.pages.welcome');
+    }
+
     public function getIndex(){
         /*TODO: thêm giao diện hiện thị tin tức cho sinh viên*/
 //        return view('student.index');
         if (Auth::guard('student')->check()){
-            return view('student.index');
+            return view('student.pages.index');
         }
-        return view('student.index');
+        return view('student.others.login');
     }
 
     public function  getLogin(){
         if (Auth::guard('student')->check()){
 //            return back();
-            return view('student.index');
+            return view('student.pages.index');
         }
-        return view('student.other.login');
+        return view('student.others.login');
     }
 
     public function getLogout()
@@ -44,13 +51,34 @@ class StudentController extends Controller
         return back()->with('error', 'Đăng nhập không thành công !');
     }
 
+    public function getInfo(){
+        if(!Auth("student")->check()){
+            return back();
+        }
+        $issued_place = DB::table('issued_places')->get();
+        $religions = DB::table('religions')->get();
+        $nations = DB::table('nations')->get();
+
+
+        $id = Auth("student")->user()->id;
+        $user = Student::find($id);
+
+        return view('student.pages.info',['usr' => $user], ['isu' => $issued_place])->with(['rel' => $religions])->with(['nat' => $nations]);
+    }
+
     public function getEdit(){
         if(!Auth("student")->check()){
             return back();
         }
+        $issued_place = DB::table('issued_places')->get();
+        $religions = DB::table('religions')->get();
+        $nations = DB::table('nations')->get();
+
         $id = Auth("student")->user()->id;
         $user = Student::find($id);
-        return view('student.edit',['user' => $user]);
+
+
+        return view('student.pages.edit',['usr' => $user], ['isu' => $issued_place])->with(['rel' => $religions])->with(['nat' => $nations]);
     }
 
     public function postEdit(StudentEditRequest $request,Student $user){
@@ -63,7 +91,7 @@ class StudentController extends Controller
 
         $admin->save();
 
-        return redirect()->route('student.get.edit')->with('phanquyen' ,'Cập nhật thông tin thành công !');
+        return redirect()->route('student.get.info')->with('phanquyen' ,'Cập nhật thông tin thành công !');
 
     }
 

@@ -20,11 +20,13 @@ use Illuminate\Support\Facades\Route;
 
 //--------------------HOME--------------------
 Route::get('/', function (){
-    return redirect()->route('home.get.index');
+    return redirect()->route('home.get.welcome');
 });
 
 Route::group(['prefix' => 'home'], function (){
-    Route::get('/','HomeController@getIndex')->name('home.get.index');
+    Route::get('/','HomeController@getWelcome')->name('home.get.welcome');
+    Route::get('/index','HomeController@getIndex')->name('home.get.index');
+    Route::get('/history','HomeController@getHistory')->name('home.get.history');
     /*TODO: Thêm Route lấy tin tức , lấy danh mục tin tức, thể loại*/
 
     Route::group(['prefix'=>'user'],function (){
@@ -37,6 +39,7 @@ Route::group(['prefix' => 'home'], function (){
 
         Route::post('/changepass','HomeController@postChangePass')->name('home.post.changepass');
 
+        Route::get('/info','HomeController@getInfo')->name('home.get.info');
         Route::get('/edit','HomeController@getEdit')->name('home.get.edit');
         Route::post('/edit','HomeController@postEdit')->name('home.post.edit');
 
@@ -46,7 +49,8 @@ Route::group(['prefix' => 'home'], function (){
 
 //--------------------STUDENT--------------------
 Route::group(['prefix' => 'student'], function (){
-    Route::get('/','StudentController@getIndex')->name('student.get.index');
+    Route::get('/','StudentController@getWelcome')->name('student.get.welcome');
+    Route::get('/index','StudentController@getIndex')->name('student.get.index');
     /*TODO: Thêm Route lấy tin tức , lấy danh mục tin tức, thể loại*/
 
     Route::group(['prefix'=>'user'],function (){
@@ -56,6 +60,7 @@ Route::group(['prefix' => 'student'], function (){
 
         Route::post('/changepass','StudentController@postChangePass')->name('student.post.changepass');
 
+        Route::get('/info','StudentController@getInfo')->name('student.get.info');
         Route::get('/edit','StudentController@getEdit')->name('student.get.edit');
         Route::post('/edit','StudentController@postEdit')->name('student.post.edit');
 
@@ -78,19 +83,31 @@ Route::group(['prefix' => 'admin'], function(){
 
 });
 
-//----------test giao diệm----------
-//admin
-Route::view('admin-sample','admin.admin-sample');
-Route::view('admin-login','admin.other.login');
-Route::view('admin-index','admin.other.index');
-Route::view('admin-table-sample','admin.admin-table-sample');
-//home
-Route::view('home-register','home.other.regis');
-Route::view('home-login','home.other.login');
-//Route::view('home-login2','home.other.login-v2');
-Route::view('home-index','home.index');
-Route::view('home_jik','home.just_in_case.saction');
-//student
-Route::view('student-login','student.other.login');
-Route::view('student-index','student.index');
+//----------test giao diện mới----------
+Route::view('home-sample','home.sample');
+Route::view('home-login','home.others.login');
+Route::view('home-register','home.others.register');
+Route::view('home-home','home.index');
+Route::view('home-welcome','home.welcome');
+Route::view('home-edit','home.edit');
+
+Route::get('/view-cache', function() {
+    Artisan::call('view:clear');
+    return "View is cleared";
+});
+////----------test giao diện----------
+////admin
+//Route::view('admin-sample','admin.admin-sample');
+//Route::view('admin-login','admin.other.login');
+//Route::view('admin-index','admin.other.index');
+//Route::view('admin-table-sample','admin.admin-table-sample');
+////home
+//Route::view('home-register','home.other.regis');
+//Route::view('home-login','home.other.login');
+////Route::view('home-login2','home.other.login-v2');
+//Route::view('home-index','home.index');
+//Route::view('home_jik','home.just_in_case.saction');
+////student
+//Route::view('student-login','student.other.login');
+//Route::view('student-index','student.index');
 

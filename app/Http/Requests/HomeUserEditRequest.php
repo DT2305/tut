@@ -25,7 +25,7 @@ class HomeUserEditRequest extends FormRequest
     public function rules()
     {
         return [
-            'name'=>'required',
+//            'name'=>'required',
             'gender'=>'required',
             'identify_number'=>"required|numeric|regex:/[0-9]{12}/|unique:users,identify_number,{$this->user()->id}",
             'email'=>"required|email|unique:users,email,{$this->user()->id}",
@@ -38,6 +38,9 @@ class HomeUserEditRequest extends FormRequest
             'major_2',
             'major_3',
             'point_img'=>'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'subject_combination_1',
+            'subject_combination_2',
+            'subject_combination_3',
             'point_1',
             'point_2',
             'point_3',

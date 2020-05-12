@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Hash;
 
 $factory->define(User::class, function (Faker $faker) {
     $gender = $faker->randomElement(['Nam', 'Nữ']);
+
     return [
         'name' => $faker->name($gender),
         'gender'=>$gender,
@@ -16,6 +17,7 @@ $factory->define(User::class, function (Faker $faker) {
         'identify_number'=>$faker->unique()->numerify('############'),
         'phone_number'=>$faker->unique()->numerify('0#########'),
         'address'=>$faker->address,
+
 
 //        'avatar'=>$faker->image('public/images/user_images', 135, 180, 'cats',false,false),
 //        'email_verified_at' => now(),
