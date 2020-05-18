@@ -14,7 +14,7 @@ class Student extends Authenticatable
     protected $guard    =   'student';
 
     public function showCourse(){
-        return $this->belongsTo('App\Course','course_id','id');
+        return $this->belongsTo('App\Course','course_id','id')->withDefault(['name'   =>  '[Lớp đã bị xóa]']);
     }
 
     public function show_birth_province(){
@@ -37,9 +37,9 @@ class Student extends Authenticatable
         return $this->belongsTo('App\Location','permanent_ward','id');
     }
 
-//    public function show_issued_place(){
-//        return $this->belongsTo('App\Issued_place','id_issue_place','id');
-//    }
+    public function show_issued_place(){
+        return $this->belongsTo('App\Issued_place','id_issue_place','id');
+    }
 
 
 

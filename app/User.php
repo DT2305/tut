@@ -33,6 +33,14 @@ class User extends Authenticatable
     public function show_permanent_ward(){
         return $this->belongsTo('App\Location','permanent_ward','id');
     }
+    public function show_id_issue_place(){
+        return $this->belongsTo('App\Issued_place','id_issue_place','id')
+            ->withDefault(['name'   =>  '...']);
+    }
+//    public function show_nation(){
+//        return $this->belongsTo('App\Nation','nation','id');
+//    }
+
 
     /**
      * The attributes that are mass assignable.

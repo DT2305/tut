@@ -26,9 +26,8 @@ class AdminController extends Controller
         $new = DB::table('news')->count();
         $category = DB::table('categories')->count();
 
-
-
-        return view('admin.index', ['admin' => $admin,'user' => $user,'student'=>$student,'new'=>$new,'category'=>$category]);
+//        return view('admin.index', ['admin' => $admin,'user' => $user,'student'=>$student,'new'=>$new,'category'=>$category]);
+        return view('admin.pages.index',compact('admin','user','student','new','category'));
     }
 
     public function getLogout()
@@ -37,9 +36,40 @@ class AdminController extends Controller
         return redirect()->route('admin.get.login');
     }
 
+    public function postChangePass(Request $rq){
+
+        if(!empty($rq['oldpass']) && !empty($rq['newpass']) && !empty($rq['renewpass'])){
+
+            $ad = Auth::guard('admin')->user();
+            $id = $ad['id'];
+            $user = Admin::find($id);
+            $password = $user -> password;
+            $oldpass = $rq-> oldpass;
+            hash::check($oldpass,$password);
+
+            if(!hash::check($oldpass,$password)){
+                echo 'Mật khẩu cũ không chính xác !';
+            }
+            elseif ($rq -> newpass != $rq -> renewpass){
+                echo 'Mật khẩu nhập lại không khớp !';
+            }
+            else{
+                $user -> password = bcrypt($rq -> newpass);
+
+                $user -> save();
+                echo 'Đổi mật khẩu thành công !';
+            }
+
+        }
+        else{
+            echo 'Vui lòng nhập đầy đủ thông tin !';
+        }
+
+    }
+
     public function getListAdmin(){
         $check = admin::all();
-        return view('admin.admin-profile.list',compact('check'));
+        return view('admin.pages.admin-profiles.list',compact('check'));
     }
 
     public function postLogin(Request $request)

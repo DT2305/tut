@@ -16,7 +16,6 @@ class CreateReligionsTable extends Migration
         Schema::create('religions', function (Blueprint $table) {
             $table->id();
             $table->string('name')->nullable();
-            $table->string('organization')->nullable();
             $table->timestamps();
         });
     }

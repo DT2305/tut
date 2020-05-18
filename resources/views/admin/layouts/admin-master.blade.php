@@ -2,11 +2,18 @@
 <html lang="en">
 <link rel="icon" href="/img/CTUT_logo.png">
 <?php
-//use Illuminate\Support\Facades\Auth;
-//use App\admin;
+use Illuminate\Support\Facades\Auth;
+use App\admin;
+use Illuminate\Support\Facades\DB;
 //$a = Auth::guard('admin')->user()->id;
 //$b = admin::find($a);
 //$adminAvatar = $b['avatar'];
+
+$admin = DB::table('admins')->count();
+$user = DB::table('users')->count();
+$student = DB::table('students')->count();
+$new = DB::table('news')->count();
+$category = DB::table('categories')->count();
 ?>
 
 @include('admin.includes.head')
@@ -43,9 +50,11 @@
   <!-- Main Footer -->
   @include('admin.includes.footer')
 
+
+
 </div>
 <!-- ./wrapper -->
-
+@include('admin.includes.changepass-modal')
 <!-- REQUIRED SCRIPTS -->
 @include('admin.includes.scripts')
 </body>

@@ -102,10 +102,10 @@
                             <div class="form-group">
                                 <label class="font-weight-bold" for="">Dân tộc:</label>
                                 <select name="nation" class="custom-select">
-                                    <option selected value="{{$usr['nation']}}"> {{$usr['nation']}}</option>
+                                    <option selected value="{{$usr->nation}}"> {{$usr['nation']}}</option>
                                     <option value="0">Chọn</option>
                                     @foreach ($nat as $nat)
-                                        <option value="{{$nat->name}}">{{$nat->name}}</option>
+                                        <option value="{{$nat->id}}">{{$nat->name}}</option>
                                     @endforeach
                                 </select>
                                 @error('nation')<p style="color: red">{{$message}}</p> @enderror

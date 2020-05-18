@@ -14,7 +14,8 @@ class CreateIssuedPlacesTable extends Migration
     public function up()
     {
         Schema::create('issued_places', function (Blueprint $table) {
-            $table->unsignedInteger('id')->primary();
+            $table->id();
+//            $table->unsignedBigInteger('id')->primary();
             $table->string('name')->nullable();
             $table->string('code');
             $table->timestamps();

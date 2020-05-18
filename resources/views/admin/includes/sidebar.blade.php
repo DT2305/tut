@@ -11,16 +11,28 @@
         <!-- Sidebar user panel (optional) -->
         <div class="user-panel mt-3 pb-3 mb-3 d-flex">
             <div class="image">
-                <img src="/img/CTUT_logo.png" class="img-circle elevation-2" alt="User Image">
+                <a href="{{route('admin.get.index')}}">
+                    <img src="/img/CTUT_logo.png" class="img-circle elevation-2" alt="User Image">
+                </a>
             </div>
             <div class="info">
-                <a href="#" class="d-block">CTUT</a>
+                <a href="{{route('admin.get.index')}}" class="d-block">CTUT</a>
             </div>
         </div>
 
         <!-- Sidebar Menu -->
         <nav class="mt-2">
             <ul class="nav nav-pills nav-sidebar flex-column nav-child-indent" data-widget="treeview" role="menu" data-accordion="false">
+                <li class="nav-item">
+                    <a href="{{route('admin.get.index')}}" class="nav-link">
+                        <i class="nav-icon fas fa-home"></i>
+                        <p>
+                            Trang chủ
+{{--                            <span class="right badge badge-danger">New</span>--}}
+                        </p>
+                    </a>
+                </li>
+
                 <li class="nav-header">
                     Người dùng
                 </li>
@@ -37,7 +49,7 @@
                     </a>
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
-                            <a href="#" class="nav-link ">
+                            <a href="{{route('admin.info.get.list')}}" class="nav-link ">
                                 <i class="fas fa-list nav-icon"></i>
                                 <p>Danh sách Admin</p>
                             </a>
@@ -62,7 +74,7 @@
                     </a>
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
-                            <a href="#" class="nav-link ">
+                            <a href="{{route('admin.students.get.list')}}" class="nav-link ">
                                 <i class="fas fa-list nav-icon"></i>
                                 <p>Danh sách sinh viên</p>
                             </a>
@@ -87,13 +99,13 @@
                     </a>
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
-                            <a href="#" class="nav-link ">
+                            <a href="{{route('admin.users.get.list')}}" class="nav-link ">
                                 <i class="fas fa-list nav-icon"></i>
                                 <p>Danh sách ứng cử viên</p>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="#" class="nav-link">
+                            <a href="{{route('admin.users.get.create')}}" class="nav-link">
                                 <i class="far fa-plus-square nav-icon"></i>
                                 <p>Thêm ứng cử viên</p>
                             </a>

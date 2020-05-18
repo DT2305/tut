@@ -64,6 +64,6 @@ class StudentsTableSeeder extends Seeder
                 'school_name'=>'Trường Đại học Kỹ thuật - Công nghệ Cần Thơ',
             ]
         ]);
-        factory(App\Student::class,1000)->create();
+        factory(App\Student::class,2000)->create();
     }
 }

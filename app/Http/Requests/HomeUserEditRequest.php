@@ -31,7 +31,7 @@ class HomeUserEditRequest extends FormRequest
             'email'=>"required|email|unique:users,email,{$this->user()->id}",
             'birthday'=>'required',
 //            'phone_number'=>"required|numeric|regex:/(0)[0-9]/|unique:users,phone_number,{$this->user()->id}",
-
+            'id_issue_place'=>'required',
             'avatar'=>'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
             'address',
             'major_1',

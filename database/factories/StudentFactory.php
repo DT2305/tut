@@ -8,7 +8,7 @@ use Illuminate\Support\Str;
 
 $factory->define(Student::class, function (Faker $faker) {
     $gender = $faker->randomElement(['Nam', 'Nữ']);
-    $course_id = $faker->randomElement(['1','2','3','4','5','6','7','8','9','10','11','12','13','14','15','16']);
+    $course_id = $faker->randomElement(['2','3','4','5','6','7','8','9','10','11','12','13','14','15','16','17','18','19','20','21','22','23','24','25','26','27','28','29','30']);
     return [
         'name' => $faker->name($gender),
         'gender'=>$gender,
