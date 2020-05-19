@@ -26,7 +26,7 @@ class StudentEditRequest extends FormRequest
         return [
 //            'name'=>'required',
             'gender'=>'',
-            'identify_number'=>"required|numeric|regex:/[0-9]{12}/|unique:students,identify_number,{$this->user('student')->id}",
+            'identity_number'=>"required|numeric|regex:/[0-9]{12}/|unique:students,identity_number,{$this->user('student')->id}",
             'email'=>"required|email|unique:students,email,{$this->user('student')->id}",
             'birthday'=>'required',
             'phone_number'=>"required|numeric|regex:/(0)[0-9]/|unique:students,phone_number,{$this->user('student')->id}",

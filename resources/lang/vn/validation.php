@@ -178,7 +178,7 @@ return [
         'message'               => 'lời nhắn',
         'available'             => 'có sẵn',
         'size'                  => 'kích thước',
-        'identify_number'       => 'chứng minh nhân dân',
+        'identity_number'       => 'chứng minh nhân dân',
         'phone_number'          => 'số điện thoại',
         'highschool_name'       => 'tên trường THPT',
         'birthday'              => 'ngày sinh',

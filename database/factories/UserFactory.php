@@ -14,7 +14,7 @@ $factory->define(User::class, function (Faker $faker) {
         'gender'=>$gender,
         'email' => $faker->unique()->freeEmail,
         'birthday'=>$faker->date($format = 'Y-m-d', $max = 'now'),
-        'identify_number'=>$faker->unique()->numerify('############'),
+        'identity_number'=>$faker->unique()->numerify('############'),
         'phone_number'=>$faker->unique()->numerify('0#########'),
         'address'=>$faker->address,
 

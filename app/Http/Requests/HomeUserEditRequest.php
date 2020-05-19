@@ -25,9 +25,9 @@ class HomeUserEditRequest extends FormRequest
     public function rules()
     {
         return [
-//            'name'=>'required',
+            'name'=>'required',
             'gender'=>'required',
-            'identify_number'=>"required|numeric|regex:/[0-9]{12}/|unique:users,identify_number,{$this->user()->id}",
+            'identity_number'=>"required|numeric|regex:/[0-9]{12}/|unique:users,identity_number,{$this->user()->id}",
             'email'=>"required|email|unique:users,email,{$this->user()->id}",
             'birthday'=>'required',
 //            'phone_number'=>"required|numeric|regex:/(0)[0-9]/|unique:users,phone_number,{$this->user()->id}",

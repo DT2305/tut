@@ -28,54 +28,32 @@
                         <div class="col-md-12 col-lg-12 mb-3 text-center">
 
                             <h3 class="font-weight-bold" >Thông tin ứng viên</h3>
-                            <h3 class="m-0 font-weight-bold">{{$usr->name}}</h3>
+{{--                            <h3 class="m-0 font-weight-bold">{{$usr->name}}</h3>--}}
 
                         </div>
 
-                        <div class="col-md-12 col-lg-3 mb-3 text-center">
-{{--                            <img src="{{$usr->avatar}}" alt="" class="img-thumbnail">--}}
-                        </div>
-{{--                        <div class="col-md-12 col-lg-4 mb-3">--}}
-{{--                            <p class="m-0 font-weight-bold">Khoa: </p>--}}
-{{--                            <h5>{{$usr->showCourse->showFaculty->showDepartment->name}}</h5>--}}
-{{--                            <p class="m-0 font-weight-bold">Chuyên ngành:</p>--}}
-{{--                            <h5>{{$usr->showCourse->showFaculty->name}}</h5>--}}
-{{--                            <p class="m-0 font-weight-bold">Lớp:</p>--}}
-{{--                            <h5>{{$usr->showCourse->name}}</h5>--}}
-{{--                            <p class="m-0 font-weight-bold">Khóa:</p>--}}
-{{--                            <h5>{{$usr->showCourse->year_start}}</h5>--}}
+
+
+{{--                        <div class="col-md-12 col-lg-12">--}}
+{{--                            @if (count($errors) > 0)--}}
+{{--                                <div class="alert alert-danger span8">--}}
+{{--                                    <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>--}}
+{{--                                    @foreach ($errors->all() as $error)--}}
+{{--                                        {{ $error }}<br>--}}
+{{--                                    @endforeach--}}
+{{--                                </div>--}}
+{{--                            @endif--}}
+{{--                            @if (session('error'))--}}
+{{--                                <div class="alert alert-danger">--}}
+{{--                                    {{ session('error') }}--}}
+{{--                                </div>--}}
+{{--                            @endif--}}
 {{--                        </div>--}}
 
-{{--                        <div class="col-md-12 col-lg-5 mb-3">--}}
-{{--                            <p class="m-0 font-weight-bold">Ngày vào trường:</p>--}}
-{{--                            --}}{{--<h5>{{$usr->start_date}}</h5>--}}
-{{--                            <h5>{{date('d-m-Y', strtotime($usr->start_date))}}</h5>--}}
-{{--                            <p class="m-0 font-weight-bold">Cơ sở:</p>--}}
-{{--                            <h5>{{$usr->school_name}}</h5>--}}
-{{--                            <p class="m-0 font-weight-bold">Loại hình đào tạo:</p>--}}
-{{--                            <h5>{{$usr->education_type}}</h5>--}}
-{{--                            <p class="m-0 font-weight-bold">Bậc đào tạo: </p>--}}
-{{--                            <h5>{{$usr->education_level}}</h5>--}}
-{{--                        </div>--}}
-
-{{--                        <div class="col-md-12 col-lg-12 mb-3 text-center">--}}
-{{--                            <h3 class="font-weight-bold">Thông tin cá nhân</h3>--}}
-{{--                        </div>--}}
-
-                        <div class="col-md-12 col-lg-12">
-                            @if (count($errors) > 0)
-                                <div class="alert alert-danger span8">
-                                    <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-                                    @foreach ($errors->all() as $error)
-                                        {{ $error }}<br>
-                                    @endforeach
-                                </div>
-                            @endif
-                            @if (session('error'))
-                                <div class="alert alert-danger">
-                                    {{ session('error') }}
-                                </div>
-                            @endif
+                        <div class="col-md-12 col-lg-12 mb-3">
+                            {!! Form::label('name', 'Họ và tên:',['class'=>'font-weight-bold']) !!}
+                            {!! Form::text('name',$usr->name,['class'=>'form-control ','autofocus' ]) !!}
+                            @error('name')<p style="color: red">{{$message}}</p> @enderror
                         </div>
 
                         <div class="col-md-12 col-lg-4 mb-3">
@@ -83,7 +61,7 @@
                             <div class="form-group">
                                 <i class="fas fa-venus-mars"></i>
                                 <label class="font-weight-bold" for="gender">Giới tính:</label>
-                                <select name="gender" class="custom-select" autofocus>
+                                <select name="gender" class="custom-select" >
                                     <option selected value="{{$usr['gender']}}"> {{$usr['gender']}}</option>
                                     @if($usr['gender'] == "Nam")
                                         <option value="Nữ">Nữ</option>
@@ -117,7 +95,7 @@
                                 <i class="fa fa-phone"></i>
                                 <label class="font-weight-bold" for="" >Số điện thoại:</label><br>
                                 <input type="tel" value="{{$usr['phone_number']}}" class="form-control" id=""
-                                       name="phone_number" >
+                                       name="phone_number" readonly >
                                 @error('phone_number')<p style="color: red">{{$message}}</p> @enderror
 
                             </div>
@@ -145,9 +123,9 @@
                             <div class="form-group">
                                 <i class="fas fa-id-card"></i>
                                 <label class="font-weight-bold" for="">Số chứng minh nhân dân:</label>
-                                <input type="tel" value="{{$usr['identify_number']}}" class="form-control" id=""
-                                       name="identify_number">
-                                @error('identify_number')<p style="color: red">{{$message}}</p> @enderror
+                                <input type="tel" value="{{$usr['identity_number']}}" class="form-control" id=""
+                                       name="identity_number">
+                                @error('identity_number')<p style="color: red">{{$message}}</p> @enderror
                             </div>
                             <div class="form-group">
                                 <label class="font-weight-bold" for="">Nơi cấp CMND:</label>

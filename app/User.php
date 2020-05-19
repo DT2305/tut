@@ -53,7 +53,7 @@ class User extends Authenticatable
 //        'name',
 //        'email',
 //        'password',
-//        'identify_number',
+//        'identity_number',
 //        'gender',
 //        'phone_number',
 //        'birthday','avatar',

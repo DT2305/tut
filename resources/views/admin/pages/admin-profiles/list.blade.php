@@ -1,5 +1,5 @@
 @extends('admin.layouts.admin-master')
-@section('title','Danh sách QTV')
+@section('title','Danh sách Quản trị viên')
 @section('content-header')
     <b>Danh sách quản trị viên</b>
 @endsection

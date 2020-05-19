@@ -33,6 +33,30 @@
                     </a>
                 </li>
 
+{{--                <li class="nav-item has-treeview menu-open">--}}
+{{--                    <a href="#" class="nav-link ">--}}
+{{--                        <i class="nav-icon fas fa-user-shield "></i>--}}
+{{--                        <p>--}}
+{{--                            Quản trị viên--}}
+{{--                            <i class="right fas fa-angle-left"></i>--}}
+{{--                        </p>--}}
+{{--                    </a>--}}
+{{--                    <ul class="nav nav-treeview">--}}
+{{--                        <li class="nav-item">--}}
+{{--                            <a href="#" class="nav-link text-danger active">--}}
+{{--                                <i class="fas fa-power-off nav-icon"></i>--}}
+{{--                                <p>Đăng xuất</p>--}}
+{{--                            </a>--}}
+{{--                        </li>--}}
+{{--                        <li class="nav-item">--}}
+{{--                            <a href="#" class="nav-link text-success">--}}
+{{--                                <i class="fas fa-key nav-icon"></i>--}}
+{{--                                <p>Đổi mật khẩu</p>--}}
+{{--                            </a>--}}
+{{--                        </li>--}}
+{{--                    </ul>--}}
+{{--                </li>--}}
+
                 <li class="nav-header">
                     Người dùng
                 </li>
@@ -80,7 +104,7 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="#" class="nav-link">
+                            <a href="{{route('admin.students.get.create')}}" class="nav-link">
                                 <i class="far fa-plus-square nav-icon"></i>
                                 <p>Thêm sinh viên</p>
                             </a>

@@ -56,8 +56,8 @@
                         <div class="row">
                             <div class="col-md-12 form-group">
                                 <label for="inputIdCard">Chứng minh nhân dân</label>
-                                <input type="text" id="inputIdCard" name="identify_number" class="form-control" placeholder="Chứng minh nhân dân" value="{{ old('identify_number') }}" required >
-                                @error('identify_number')<p style="color: red">{{$message}}</p> @enderror
+                                <input type="text" id="inputIdCard" name="identity_number" class="form-control" placeholder="Chứng minh nhân dân" value="{{ old('identity_number') }}" required >
+                                @error('identity_number')<p style="color: red">{{$message}}</p> @enderror
                             </div>
                         </div>
                         <div class="row">

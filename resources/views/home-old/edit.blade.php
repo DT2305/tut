@@ -86,9 +86,9 @@
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label for="">Số chứng minh nhân dân:</label>
-                                <input type="tel" value="{{$user['identify_number']}}" class="form-control" id=""
-                                       name="identify_number">
-                                @error('identify_number')<p style="color: red">{{$message}}</p> @enderror
+                                <input type="tel" value="{{$user['identity_number']}}" class="form-control" id=""
+                                       name="identity_number">
+                                @error('identity_number')<p style="color: red">{{$message}}</p> @enderror
                             </div>
                         </div>
                     </div>

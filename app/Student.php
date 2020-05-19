@@ -57,7 +57,7 @@ class Student extends Authenticatable
 //        'email',
 //        'birthday',
 //
-//        'identify_number',
+//        'identity_number',
 //        'id_number_date',
 //        'id_issue_place',
 //

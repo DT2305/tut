@@ -114,6 +114,10 @@
 {{--            </div>--}}
 {{--        </li>--}}
 
+
+
+
+
         <li class="nav-item dropdown user-menu">
             <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">
                 <img src="/img/user_image.png" class="user-image img-circle elevation-2" alt="User Image">
@@ -129,6 +133,9 @@
                         <small>Đăng ký ngày {{Auth::guard('admin')->user()->created_at}}</small>
                     </p>
                 </li>
+
+
+
 {{--                <!-- Menu Body -->--}}
 {{--                <li class="user-body">--}}
 {{--                    <div class="row">--}}

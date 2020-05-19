@@ -143,9 +143,9 @@
                             <div class="form-group">
                                 <i class="fas fa-id-card"></i>
                                 <label class="font-weight-bold" for="">Số chứng minh nhân dân:</label>
-                                <input type="tel" value="{{$usr['identify_number']}}" class="form-control" id=""
-                                       name="identify_number" disabled>
-                                @error('identify_number')<p style="color: red">{{$message}}</p> @enderror
+                                <input type="tel" value="{{$usr['identity_number']}}" class="form-control" id=""
+                                       name="identity_number" disabled>
+                                @error('identity_number')<p style="color: red">{{$message}}</p> @enderror
                             </div>
                             <div class="form-group">
                                 <label class="font-weight-bold" for="">Nơi cấp CMND:</label>

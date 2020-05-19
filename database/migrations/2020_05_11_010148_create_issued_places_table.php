@@ -17,7 +17,7 @@ class CreateIssuedPlacesTable extends Migration
             $table->id();
 //            $table->unsignedBigInteger('id')->primary();
             $table->string('name')->nullable();
-            $table->string('code');
+            $table->string('code')->nullable();
             $table->timestamps();
         });
     }

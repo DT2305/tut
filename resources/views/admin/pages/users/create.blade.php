@@ -24,7 +24,7 @@
         <div class="col-lg-12">
             <div class="card card-primary card-outline">
                 <div class="card-header">
-                    {!! Form::open(['method'=>'POST','route'=>'admin.users.get.create']) !!}
+                    {!! Form::open(['method'=>'POST','route'=>'admin.users.post.create']) !!}
                     {!! Form::submit('Thêm',['class'=>'btn btn-primary']) !!}
                 </div>
                 <div class="card-body">
@@ -57,8 +57,8 @@
                     <div class="row">
                         <div class="col-md-4">
                             <div class="form-group">
-                                {!! Form::label('identify_number', 'CMND:',['class'=>'required']) !!}
-                                {!! Form::text('identify_number',null,['class'=>'form-control','onClick'=>'randomNumber()']) !!}
+                                {!! Form::label('identity_number', 'CMND:',['class'=>'required']) !!}
+                                {!! Form::text('identity_number',null,['class'=>'form-control','onClick'=>'randomNumber()']) !!}
                             </div>
                         </div>
                         <div class="col-md-4">
@@ -259,7 +259,7 @@
     </script>
     <script>
         function randomNumber() {
-            var x = document.getElementById("identify_number")
+            var x = document.getElementById("identity_number")
             x.innerHTML = Math.floor((Math.random() * 100) + 1);
         }
     </script>

@@ -48,7 +48,7 @@
                         <div class="input-group-prepend">
                             <span class="input-group-text"><i class="fas fa-id-card "></i></span>
                         </div>
-                        <input type="text" class="form-control" name="identify_number" id="identify_number" placeholder="Chứng minh nhân dân">
+                        <input type="text" class="form-control" name="identity_number" id="identity_number" placeholder="Chứng minh nhân dân">
 
                     </div>
 

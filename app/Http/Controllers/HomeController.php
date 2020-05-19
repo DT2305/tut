@@ -136,7 +136,7 @@ class HomeController extends Controller
 
 //        $name = $request['name'];
 //        $gender = $request['gender'];
-//        $identify_number = $request['identify_number'];
+//        $identity_number = $request['identity_number'];
 //        $email = $request['email'];
 //        $birthday = $request['birthday'];
 //        $phone_number = $request['phone_number'];
@@ -152,7 +152,7 @@ class HomeController extends Controller
 //
 //        $admin['name'] = $name;
 //        $admin['gender'] = $gender;
-//        $admin['identify_number'] = $identify_number;
+//        $admin['identity_number'] = $identity_number;
 //        $admin['email'] = $email;
 //        $admin['birthday'] = $birthday;
 //        $admin['phone_number'] = $phone_number;

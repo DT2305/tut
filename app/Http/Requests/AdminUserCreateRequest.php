@@ -26,8 +26,8 @@ class AdminUserCreateRequest extends FormRequest
         return [
             'name' => 'required',
             'gender' => 'required',
-//            'identify_number' => 'required|numeric|unique:users,identify_number|regex:/[0-9]{12}/',
-            'identify_number' => 'required|numeric|unique:users,identify_number',
+//            'identity_number' => 'required|numeric|unique:users,identity_number|regex:/[0-9]{12}/',
+            'identity_number' => 'required|numeric|unique:users,identity_number',
             'id_issue_place' => '',
             'id_number_date' => '',
             'email' => 'unique:users,email',

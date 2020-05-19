@@ -6,28 +6,24 @@ use Illuminate\Support\Facades\Schema;
 
 class CreateUsersTable extends Migration
 {
-    /**
-     * Run the migrations.
-     *
-     * @return void
-     */
     public function up()
     {
         Schema::create('users', function (Blueprint $table) {
             $table->id();
             $table->string('name');
             $table->string('gender');
-            $table->string('email',100)->unique();
             $table->date('birthday')->nullable();
 
-            $table->string('identify_number')->unique();        /*Chứng minh nhân dân*/
+            $table->string('email',100)->unique();
+            $table->string('phone_number')->unique();
+
+            $table->string('identity_number')->unique();        /*Chứng minh nhân dân*/
             $table->string('id_number_date')->nullable();         /*Ngày cấp CMND*/
             $table->string('id_issue_place')->nullable()->default(1);         /*Nơi cấp CMND*/
 
-            $table->string('phone_number')->unique();
-            $table->string('password');
             $table->string('avatar')->nullable();
             $table->string('address')->nullable();
+            $table->string('password');
 
 //            $table->integer('math')->nullable()->default(0);
 //            $table->integer('physic')->nullable()->default(0);
@@ -38,11 +34,8 @@ class CreateUsersTable extends Migration
 
             /*Nơi sinh*/
             $table->string('birth_province')->nullable()->default(1);       /*Tỉnh/Thành phố*/
-//            $table->foreign('birth_province_code')->references('provinces_code')->on('provinces');
             $table->string('birth_district')->nullable()->default(1);       /*Quận/Huyện*/
-//            $table->foreign('birth_district_code')->references('district_code')->on('districts');
             $table->string('birth_ward')->nullable()->default(1);           /*Phường/Xã*/
-//            $table->foreign('birth_ward_code')->references('ward_code')->on('wards');
             /*Hộ khẩu thường trú*/
             $table->string('permanent_address')->nullable();    /*Địa chỉ thường trú*/
             $table->string('permanent_province')->nullable()->default(1);   /*Tỉnh/Thành phố*/

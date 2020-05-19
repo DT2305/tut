@@ -26,7 +26,7 @@ class HomeUserRequest extends FormRequest
         return [
             'name' => 'required',
             'gender' => 'required',
-            'identify_number' => 'required|numeric|unique:users,identify_number|regex:/[0-9]{12}/',
+            'identity_number' => 'required|numeric|unique:users,identity_number|regex:/[0-9]{12}/',
             'id_issue_place' => '',
             'email' => 'required|email|unique:users,email',
             'birthday' => 'required',
