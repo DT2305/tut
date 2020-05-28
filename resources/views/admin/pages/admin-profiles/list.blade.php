@@ -29,8 +29,8 @@
                                 <tr>
                                 <td>{{$val->username}}</td>
                                 <td>{{$val->full_name}}</td>
+                                <td>{{$val->level}}</td>
                                 <td>{{$val->status}}</td>
-                                <td>{{$val->phone_number}}</td>
                                 <td>
                                     <button class="btn btn-primary"><i class="fas fa-search"></i></button>
                                     <button class="btn btn-success"><i class="fas fa-edit"></i></button>

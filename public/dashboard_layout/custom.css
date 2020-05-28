@@ -3,3 +3,8 @@ form label.required:after
     color: red;
     content: " *";
 }
+.fakeimg {
+    height: 180px;
+    width:135px;
+    background: #aaa;
+}

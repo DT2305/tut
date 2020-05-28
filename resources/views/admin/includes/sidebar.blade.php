@@ -98,13 +98,13 @@
                     </a>
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
-                            <a href="{{route('admin.students.get.list')}}" class="nav-link ">
+                            <a href="{{route('admin.students.index')}}" class="nav-link ">
                                 <i class="fas fa-list nav-icon"></i>
                                 <p>Danh sách sinh viên</p>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="{{route('admin.students.get.create')}}" class="nav-link">
+                            <a href="{{route('admin.students.create')}}" class="nav-link">
                                 <i class="far fa-plus-square nav-icon"></i>
                                 <p>Thêm sinh viên</p>
                             </a>
@@ -113,7 +113,7 @@
                 </li>
 {{--                Ứng viên--}}
                 <li class="nav-item has-treeview ">
-                    <a href="#" class="nav-link">
+                    <a href="" class="nav-link">
                         <i class="nav-icon fas fa-user-clock"></i>
                         <p>
                             Ứng cử viên
@@ -123,13 +123,13 @@
                     </a>
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
-                            <a href="{{route('admin.users.get.list')}}" class="nav-link ">
+                            <a href="{{route('admin.users.index')}}" class="nav-link ">
                                 <i class="fas fa-list nav-icon"></i>
                                 <p>Danh sách ứng cử viên</p>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="{{route('admin.users.get.create')}}" class="nav-link">
+                            <a href="{{route('admin.users.create')}}" class="nav-link">
                                 <i class="far fa-plus-square nav-icon"></i>
                                 <p>Thêm ứng cử viên</p>
                             </a>

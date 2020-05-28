@@ -31,8 +31,8 @@
                         </div>
 
                         <div class="col-md-12 col-lg-3 mb-3 text-center">
-                            <img src="{{$usr->avatar}}" alt="" class="img-thumbnail">
-                            <p>MSSV: 1600011</p>
+                            <img src="{{$usr->avatar}}" alt="" class="fakeimg img-thumbnail">
+                            <p>MSSV: {{$usr->student_code}}</p>
 
 
                         </div>
@@ -103,10 +103,10 @@
                             <div class="form-group">
                                 <label class="font-weight-bold" for="">Dân tộc:</label>
                                 <select name="nation" class="custom-select" disabled>
-                                    <option selected value="{{$usr['nation']}}"> {{$usr['nation']}}</option>
-                                    <option value="0">Chọn</option>
+                                    <option selected value="{{$usr['nation']}}">{{$usr->show_nation->name}}</option>
+                                    <option disabled value="">-----</option>
                                     @foreach ($nat as $nat)
-                                        <option value="{{$nat->name}}">{{$nat->name}}</option>
+                                        <option value="{{$nat->id}}">{{$nat->name}}</option>
                                     @endforeach
                                 </select>
                                 @error('nation')<p style="color: red">{{$message}}</p> @enderror
@@ -131,7 +131,7 @@
                             <div class="form-group">
                                 <label class="font-weight-bold" for="">Tôn giáo:</label>
                                 <select name="religion" class="custom-select" disabled>
-                                    <option selected value="{{$usr['religion']}}"> {{$usr['religion']}}</option>
+                                    <option selected value="{{$usr['religion']}}"> {{$usr->show_religion->name}}</option>
                                     <option value="0">Chọn</option>
                                     @foreach ($rel as $rel)
                                         <option value="{{$rel->name}}">{{$rel->name}}</option>

@@ -12,4 +12,8 @@ class Faculty extends Model
     public function showCourse(){
         return $this->hasMany('App\Course');
     }
+//    public function show_major(){
+//        return $this->hasMany('App\Student');
+//    }
+
 }

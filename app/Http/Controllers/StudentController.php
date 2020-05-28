@@ -90,6 +90,8 @@ class StudentController extends Controller
         $user->update($request->all());
 
         $admin->save();
+        dd($user);
+
 
         return redirect()->route('student.get.info')->with('phanquyen' ,'Cập nhật thông tin thành công !');
 

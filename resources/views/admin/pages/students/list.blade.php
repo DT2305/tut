@@ -6,15 +6,24 @@
 
 @section('content')
     <div class="row">
+        <div class="col-lg-12">
+            <div class="card card-primary card-outline">
+                <div class="card-header">
+                    <a>
+                        <button class="btn btn-secondary float-right" onClick="window.location.reload();">Tải lại</button>
+                    </a>
+                    <a href="{{route('admin.students.create')}}">
+                        <button class="btn btn-primary">Thêm Sinh Viên</button>
+                    </a>
+
+                </div>
+            </div>
+        </div>
+
         <div class="col-12">
             <div class="card">
                 <div class="card-header">
-                    <a href="{{route('admin.students.get.create')}}">
-                        <button class="btn btn-primary">Thêm Sinh Viên</button>
-                    </a>
-                    <a>
-                        <button class="btn btn-secondary" onClick="window.location.reload();">Tải lại</button>
-                    </a>
+
                 </div>
                 <!-- /.card-header -->
                 <div class="card-body">
@@ -24,7 +33,7 @@
                         <tr>
                             <th>Mã số sinh viên</th>
                             <th>Họ và tên</th>
-{{--                            <th>Giới tính</th>--}}
+                            <th>Giới tính</th>
                             <th>Lớp</th>
 {{--                            <th>Ngành</th>--}}
 {{--                            <th>Khoa</th>--}}
@@ -36,14 +45,17 @@
                                 <tr>
                                 <td>{{$val->student_code}}</td>
                                 <td>{{$val->name}}</td>
-{{--                                <td>{{$val->gender}}</td>--}}
+                                <td>{{$val->gender}}</td>
                                 <td>{{$val->showCourse->name}}</td>
 {{--                                <td>{{$val->showCourse->showFaculty->name}}</td>--}}
 {{--                                <td>{{$val->showCourse->showFaculty->showDepartment->name}}</td>--}}
                                 <td>
-                                    <button class="btn btn-primary"><i class="fas fa-search"></i></button>
-                                    <button class="btn btn-success"><i class="fas fa-edit"></i></button>
-                                    <button class="btn btn-danger"><i class="fas fa-trash-alt"></i></button>
+                                    <div class="float-right">
+                                        <a class="btn btn-warning" href="{{route('admin.students.show',$val->id)}}"><i class="fas fa-info-circle text-white"></i></a>
+                                        <a class="btn btn-success" href="{{route('admin.students.edit',$val->id)}}"><i class="fas fa-pen"></i></a>
+                                        <button class="btn btn-danger"><i class="fas fa-trash-alt"></i></button>
+                                        <button class="btn btn-warning"><i class="fas fa-plus"></i></button>
+                                    </div>
                                 </td>
                             </tr>
                             @endforeach
@@ -52,7 +64,7 @@
                         <tr>
                             <th>Mã số sinh viên</th>
                             <th>Họ và tên</th>
-{{--                            <th>Giới tính</th>--}}
+                            <th>Giới tính</th>
                             <th>Lớp</th>
 {{--                            <th>Ngành</th>--}}
 {{--                            <th>Khoa</th>--}}
@@ -85,11 +97,11 @@
                 "autoWidth": true,
 
                 // "columns": [
-                //     null,
-                //     null,
-                //     null,
-                //     null,
-                //     { "width": "15%" }
+                //     { "width": "20%" },
+                //     { "width": "20%" },
+                //     { "width": "20%" },
+                //     { "width": "20%" },
+                //     { "width": "20%" }
                 // ]
 
                 // "columnDefs": [

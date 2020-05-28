@@ -15,31 +15,58 @@ class User extends Authenticatable
     }
 
     public function show_birth_province(){
-        return $this->belongsTo('App\Location','birth_province','id');
+        return $this->belongsTo('App\Location','birth_province','id')->withDefault(['name'   =>  '[...]']);
     }
     public function show_birth_district(){
-        return $this->belongsTo('App\Location','birth_district','id');
+        return $this->belongsTo('App\Location','birth_district','id')->withDefault(['name'   =>  '[...]']);
     }
     public function show_birth_ward(){
-        return $this->belongsTo('App\Location','birth_ward','id');
+        return $this->belongsTo('App\Location','birth_ward','id')->withDefault(['name'   =>  '[...]']);
     }
 
     public function show_permanent_province(){
-        return $this->belongsTo('App\Location','permanent_province','id');
+        return $this->belongsTo('App\Location','permanent_province','id')->withDefault(['name'   =>  '[...]']);
     }
     public function show_permanent_district(){
-        return $this->belongsTo('App\Location','permanent_district','id');
+        return $this->belongsTo('App\Location','permanent_district','id')->withDefault(['name'   =>  '[...]']);
     }
     public function show_permanent_ward(){
-        return $this->belongsTo('App\Location','permanent_ward','id');
+        return $this->belongsTo('App\Location','permanent_ward','id')->withDefault(['name'   =>  '[...]']);
     }
     public function show_id_issue_place(){
         return $this->belongsTo('App\Issued_place','id_issue_place','id')
             ->withDefault(['name'   =>  '...']);
     }
-//    public function show_nation(){
-//        return $this->belongsTo('App\Nation','nation','id');
-//    }
+    public function show_nation(){
+        return $this->belongsTo('App\Nation','nation','id')->withDefault(['name'   =>  'Không']);
+    }
+    public function show_religion(){
+        return $this->belongsTo('App\Religion','religion','id')->withDefault(['name'   =>  'Không']);
+    }
+
+    public function show_major_1(){
+        return $this->belongsTo('App\Faculty','major_1','id')->withDefault(['name'   =>  '[...]']);
+    }
+
+    public function show_major_2(){
+        return $this->belongsTo('App\Faculty','major_2','id')->withDefault(['name'   =>  '[...]']);
+    }
+    public function show_major_3(){
+        return $this->belongsTo('App\Faculty','major_3','id')->withDefault(['name'   =>  '[...]']);
+    }
+    public function show_subject_combination_1(){
+        return $this->belongsTo('App\Subject_combination','subject_combination_1','id')->withDefault(['name'   =>  '[...]']);
+    }
+
+    public function show_subject_combination_2(){
+        return $this->belongsTo('App\Subject_combination','subject_combination_2','id')->withDefault(['name'   =>  '[...]']);
+    }
+    public function show_subject_combination_3(){
+        return $this->belongsTo('App\Subject_combination','subject_combination_3','id')->withDefault(['name'   =>  '[...]']);
+    }
+    public function show_admission_form(){
+        return $this->belongsTo('App\Admission_form','admission_form','id')->withDefault(['name'   =>  '[Chưa chọn hình thức ứng tuyển]']);
+    }
 
 
     /**

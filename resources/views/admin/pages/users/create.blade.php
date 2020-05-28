@@ -20,12 +20,22 @@
             @endif
         </div>{{--/col-lg-12--}}
 
-
         <div class="col-lg-12">
             <div class="card card-primary card-outline">
                 <div class="card-header">
-                    {!! Form::open(['method'=>'POST','route'=>'admin.users.post.create']) !!}
-                    {!! Form::submit('Thêm',['class'=>'btn btn-primary']) !!}
+                    {!! Form::open(['method'=>'POST','route'=>'admin.users.store']) !!}
+                    <a href="{{route('admin.users.index')}}" class="btn btn-primary float-right">Danh sách ứng viên</a>
+                    {!! Form::submit('Thêm',['class'=>'btn btn-success']) !!}
+                    <input type="button" class="btn btn-secondary" value="Quay lại" onclick="history.back()">
+                </div>
+            </div>
+        </div>
+
+
+        <div class="col-lg-6">
+            <div class="card card-primary card-outline">
+                <div class="card-header">
+                    <h4 class="m-0 text-center"><b>Thông tin ứng viên</b></h4>
                 </div>
                 <div class="card-body">
                     <div class="row">
@@ -64,8 +74,7 @@
                         <div class="col-md-4">
                             <div class="form-group">
                                 {!! Form::label('id_issue_place', 'Nơi cấp:') !!}
-                                {{--                                        {!! Form::select('id_issue_place', $isd,null, ['class' => 'form-control select2bs4','required' => 'required','style'=>'width: 100%;','placeholder'=>'Chọn--']) !!}--}}
-                                {!! Form::select('id_issue_place',$isd,null, ['class' => 'form-control select2bs4']) !!}
+                                {!! Form::select('id_issue_place',$isd,null, ['class' => 'form-control select2bs4','placeholder'=>'Chọn nơi cấp CMND']) !!}
                             </div>
                         </div>
                         <div class="col-md-4">
@@ -79,26 +88,20 @@
                     <div class="row">
                         <div class="col-md-4">
                             <div class="form-group">
-                                {!! Form::label('email', 'Địa chỉ email:') !!}
-                                {!! Form::email('email',null,['class'=>'form-control']) !!}
-
+                                {!! Form::label('nation', 'Dân tộc:') !!}
+                                {!! Form::select('nation',$nations,null, ['class' => 'form-control select2bs4','style'=>'width: 100%;']) !!}
                             </div>
                         </div>
                         <div class="col-md-4">
                             <div class="form-group">
-                                {!! Form::label('phone_number', 'Số điện thoại:',['class'=>'required']) !!}
-                                {!! Form::text('phone_number',null,['class'=>'form-control']) !!}
-
+                                {!! Form::label('religion', 'Tôn giáo:') !!}
+                                {!! Form::select('religion',$religions,null, ['class' => 'form-control select2bs4','style'=>'width: 100%;']) !!}
                             </div>
                         </div>
-                        <div class="col-md-4">
-                            <div class="form-group">
-                                {!! Form::label('address', 'Địa chỉ:') !!}
-                                {!! Form::text('address',null,['class'=>'form-control']) !!}
-
-                            </div>
-                        </div>
+                        <div class="col-md-4"></div>
                     </div>
+
+
                     <div class="row">
                         <div class="col-md-6">
                             <div class="form-group">
@@ -120,32 +123,122 @@
         </div>
         <!-- /.col-md-12 -->
 
+        <div class="col-lg-6">
+            <div class="card card-primary card-outline">
+                <div class="card-header">
+                    <h4 class="m-0 text-center"><b>Thông tin liên hệ</b></h4>
+                </div>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                {!! Form::label('email', 'Địa chỉ email:') !!}
+                                {!! Form::email('email',null,['class'=>'form-control','placeholder'=>'Địa chỉ email']) !!}
+
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                {!! Form::label('phone_number', 'Số điện thoại:',['class'=>'required']) !!}
+                                {!! Form::text('phone_number',null,['class'=>'form-control']) !!}
+
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                {!! Form::label('birth_province', 'Nơi sinh Tỉnh/Thành phố:') !!}
+                                {!! Form::select('birth_province',['1'=>''],null, ['class' => 'form-control select2bs4','style'=>'width: 100%;']) !!}
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                {!! Form::label('birth_district', 'Nơi sinh Quận/Huyện:') !!}
+                                {!! Form::select('birth_district',['1'=>''],null, ['class' => 'form-control select2bs4','style'=>'width: 100%;']) !!}
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                {!! Form::label('birth_ward', 'Nơi sinh Xã/Phường:') !!}
+                                {!! Form::select('birth_ward',['1'=>''],null, ['class' => 'form-control select2bs4','style'=>'width: 100%;']) !!}
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                {!! Form::label('address', 'Địa chỉ liên hệ:') !!}
+                                {!! Form::text('address',null,['class'=>'form-control']) !!}
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                {!! Form::label('permanent_province', 'HKTT Tỉnh/Thành phố:') !!}
+                                {!! Form::select('permanent_province',['1'=>''],null, ['class' => 'form-control select2bs4','style'=>'width: 100%;']) !!}
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                {!! Form::label('permanent_district', 'HKTT Quận/Huyện:') !!}
+                                {!! Form::select('permanent_district',['1'=>''],null, ['class' => 'form-control select2bs4','style'=>'width: 100%;']) !!}
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                {!! Form::label('permanent_ward', 'HKTT Xã/Phường:') !!}
+                                {!! Form::select('permanent_ward',['1'=>''],null, ['class' => 'form-control select2bs4','style'=>'width: 100%;']) !!}
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                {!! Form::label('permanent_address', 'Địa chỉ HKTT:') !!}
+                                {!! Form::text('permanent_address',null,['class'=>'form-control']) !!}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <!-- /.col-lg-6 -->
+
         <div class="col-lg-12">
             <div class="card card-primary card-outline">
                 <div class="card-header">
-                    <h5 class="m-0 text-center">Thông tin ứng tuyển</h5>
+                    <h4 class="m-0 text-center"><b>Thông tin ứng tuyển</b></h4>
                 </div>
                 <div class="card-body">
                     <div class="row">
                         <div class="col-lg-4">
                             <h4>Nguyện vọng 1:</h4>
                             <div class="form-group">
-                                {!! Form::label('', 'Ngành đăng ký xét tuyển:') !!}
-                                {!! Form::select('major_1',$fal,null, ['class' => 'form-control select2bs4']) !!}
+                                {!! Form::label('', 'Ngành đăng ký:') !!}
+                                {!! Form::select('major_1',$fal,null, ['class' => 'form-control select2bs4','placeholder'=>'Chọn ngành']) !!}
                             </div>
                         </div>
                         <div class="col-lg-4">
                             <h4>Nguyện vọng 2:</h4>
                             <div class="form-group">
-                                {!! Form::label('', 'Ngành đăng ký xét tuyển:') !!}
-                                {!! Form::select('major_2',$fal,null, ['class' => 'form-control select2bs4']) !!}
+                                {!! Form::label('', 'Ngành đăng ký:') !!}
+                                {!! Form::select('major_2',$fal,null, ['class' => 'form-control select2bs4','placeholder'=>'Chọn ngành']) !!}
                             </div>
                         </div>
                         <div class="col-lg-4">
                             <h4>Nguyện vọng 3:</h4>
                             <div class="form-group">
-                                {!! Form::label('', 'Ngành đăng ký xét tuyển:') !!}
-                                {!! Form::select('major_3',$fal,null, ['class' => 'form-control select2bs4']) !!}
+                                {!! Form::label('', 'Ngành đăng ký:') !!}
+                                {!! Form::select('major_3',$fal,null, ['class' => 'form-control select2bs4','placeholder'=>'Chọn ngành']) !!}
                             </div>
                         </div>
                     </div>
@@ -161,7 +254,7 @@
                                     </option>
                                     <option value="admission1">Xét tuyển dử dụng kết quả học bà THPT lớp 12</option>
                                     <option value="admission1">Kết quả thi THPT 2020</option>
-                                    <option value="admission2">Kết quar kỳ thi đáng giá năng lực của ĐHQG-TP.HCM
+                                    <option value="admission2">Kết quả kỳ thi đáng giá năng lực của ĐHQG-TP.HCM
                                     </option>
                                     <option value="admission3">Xét tuyển thẳng</option>
                                 </select>
@@ -175,31 +268,31 @@
                             <div class="col-lg-4">
                                 <div class="form-group">
                                     {!! Form::label('subject_combination_1', 'Tổ hợp môn:') !!}
-                                    {!! Form::select('subject_combination_1',$scm,null,['class' => 'form-control select2bs4']); !!}
+                                    {!! Form::select('subject_combination_1',$scm,null,['class' => 'form-control select2bs4','placeholder'=>'Chọn tổ hợp']); !!}
                                 </div>
                                 <div class="form-group">
                                     {!! Form::label('total_point_1', 'Điểm tổng tổ hợp:') !!}
-                                    {!! Form::number('total_point_1',0,['class'=>'form-control']) !!}
+                                    {!! Form::number('total_point_1',0,['class'=>'form-control','max'=>'30','min'=>'0']) !!}
                                 </div>
                             </div>
                             <div class="col-lg-4">
                                 <div class="form-group">
                                     {!! Form::label('subject_combination_2', 'Tổ hợp môn:') !!}
-                                    {!! Form::select('subject_combination_2',$scm,null,['class' => 'form-control select2bs4']); !!}
+                                    {!! Form::select('subject_combination_2',$scm,null,['class' => 'form-control select2bs4','placeholder'=>'Chọn tổ hợp']); !!}
                                 </div>
                                 <div class="form-group">
                                     {!! Form::label('total_point_2', 'Điểm tổng tổ hợp:') !!}
-                                    {!! Form::number('total_point_2',0,['class'=>'form-control']) !!}
+                                    {!! Form::number('total_point_2',0,['class'=>'form-control','max'=>'30','min'=>'0']) !!}
                                 </div>
                             </div>
                             <div class="col-lg-4">
                                 <div class="form-group">
                                     {!! Form::label('subject_combination_3', 'Tổ hợp môn:') !!}
-                                    {!! Form::select('subject_combination_3',$scm,null,['class' => 'form-control select2bs4']); !!}
+                                    {!! Form::select('subject_combination_3',$scm,null,['class' => 'form-control select2bs4','placeholder'=>'Chọn tổ hợp']); !!}
                                 </div>
                                 <div class="form-group">
                                     {!! Form::label('total_point_3', 'Điểm tổng tổ hợp:') !!}
-                                    {!! Form::number('total_point_3',0,['class'=>'form-control']) !!}
+                                    {!! Form::number('total_point_3',0,['class'=>'form-control','max'=>'30','min'=>'0']) !!}
                                 </div>
                             </div>
                         </div>
@@ -215,7 +308,7 @@
                         {!! Form::label('study_point', 'Học lực:') !!}
                         {!! Form::select('study_point', ['Khá' => 'Khá', 'Giỏi' => 'Giỏi'], null, ['class' => 'form-control select2bs4','placeholder' => 'Chọn học lực...']) !!}
                         {!! Form::label('active_point', 'Hạng kiểm:') !!}
-                        {!! Form::select('active_point', ['Khá' => 'Khá', 'Tốt' => 'Tốt'], null, ['class' => 'form-control select2bs4','placeholder' => 'Chọn hạngkiểm...']) !!}
+                        {!! Form::select('active_point', ['Khá' => 'Khá', 'Tốt' => 'Tốt'], null, ['class' => 'form-control select2bs4','placeholder' => 'Chọn hạng kiểm...']) !!}
                     </div>{{--/admission3 box--}}
 
                     <div class="row">
@@ -258,14 +351,125 @@
         });
     </script>
     <script>
-        function randomNumber() {
-            var x = document.getElementById("identity_number")
-            x.innerHTML = Math.floor((Math.random() * 100) + 1);
-        }
+        $(document).ready(function(){
+            load_json_data('birth_province');
+
+            function load_json_data(id, parent_id)
+            {
+                    {{--$choosed={{$usr->birth_province}}--}}
+
+                var html_code = '';
+                $.getJSON('province_district_ward.json', function(data){
+
+                    // html_code += '<option value="'+$choosed+'">Chọn '+id+'</option>';
+
+                    // html_code += '<option  value="">Chọn</option>';
+                    $.each(data, function(key, value){
+                        if(id == 'birth_province')
+                        {
+                            if(value.parent_id == '0')
+                            {
+
+                                html_code += '<option value="'+value.id+'">'+value.name+'</option>';
+                            }
+                        }
+                        else
+                        {
+                            if(value.parent_id == parent_id)
+                            {
+                                html_code += '<option value="'+value.id+'">'+value.name+'</option>';
+                            }
+                        }
+                    });
+                    $('#'+id).html(html_code);
+                });
+
+            }
+
+            $(document).on('change', '#birth_province', function(){
+                var province_id = $(this).val();
+                if(province_id != '')
+                {
+                    load_json_data('birth_district', province_id);
+                }
+                else
+                {
+                    $('#birth_district').html('<option value="">Select birth_district</option>');
+                    $('#birth_ward').html('<option value="">Select birth_ward</option>');
+                }
+            });
+            $(document).on('change', '#birth_district', function(){
+                var district_id = $(this).val();
+                if(district_id != '')
+                {
+                    load_json_data('birth_ward', district_id);
+                }
+                else
+                {
+                    $('#birth_ward').html('<option value="">Select birth_ward</option>');
+                }
+            });
+        });
     </script>
     <script>
-        function myFunction() {
-            document.getElementById("myNumber").placeholder = "Amount";
-        }
+        $(document).ready(function(){
+            load_json_data('permanent_province');
+
+            function load_json_data(id, parent_id)
+            {
+                    {{--$choosed={{$usr->permanent_province}}--}}
+
+                var html_code = '';
+                $.getJSON('province_district_ward.json', function(data){
+
+                    // html_code += '<option value="'+$choosed+'">Chọn '+id+'</option>';
+
+                    // html_code += '<option value="">Chọn</option>';
+                    $.each(data, function(key, value){
+                        if(id == 'permanent_province')
+                        {
+                            if(value.parent_id == '0')
+                            {
+
+                                html_code += '<option value="'+value.id+'">'+value.name+'</option>';
+                            }
+                        }
+                        else
+                        {
+                            if(value.parent_id == parent_id)
+                            {
+                                html_code += '<option value="'+value.id+'">'+value.name+'</option>';
+                            }
+                        }
+                    });
+                    $('#'+id).html(html_code);
+                });
+
+            }
+
+            $(document).on('change', '#permanent_province', function(){
+                var province_id = $(this).val();
+                if(province_id != '')
+                {
+                    load_json_data('permanent_district', province_id);
+                }
+                else
+                {
+                    $('#permanent_district').html('<option value="">Select permanent_district</option>');
+                    $('#permanent_ward').html('<option value="">Select permanent_ward</option>');
+                }
+            });
+            $(document).on('change', '#permanent_district', function(){
+                var district_id = $(this).val();
+                if(district_id != '')
+                {
+                    load_json_data('permanent_ward', district_id);
+                }
+                else
+                {
+                    $('#permanent_ward').html('<option value="">Select permanent_ward</option>');
+                }
+            });
+        });
     </script>
 @endsection

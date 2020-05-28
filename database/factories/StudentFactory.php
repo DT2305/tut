@@ -17,14 +17,14 @@ $factory->define(Student::class, function (Faker $faker) {
         'identity_number'=>$faker->unique()->numerify('############'),
         'phone_number'=>$faker->unique()->numerify('0#########'),
         'address'=>$faker->address,
-        'student_code'=>$faker->unique()->numerify('16#####'),
+        'student_code'=>$faker->unique()->numberBetween($min = 1600003, $max = 1602003),
         'course_id'=>$course_id,
         'avatar'=>'https://source.unsplash.com/135x180/?cat',
         'password' => '$2y$10$mDiApZUTGuhootggH3U9Ru9DvY8NUgnzPd13hbmeOSvKw0vuXGj5i', // password: 1
 
         'start_date'=>'2016-08-22',
-        'education_type'=>'Đại học chính quy - Tín chỉ	',
-        'education_level'=>'Chính quy',
+        'education_type'=>'2',
+        'education_level'=>'2',
         'school_name'=>'Trường Đại học Kỹ thuật - Công nghệ Cần Thơ',
 
 

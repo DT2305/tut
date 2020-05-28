@@ -82,29 +82,33 @@ Route::group(['prefix' => 'admin'], function(){
 
         Route::group(['prefix' => 'users'],function() {
 
-            Route::get('/list', 'AdminUserController@getList')->name('admin.users.get.list');
+            Route::get('/index', 'AdminUserController@index')->name('admin.users.index');
 
-            Route::get('/create', 'AdminUserController@getCreate')->name('admin.users.get.create');
-            Route::post('/create', 'AdminUserController@postCreate')->name('admin.users.post.create');
+            Route::get('/create', 'AdminUserController@create')->name('admin.users.create');
+            Route::post('/store', 'AdminUserController@store')->name('admin.users.store');
 
-            Route::get('/edit/{id}', 'AdminUserController@getEdit')->name('admin.users.get.edit');
-            Route::post('/edit/{id}', 'AdminUserController@postEdit')->name('admin.users.post.edit');
+            Route::get('/{id}/show', 'AdminUserController@show')->name('admin.users.show');
 
-            Route::get('/delete/{id}','AdminUserController@getDelete')->name('admin.users.get.delete');
+            Route::get('/{id}/edit', 'AdminUserController@edit')->name('admin.users.edit');
+            Route::post('/{id}/update', 'AdminUserController@update')->name('admin.users.update');
+
+            Route::get('/delete/{id}','AdminUserController@delete')->name('admin.users.delete');
 
         });/*group - prefix 'users'*/
 
         Route::group(['prefix' => 'students'],function() {
 
-            Route::get('/list', 'AdminStudentController@getList')->name('admin.students.get.list');
+            Route::get('/index', 'AdminStudentController@index')->name('admin.students.index');
 
-            Route::get('/create', 'AdminStudentController@getCreate')->name('admin.students.get.create');
-            Route::post('/create', 'AdminStudentController@postCreate')->name('admin.students.post.create');
+            Route::get('/create', 'AdminStudentController@create')->name('admin.students.create');
+            Route::post('/store', 'AdminStudentController@store')->name('admin.students.store');
 
-            Route::get('/edit/{id}', 'AdminStudentController@getEdit')->name('admin.students.get.edit');
-            Route::post('/edit/{id}', 'AdminStudentController@postEdit')->name('admin.students.post.edit');
+            Route::get('/{id}/show', 'AdminStudentController@show')->name('admin.students.show');
 
-            Route::get('/delete/{id}','AdminStudentController@getDelete')->name('admin.students.get.delete');
+            Route::get('/{id}/edit', 'AdminStudentController@edit')->name('admin.students.edit');
+            Route::post('/{id}/update', 'AdminStudentController@update')->name('admin.students.update');
+
+            Route::get('/delete/{id}','AdminStudentController@delete')->name('admin.students.delete');
 
         });/*group - prefix 'students'*/
 

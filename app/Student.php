@@ -18,28 +18,44 @@ class Student extends Authenticatable
     }
 
     public function show_birth_province(){
-        return $this->belongsTo('App\Location','birth_province','id');
+        return $this->belongsTo('App\Location','birth_province','id')->withDefault(['name'   =>  '[...]']);
     }
     public function show_birth_district(){
-        return $this->belongsTo('App\Location','birth_district','id');
+        return $this->belongsTo('App\Location','birth_district','id')->withDefault(['name'   =>  '[...]']);
     }
     public function show_birth_ward(){
-        return $this->belongsTo('App\Location','birth_ward','id');
+        return $this->belongsTo('App\Location','birth_ward','id')->withDefault(['name'   =>  '[...]']);
     }
 
     public function show_permanent_province(){
-        return $this->belongsTo('App\Location','permanent_province','id');
+        return $this->belongsTo('App\Location','permanent_province','id')->withDefault(['name'   =>  '[...]']);
     }
     public function show_permanent_district(){
-        return $this->belongsTo('App\Location','permanent_district','id');
+        return $this->belongsTo('App\Location','permanent_district','id')->withDefault(['name'   =>  '[...]']);
     }
     public function show_permanent_ward(){
-        return $this->belongsTo('App\Location','permanent_ward','id');
+        return $this->belongsTo('App\Location','permanent_ward','id')->withDefault(['name'   =>  '[...]']);
     }
 
-    public function show_issued_place(){
-        return $this->belongsTo('App\Issued_place','id_issue_place','id');
+    public function show_id_issue_place(){
+        return $this->belongsTo('App\Issued_place','id_issue_place','id')->withDefault(['name'   =>  '[...]']);
     }
+
+    public function show_nation(){
+        return $this->belongsTo('App\Nation','nation','id')->withDefault(['name'   =>  'Không']);
+    }
+    public function show_religion(){
+        return $this->belongsTo('App\Religion','religion','id')->withDefault(['name'   =>  'Không']);
+    }
+
+    public function show_education_type(){
+        return $this->belongsTo('App\Education_type','education_type','id')->withDefault(['name'   =>  '[...]']);
+    }
+    public function show_education_level(){
+        return $this->belongsTo('App\Education_level','education_level','id')->withDefault(['name'   =>  '[...]']);
+    }
+
+
 
 
 

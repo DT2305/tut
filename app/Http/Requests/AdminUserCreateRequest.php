@@ -26,30 +26,33 @@ class AdminUserCreateRequest extends FormRequest
         return [
             'name' => 'required',
             'gender' => 'required',
+            'birthday' => 'required',
+
+            'email' => 'unique:users,email',
+            'phone_number' => 'numeric|unique:users,phone_number',
+//            'phone_number' => 'numeric|unique:users,phone_number|regex:/(0)[0-9]{9}/',
+
 //            'identity_number' => 'required|numeric|unique:users,identity_number|regex:/[0-9]{12}/',
             'identity_number' => 'required|numeric|unique:users,identity_number',
             'id_issue_place' => '',
             'id_number_date' => '',
-            'email' => 'unique:users,email',
-            'birthday' => 'required',
-//            'phone_number' => 'numeric|unique:users,phone_number|regex:/(0)[0-9]{9}/',
-            'phone_number' => 'numeric|unique:users,phone_number',
+
             'password' => 'required|confirmed',
             'avatar' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            '' => '',
 
             'address' => '',
-            'birth_province'=>'',
-            'birth_district'=>'',
-            'birth_ward'=>'',
+            'birth_province' => '',
+            'birth_district' => '',
+            'birth_ward' => '',
 
-            'permanent_address'=>'',
+            'permanent_address' => '',
+            'permanent_province' => '',
+            'permanent_district' => '',
+            'permanent_ward' => '',
 
-            'permanent_province'=>'',
-            'permanent_district'=>'',
-            'permanent_ward'=>'',
-
-            'nation'=>'',
-            'religion'=>'',
+            'nation' => '',
+            'religion' => '',
 
             'admission_form' => '',
 
@@ -71,19 +74,19 @@ class AdminUserCreateRequest extends FormRequest
             'description' => '',
             'status' => '',
 
-            'priority'=> '',
-            'area'=> '',
+            'priority' => '',
+            'area' => '',
         ];
     }
 
     public function attributes()
     {
         return [
-            'total_point_1'=>'Điểm tổng',
-            'total_point_2'=>'Điểm tổng',
-            'total_point_3'=>'Điểm tổng',
-            'total_point_HCM'=>'Điểm tổng',
-            'point_img'=>'Ảnh chụp bảng điểm',
+            'total_point_1' => 'Điểm tổng',
+            'total_point_2' => 'Điểm tổng',
+            'total_point_3' => 'Điểm tổng',
+            'total_point_HCM' => 'Điểm tổng',
+            'point_img' => 'Ảnh chụp bảng điểm',
 
 
         ];

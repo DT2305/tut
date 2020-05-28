@@ -80,9 +80,10 @@
                             <div class="form-group">
                                 <label class="font-weight-bold" for="">Dân tộc:</label>
                                 <select name="nation" class="custom-select">
-                                    <option selected value="{{$usr->nation}}"> {{$usr['nation']}}</option>
-                                    <option value="0">Chọn</option>
-                                    @foreach ($nat as $nat)
+                                    <option selected value="{{$usr->nation}}"> {{$usr->show_nation->name}}</option>
+                                    <option disabled value="">-----</option>
+
+                                @foreach ($nat as $nat)
                                         <option value="{{$nat->id}}">{{$nat->name}}</option>
                                     @endforeach
                                 </select>
@@ -109,8 +110,9 @@
                                 <label class="font-weight-bold" for="">Tôn giáo:</label>
                                 <select name="religion" class="custom-select">
                                     <option selected value="{{$usr['religion']}}"> {{$usr['religion']}}</option>
-                                    <option value="0">Chọn</option>
-                                    @foreach ($rel as $rel)
+                                    <option disabled value="">-----</option>
+
+                                @foreach ($rel as $rel)
                                         <option value="{{$rel->name}}">{{$rel->name}}</option>
 
                                     @endforeach
@@ -191,8 +193,7 @@
                             <div class="form-group">
                                 <label class="font-weight-bold" for="birth_province">Tỉnh/Thành phố:</label>
                                 <select name="birth_province" id="birth_province" class="custom-select">
-                                    <option selected value="{{$usr->birth_province}}">{{$usr->show_birth_province->name}}</option>
-                                    <option value="0">Chọn Tỉnh/Thành phố</option>
+{{--                                    <option selected value="{{$usr->birth_province}}">{{$usr->show_birth_province->name}}</option>--}}
                                 </select>
                                 @error('birth_province')<p style="color: red">{{$message}}</p> @enderror
                             </div>
@@ -200,15 +201,13 @@
                                 <label class="font-weight-bold" for="birth_district">Quận/Huyện: </label>
                                 <select class="custom-select" id="birth_district" name="birth_district">
                                     <option selected value="{{$usr->birth_district}}">{{$usr->show_birth_district->name}}</option>
-                                    <option value="0">Chọn Quận/Huyện</option>
                                 </select>
                                 @error('birth_district')<p style="color: red">{{$message}}</p> @enderror
                             </div>
                             <div class="form-group">
                                 <label class="font-weight-bold" for="birth_ward">Phường/Xã: </label>
                                 <select class="custom-select" id="birth_ward" name="birth_ward">
-                                    <option selected value="{{$usr->birth_ward}}">{{$usr->show_birth_ward->name}}</option>
-                                    <option value="0">Chọn Phường/Xã</option>
+                                    <option selected readonly="readonly" value="{{$usr->birth_ward}}">{{$usr->show_birth_ward->name}}</option>
                                 </select>
                                 @error('birth_ward')<p style="color: red">{{$message}}</p> @enderror
                             </div>
@@ -220,7 +219,6 @@
                                 <label class="font-weight-bold" for="permanent_province">HKTT Tỉnh/Thành phố:</label>
                                 <select name="permanent_province" id="permanent_province" class="custom-select">
                                     <option selected value="{{$usr->permanent_province}}">{{$usr->show_permanent_province->name}}</option>
-                                    <option value="0">Chọn Tỉnh/Thành phố</option>
                                 </select>
                                 @error('permanent_province')<p style="color: red">{{$message}}</p> @enderror
                             </div>
@@ -228,7 +226,6 @@
                                 <label class="font-weight-bold" for="permanent_district">HKTT Quận/Huyện: </label>
                                 <select class="custom-select" id="permanent_district" name="permanent_district">
                                     <option selected value="{{$usr->permanent_district}}">{{$usr->show_permanent_district->name}}</option>
-                                    <option value="0">Chọn Quận/Huyện</option>
                                 </select>
                                 @error('permanent_district')<p style="color: red">{{$message}}</p> @enderror
                             </div>
@@ -236,7 +233,6 @@
                                 <label class="font-weight-bold" for="permanent_ward">HKTT Phường/Xã: </label>
                                 <select class="custom-select" id="permanent_ward" name="permanent_ward">
                                     <option selected value="{{$usr->permanent_ward}}">{{$usr->show_permanent_ward->name}}</option>
-                                    <option value="0">Chọn Phường/Xã</option>
                                 </select>
                                 @error('permanent_ward')<p style="color: red">{{$message}}</p> @enderror
                             </div>
@@ -367,14 +363,14 @@
 
             function load_json_data(id, parent_id)
             {
-                $choosed={{$usr->permanent_province}}
+                $choosedP={{$usr->permanent_province}}
 
             var html_code = '';
                 $.getJSON('province_district_ward.json', function(data){
 
                     // html_code += '<option value="'+$choosed+'">Chọn '+id+'</option>';
 
-                    html_code += '<option value="'+$choosed+'">Chọn</option>';
+                    html_code += '<option value="'+$choosedP+'">Chọn</option>';
                     $.each(data, function(key, value){
                         if(id == 'permanent_province')
                         {

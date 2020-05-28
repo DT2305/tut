@@ -5,6 +5,8 @@
 
     <title>@yield('title')</title>
 
+    <base href="{{asset('')}}">
+
     <!-- Font Awesome Icons -->
     <link rel="stylesheet" href={{asset("dashboard_layout/plugins/fontawesome-free/css/all.min.css")}}>
     <!-- Ionicons -->

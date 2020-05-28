@@ -14,18 +14,19 @@ class CreateStudentsTable extends Migration
             $table->string('gender');
             $table->date('birthday');
 
-            $table->string('email', 100)->unique();
-            $table->string('phone_number')->unique();
+            $table->string('email', 100)->unique()->nullable();
+            $table->string('phone_number')->unique()->nullable();
 
-            $table->string('identity_number')->unique();        /*Chứng minh nhân dân*/
+            $table->string('identity_number')->unique()->nullable();        /*Chứng minh nhân dân*/
             $table->string('id_number_date')->nullable();         /*Ngày cấp CMND*/
             $table->string('id_issue_place')->nullable()->default(1);         /*Nơi cấp CMND*/
 
             $table->string('avatar')->nullable();               /*Ảnh*/
+
             $table->string('address')->nullable();              /*Địa chỉ*/
             $table->string('password');
 
-            $table->string('student_code')->unique();           /*Mã sinh viên (Đăng nhập)*/
+            $table->bigInteger('student_code')->unique();           /*Mã sinh viên (Đăng nhập)*/
 
             $table->foreignId('course_id')->nullable()->default(1)
                 ->constrained('courses')
@@ -34,8 +35,8 @@ class CreateStudentsTable extends Migration
 
             $table->date('start_date')->nullable();             /*Ngày vào trường*/
             $table->string('school_name')->nullable();          /*Địa chỉ cơ sở học tập*/
-            $table->string('education_type')->nullable();       /*Loại hình đào tạo*/
-            $table->string('education_level')->nullable();      /*Bậc đào tạo*/
+            $table->string('education_type')->nullable()->default(1);       /*Loại hình đào tạo*/
+            $table->string('education_level')->nullable()->default(1);      /*Bậc đào tạo*/
 
             /*Nơi sinh*/
             $table->string('birth_province')->nullable()->default(1);       /*Tỉnh/Thành phố*/
@@ -47,8 +48,8 @@ class CreateStudentsTable extends Migration
             $table->string('permanent_district')->nullable()->default(1);   /*Quận/Huyện*/
             $table->string('permanent_ward')->nullable()->default(1);       /*Phường/Xã*/
 
-            $table->string('nation')->nullable()->default(1);               /*Dân tộc*/
-            $table->string('religion')->nullable()->default(1);             /*Tôn giáo*/
+            $table->string('nation')->nullable();               /*Dân tộc*/
+            $table->string('religion')->nullable();             /*Tôn giáo*/
 
             $table->string('parent_number')->nullable();        /*Số điện thoại phụ huynh*/
 

@@ -113,7 +113,6 @@ class HomeController extends Controller
         $user = User::find($id);
         $user->update($request->all());
 
-
         if($request -> hasFile('point_img')){
             $file = $request -> file('point_img');
             $fileType = $file -> getClientOriginalExtension('point_img');
@@ -133,38 +132,6 @@ class HomeController extends Controller
                 return back()->with("error","Phải là file ảnh (jpg , png ,jpeg)");
             }
         }
-
-//        $name = $request['name'];
-//        $gender = $request['gender'];
-//        $identity_number = $request['identity_number'];
-//        $email = $request['email'];
-//        $birthday = $request['birthday'];
-//        $phone_number = $request['phone_number'];
-//        $address = $request['address'];
-//        $major_1 = $request['major_1'];
-//        $major_2 = $request['major_2'];
-//        $major_3 = $request['major_3'];
-//        $point_1 = $request['point_1'];
-//        $point_2 = $request['point_2'];
-//        $point_3 = $request['point_3'];
-//        $priority = $request['priority'];
-//        $area = $request['area'];
-//
-//        $admin['name'] = $name;
-//        $admin['gender'] = $gender;
-//        $admin['identity_number'] = $identity_number;
-//        $admin['email'] = $email;
-//        $admin['birthday'] = $birthday;
-//        $admin['phone_number'] = $phone_number;
-//        $admin['address'] = $address;
-//        $admin['major_1'] = $major_1;
-//        $admin['major_2'] = $major_2;
-//        $admin['major_3'] = $major_3;
-//        $admin['point_1'] = $point_1;
-//        $admin['point_2'] = $point_2;
-//        $admin['point_3'] = $point_3;
-//        $admin['priority'] = $priority;
-//        $admin['area'] = $area;
 
 
         $admin->save();

@@ -100,7 +100,7 @@
                             <div class="form-group">
                                 <label class="font-weight-bold" for="">Dân tộc:</label>
                                 <select name="nation" class="custom-select" disabled>
-                                    <option selected value="{{$usr['nation']}}"> {{$usr['nation']}}</option>
+                                    <option selected value="{{$usr['nation']}}"> {{$usr->show_nation->name}}</option>
                                     <option value="0">Chọn</option>
                                     @foreach ($nat as $nat)
                                         <option value="{{$nat->name}}">{{$nat->name}}</option>

@@ -13,7 +13,7 @@ class AdminStudentCreateRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -24,7 +24,51 @@ class AdminStudentCreateRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'name'=>'',
+            'gender'=>'',
+            'birthday'=>'',
+
+            'email'=>'',
+            'phone_number'=>'',
+
+            'identity_number'=>'',
+            'id_number_date'=>'',
+            'id_issue_place'=>'',
+
+            'avatar'=>'',
+
+            'address'=>'',
+            'password'=>'',
+
+            'student_code'=>'',
+
+            'course_id'=>'',
+
+            'start_date'=>'',
+            'school_name'=>'',
+            'education_type'=>'',
+            'education_level'=>'',
+
+            'birth_province'=>'',
+            'birth_district'=>'',
+            'birth_ward'=>'',
+
+            'permanent_address'=>'',
+            'permanent_province'=>'',
+            'permanent_district'=>'',
+            'permanent_ward'=>'',
+
+            'nation'=>'',
+            'religion'=>'',
+
+            'parent_number'=>'',
+
+            'insurance_number'=>'',
+            'bank_card'=>'',
+            'bank'=>'',
+            'position'=>'',
+            'description'=>'',
+            'status'=>'',
         ];
     }
 }

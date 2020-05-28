@@ -48,7 +48,7 @@
                 <div class="icon">
                     <i class="fas fa-user-graduate"></i>
                 </div>
-                <a href="{{route('admin.students.get.list')}}" class="small-box-footer">Xem chi tiết <i class="far fa-eye"></i></a>
+                <a href="{{route('admin.students.index')}}" class="small-box-footer">Xem chi tiết <i class="far fa-eye"></i></a>
             </div>
         </div>
         <!-- ./col -->
@@ -63,7 +63,7 @@
                 <div class="icon">
                     <i class="fas fa-user-clock"></i>
                 </div>
-                <a href="{{route('admin.users.get.list')}}" class="small-box-footer">Xem chi tiết <i class="far fa-eye"></i></a>
+                <a href="{{route('admin.users.index')}}" class="small-box-footer">Xem chi tiết <i class="far fa-eye"></i></a>
             </div>
         </div>
         <!-- ./col -->

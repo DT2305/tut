@@ -6,15 +6,25 @@
 
 @section('content')
     <div class="row">
-        <div class="col-12">
-            <div class="card">
+
+        <div class="col-lg-12">
+            <div class="card card-primary card-outline">
                 <div class="card-header">
-                    <a href="{{route('admin.users.get.create')}}">
+                    <a>
+                        <button class="btn btn-secondary float-right" onClick="window.location.reload();">Tải lại</button>
+                    </a>
+                    <a href="{{route('admin.users.create')}}">
                         <button class="btn btn-primary">Thêm Ứng Viên</button>
                     </a>
-                    <a>
-                        <button class="btn btn-secondary" onClick="window.location.reload();">Tải lại</button>
-                    </a>
+
+                </div>
+            </div>
+        </div>
+        <div class="col-12">
+
+            <div class="card">
+                <div class="card-header">
+
                 </div>
                 <!-- /.card-header -->
                 <div class="card-body">
@@ -22,6 +32,7 @@
 
                         <thead>
                         <tr>
+                            <th>STT</th>
                             <th>Họ và tên</th>
                             <th>Giới tính</th>
                             <th>Số điện thoại</th>
@@ -29,27 +40,28 @@
                             <th>Hành động</th>
                         </tr>
                         </thead>
-                            <tbody>
-                            @foreach($usr as $val)
-                                <tr>
+                        <tbody>
+                        @foreach($usr as $key=> $val)
+                            <tr>
+                                <td width="3%">{{$key}}</td>
                                 <td>{{$val->name}}</td>
                                 <td>{{$val->gender}}</td>
                                 <td>{{$val->phone_number}}</td>
-                                <td>{{$val->show_id_issue_place->name}}</td>
+                                <td>{{$val->email}}</td>
                                 <td>
-                                    <button class="btn btn-primary"><i class="fas fa-search"></i></button>
-                                    <button class="btn btn-success"><i class="fas fa-edit"></i></button>
-                                    <button class="btn btn-danger"><i class="fas fa-trash-alt"></i></button>
+                                    <a class="btn btn-warning" href="{{route('admin.users.show',$val->id)}}"><i class="fas fa-info-circle text-white"></i></a>
+                                    <a class="btn btn-success" href="{{route('admin.users.edit',$val->id)}}"><i class="fas fa-pen"></i></a>
                                 </td>
                             </tr>
-                            @endforeach
-                            </tbody>
+                        @endforeach
+                        </tbody>
                         <tfoot>
                         <tr>
-                            <th>Tên đăng nhập</th>
-                            <th>Tên đầy đủ</th>
-                            <th>Cấp bậc</th>
-                            <th>Trạng thái</th>
+                            <th>STT</th>
+                            <th>Họ và tên</th>
+                            <th>Giới tính</th>
+                            <th>Số điện thoại</th>
+                            <th>Email</th>
                             <th>Hành động</th>
                         </tr>
                         </tfoot>
@@ -78,11 +90,11 @@
                 "autoWidth": true,
 
                 // "columns": [
-                //     null,
-                //     null,
-                //     null,
-                //     null,
-                //     { "width": "15%" }
+                //     { "width": "20%" },
+                //     { "width": "20%" },
+                //     { "width": "20%" },
+                //     { "width": "20%" },
+                //     { "width": "20%" }
                 // ]
 
                 // "columnDefs": [

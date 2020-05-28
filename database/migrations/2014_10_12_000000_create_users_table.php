@@ -14,7 +14,7 @@ class CreateUsersTable extends Migration
             $table->string('gender');
             $table->date('birthday')->nullable();
 
-            $table->string('email',100)->unique();
+            $table->string('email',100)->unique()->nullable();
             $table->string('phone_number')->unique();
 
             $table->string('identity_number')->unique();        /*Chứng minh nhân dân*/
@@ -22,7 +22,6 @@ class CreateUsersTable extends Migration
             $table->string('id_issue_place')->nullable()->default(1);         /*Nơi cấp CMND*/
 
             $table->string('avatar')->nullable();
-            $table->string('address')->nullable();
             $table->string('password');
 
 //            $table->integer('math')->nullable()->default(0);
@@ -32,6 +31,7 @@ class CreateUsersTable extends Migration
 //            $table->integer('english')->nullable()->default(0);
 //            $table->integer('literature')->nullable()->default(0);
 
+            $table->string('address')->nullable();
             /*Nơi sinh*/
             $table->string('birth_province')->nullable()->default(1);       /*Tỉnh/Thành phố*/
             $table->string('birth_district')->nullable()->default(1);       /*Quận/Huyện*/
@@ -42,11 +42,14 @@ class CreateUsersTable extends Migration
             $table->string('permanent_district')->nullable()->default(1);   /*Quận/Huyện*/
             $table->string('permanent_ward')->nullable()->default(1);       /*Phường/Xã*/
 
-            $table->string('nation')->nullable()->default(1);               //Dân tộc
-            $table->string('religion')->nullable()->default(1);             //Tôn giáo
+            $table->string('nation')->nullable();               //Dân tộc
+            $table->string('religion')->nullable();             //Tôn giáo
             /*Hình thức xét tuyển*/
             $table->string('admission_form')->nullable();
             /*Ngành ứng tuyển*/
+//            $table->string('major_1')->nullable()->default(1);
+//            $table->string('major_2')->nullable()->default(1);
+//            $table->string('major_3')->nullable()->default(1);
             $table->string('major_1')->nullable();
             $table->string('major_2')->nullable();
             $table->string('major_3')->nullable();
