@@ -10,7 +10,8 @@
             <div class="card card-primary card-outline">
                 <div class="card-header">
                     <a>
-                        <button class="btn btn-secondary float-right" onClick="window.location.reload();">Tải lại</button>
+                        <button class="btn btn-secondary float-right" onClick="window.location.reload();">Tải lại
+                        </button>
                     </a>
                     <a href="{{route('admin.students.create')}}">
                         <button class="btn btn-primary">Thêm Sinh Viên</button>
@@ -31,43 +32,42 @@
 
                         <thead>
                         <tr>
-                            <th>Mã số sinh viên</th>
+                            <th>STT</th>
                             <th>Họ và tên</th>
                             <th>Giới tính</th>
+                            <th>Mã số sinh viên</th>
                             <th>Lớp</th>
-{{--                            <th>Ngành</th>--}}
-{{--                            <th>Khoa</th>--}}
                             <th>Hành động</th>
                         </tr>
                         </thead>
-                            <tbody>
-                            @foreach($std as $val)
-                                <tr>
-                                <td>{{$val->student_code}}</td>
+                        <tbody>
+                        @foreach($std as $key=> $val)
+
+                            <tr>
+                                <td width="3%">{{$key}}</td>
                                 <td>{{$val->name}}</td>
                                 <td>{{$val->gender}}</td>
-                                <td>{{$val->showCourse->name}}</td>
-{{--                                <td>{{$val->showCourse->showFaculty->name}}</td>--}}
-{{--                                <td>{{$val->showCourse->showFaculty->showDepartment->name}}</td>--}}
-                                <td>
+                                <td>{{$val->student_code}}</td>
+                                <td>{{$val->show_course->name}}</td>
+                                <td width="15%">
                                     <div class="float-right">
-                                        <a class="btn btn-warning" href="{{route('admin.students.show',$val->id)}}"><i class="fas fa-info-circle text-white"></i></a>
-                                        <a class="btn btn-success" href="{{route('admin.students.edit',$val->id)}}"><i class="fas fa-pen"></i></a>
-                                        <button class="btn btn-danger"><i class="fas fa-trash-alt"></i></button>
-                                        <button class="btn btn-warning"><i class="fas fa-plus"></i></button>
+                                        <a class="btn btn-sm btn-warning" href="{{route('admin.students.show',$val->id)}}"><i
+                                                class="fas fa-info-circle text-white"></i></a>
+                                        <a class="btn btn-sm btn-success" href="{{route('admin.students.edit',$val->id)}}"><i
+                                                class="fas fa-pen"></i></a>
+                                        <button class="btn btn-sm btn-danger"><i class="fas fa-trash-alt"></i></button>
                                     </div>
                                 </td>
                             </tr>
-                            @endforeach
-                            </tbody>
+                        @endforeach
+                        </tbody>
                         <tfoot>
                         <tr>
-                            <th>Mã số sinh viên</th>
+                            <th>STT</th>
                             <th>Họ và tên</th>
                             <th>Giới tính</th>
+                            <th>Mã số sinh viên</th>
                             <th>Lớp</th>
-{{--                            <th>Ngành</th>--}}
-{{--                            <th>Khoa</th>--}}
                             <th>Hành động</th>
                         </tr>
                         </tfoot>
@@ -87,27 +87,22 @@
     <script src={{asset("dashboard_layout/plugins/datatables-bs4/js/dataTables.bootstrap4.js")}}></script>
     <script>
         $(function () {
-            $("#example1").DataTable();
-            $('#example2').DataTable({
-                "paging": true,
-                "lengthChange": true,
-                "searching": true,
-                "ordering": true,
-                "info": true,
-                "autoWidth": true,
-
-                // "columns": [
-                //     { "width": "20%" },
-                //     { "width": "20%" },
-                //     { "width": "20%" },
-                //     { "width": "20%" },
-                //     { "width": "20%" }
-                // ]
-
-                // "columnDefs": [
-                //     { "width": "20%", "targets": 0 }
-                // ]
+            $("#example2").DataTable({
+                "language": {
+                    "lengthMenu": "Hiển thị _MENU_ hàng mỗi trang",
+                    "zeroRecords": "Không có kết quả nào - sorry :(",
+                    "info": "Đang hiển thị trang _PAGE_ trong _PAGES_ trang ",
+                    "infoEmpty": "Không có kết quả nào",
+                    "infoFiltered": "(Lọc từ _MAX_ kết quả tổng cộng)",
+                    "paginate": {
+                    "previous": "<",
+                    "next": ">"
+                    },
+                    "search":"Tìm kiếm",
+                }
             });
+
         });
+
     </script>
 @endsection

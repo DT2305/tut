@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class HomeUserRequest extends FormRequest
+class HomeUserCreateRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -49,4 +49,5 @@ class HomeUserRequest extends FormRequest
             'area',
         ];
     }
+
 }

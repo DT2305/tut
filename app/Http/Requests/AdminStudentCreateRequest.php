@@ -24,30 +24,30 @@ class AdminStudentCreateRequest extends FormRequest
     public function rules()
     {
         return [
-            'name'=>'',
-            'gender'=>'',
-            'birthday'=>'',
+            'name'=>'required',
+            'gender'=>'required',
+            'birthday'=>'required',
 
-            'email'=>'',
-            'phone_number'=>'',
+            'email' => 'required|email|unique:students,email',
+            'phone_number' => 'required|numeric|unique:students,phone_number|regex:/(0)[0-9]{9}/',
 
-            'identity_number'=>'',
+            'identity_number' => 'required|numeric|unique:students,identity_number|regex:/[0-9]{12}/',
             'id_number_date'=>'',
             'id_issue_place'=>'',
 
-            'avatar'=>'',
+            'avatar'=>'image',
 
             'address'=>'',
-            'password'=>'',
+            'password'=>'required|confirmed',
 
-            'student_code'=>'',
+            'student_code'=>'required|numeric|unique:students,student_code',
 
-            'course_id'=>'',
+            'course_id'=>'required',
 
             'start_date'=>'',
             'school_name'=>'',
-            'education_type'=>'',
-            'education_level'=>'',
+            'education_type'=>'required',
+            'education_level'=>'required',
 
             'birth_province'=>'',
             'birth_district'=>'',
@@ -69,6 +69,12 @@ class AdminStudentCreateRequest extends FormRequest
             'position'=>'',
             'description'=>'',
             'status'=>'',
+        ];
+    }
+    public function attributes()
+    {
+        return [
+            'student_code' => 'Mã số sinh viên',
         ];
     }
 }

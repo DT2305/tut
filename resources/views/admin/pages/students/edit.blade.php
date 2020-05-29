@@ -86,6 +86,21 @@
                     </div>
 
                     <div class="row">
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                {!! Form::label('nation', 'Dân tộc:') !!}
+                                {!! Form::select('nation',$nations,$std->nation, ['class' => 'form-control select2bs4','style'=>'width: 100%;']) !!}
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                {!! Form::label('religion', 'Tôn giáo:') !!}
+                                {!! Form::select('religion',$religions,$std->religion, ['class' => 'form-control select2bs4','style'=>'width: 100%;']) !!}
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
                         <div class="col-md-12">
                             <div class="form-group">
                                 {!! Form::label('education_type', 'Loại hình đào tạo:') !!}
@@ -105,7 +120,7 @@
                         <div class="col-md-12">
                             <div class="form-group">
                                 {!! Form::label('course_id', 'Lớp:') !!}
-                                <b class="text-red">{{$std->showCourse->name}}</b>
+                                <b class="text-red">{{$std->show_course->name}}</b>
                                 {!! Form::select('course_id',$cor,$std->course_id, ['class' => 'form-control select2bs4','style'=>'width: 100%;','placeholder'=>'Chọn lớp']) !!}
                             </div>
                         </div>
@@ -113,7 +128,7 @@
                             <div class="form-group">
                                 {!! Form::label('student_code', 'Mã số sinh viên:') !!}
                                 <b class="text-red">{{$std->student_code}}</b>
-                                {!! Form::text('student_code',$std->student_code,['class'=>'form-control ']) !!}
+                                {!! Form::text('student_code',$std->student_code,['class'=>'form-control ','readonly']) !!}
                             </div>
                         </div>
                     </div>

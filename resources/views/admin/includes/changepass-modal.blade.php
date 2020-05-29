@@ -41,4 +41,19 @@
     </div>
 </div>
 
+@section('js')
+    <script>
 
+        $('#luu').click(function(event){
+            event.preventDefault();
+            $.ajax({
+                url: '{{route('home.post.changepass')}}',
+                type: 'post',
+                data: $('.chpass').serialize(),
+            })
+                .done(function(data) {
+                    $('#ketqua').html(data);
+                });
+        });
+    </script>
+@endsection

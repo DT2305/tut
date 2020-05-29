@@ -1,10 +1,11 @@
-form label.required:after
-{
+.required:after {
+    content:" *";
     color: red;
-    content: " *";
 }
+
 .fakeimg {
     height: 180px;
     width:135px;
     background: #aaa;
 }
+

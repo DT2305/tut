@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\DB;
 use Auth;
 use Hash;
 use App\User;
-use App\Http\Requests\HomeUserRequest;
+use App\Http\Requests\HomeUserCreateRequest;
 
 class HomeController extends Controller
 {
@@ -19,7 +19,7 @@ class HomeController extends Controller
         return view('home.others.register');
     }
 
-    public function postRegis(HomeUserRequest $request){
+    public function postRegis(HomeUserCreateRequest $request){
         if(Auth::check()){
             return back();
         }

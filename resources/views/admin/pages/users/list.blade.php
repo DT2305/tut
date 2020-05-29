@@ -11,7 +11,8 @@
             <div class="card card-primary card-outline">
                 <div class="card-header">
                     <a>
-                        <button class="btn btn-secondary float-right" onClick="window.location.reload();">Tải lại</button>
+                        <button class="btn btn-secondary float-right" onClick="window.location.reload();">Tải lại
+                        </button>
                     </a>
                     <a href="{{route('admin.users.create')}}">
                         <button class="btn btn-primary">Thêm Ứng Viên</button>
@@ -20,7 +21,7 @@
                 </div>
             </div>
         </div>
-        <div class="col-12">
+        <div class="col-md-12">
 
             <div class="card">
                 <div class="card-header">
@@ -43,14 +44,40 @@
                         <tbody>
                         @foreach($usr as $key=> $val)
                             <tr>
-                                <td width="3%">{{$key}}</td>
+                                <td>{{$key}}</td>
                                 <td>{{$val->name}}</td>
                                 <td>{{$val->gender}}</td>
                                 <td>{{$val->phone_number}}</td>
                                 <td>{{$val->email}}</td>
                                 <td>
-                                    <a class="btn btn-warning" href="{{route('admin.users.show',$val->id)}}"><i class="fas fa-info-circle text-white"></i></a>
-                                    <a class="btn btn-success" href="{{route('admin.users.edit',$val->id)}}"><i class="fas fa-pen"></i></a>
+{{--                                    <div class="float-right">--}}
+{{--                                        <a class="btn btn-sm btn-warning" href="{{route('admin.users.show',$val->id)}}">--}}
+{{--                                            <i class="fas fa-info-circle text-white"></i></a>--}}
+{{--                                        <a class="btn btn-sm btn-success" href="{{route('admin.users.edit',$val->id)}}">--}}
+{{--                                            <i class="fas fa-pen"></i></a>--}}
+{{--                                        <a class="btn btn-sm btn-danger" href="">--}}
+{{--                                            <i class="fas fa-trash-alt"></i></a>--}}
+{{--                                        <a class="btn btn-sm btn-primary" href="">--}}
+{{--                                            <i class="fas fa-plus"></i></a>--}}
+{{--                                    </div>--}}
+
+                                    <div class="dropdown dropleft float-right">
+                                        <button type="button" class="btn btn-primary btn-sm dropdown-toggle"
+                                                data-toggle="dropdown">
+                                            Hành động
+                                        </button>
+                                        <div class="dropdown-menu">
+                                            <a class="dropdown-item" href="{{route('admin.users.show',$val->id)}}">
+                                                <i class="fas fa-info text-warning mr-2"></i>Xem chi tiết</a>
+                                            <a class="dropdown-item" href="{{route('admin.users.edit',$val->id)}}">
+                                                <i class="fas fa-pen text-success mr-2"></i>Sửa</a>
+                                            <a class="dropdown-item" href="#">
+                                                <i class="fas fa-trash-alt text-danger mr-2"></i>Xóa</a>
+                                            <div class="dropdown-divider"></div>
+                                            <a class="dropdown-item" href="#">
+                                                <i class="fas fa-plus text-primary mr-2"></i>Thêm sinh viên</a>
+                                        </div>
+                                    </div>
                                 </td>
                             </tr>
                         @endforeach

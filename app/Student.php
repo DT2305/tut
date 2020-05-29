@@ -13,7 +13,7 @@ class Student extends Authenticatable
     protected $table    =   'students';
     protected $guard    =   'student';
 
-    public function showCourse(){
+    public function show_course(){
         return $this->belongsTo('App\Course','course_id','id')->withDefault(['name'   =>  '[Lớp đã bị xóa]']);
     }
 

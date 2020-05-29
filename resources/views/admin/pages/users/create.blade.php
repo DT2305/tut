@@ -41,14 +41,15 @@
                     <div class="row">
                         <div class="col-md-4">
                             <div class="form-group">
-                                {!! Form::label('name', 'Họ và tên:',['class'=>'required','required']) !!}
-                                {!! Form::text('name',null,['class'=>'form-control ','required' => 'required']) !!}
+                                {!! Form::label('name', 'Họ và tên:',['class'=>'required']) !!}
+                                {!! Form::text('name',null,['class'=>'form-control ','required']) !!}
                             </div>
                         </div>
                         <div class="col-md-4">
                             <div class="form-group">
                                 {!! Form::label('birthday', 'Ngày sinh:',['class'=>'required']) !!}
-                                {!! Form::date('birthday', \Carbon\Carbon::now(),['class'=>'form-control']) !!}
+                                {!! Form::date('birthday', \Carbon\Carbon::now(),['class'=>'form-control','required']) !!}
+{{--                                {!! Form::date('birthday', \Carbon\Carbon::now(),['class'=>'form-control','required']) !!}--}}
                             </div>
                         </div>
                         <div class="col-md-4">
@@ -68,7 +69,7 @@
                         <div class="col-md-4">
                             <div class="form-group">
                                 {!! Form::label('identity_number', 'CMND:',['class'=>'required']) !!}
-                                {!! Form::text('identity_number',null,['class'=>'form-control','onClick'=>'randomNumber()']) !!}
+                                {!! Form::text('identity_number',null,['class'=>'form-control','required']) !!}
                             </div>
                         </div>
                         <div class="col-md-4">
@@ -106,13 +107,13 @@
                         <div class="col-md-6">
                             <div class="form-group">
                                 {!! Form::label('password', 'Mật khẩu:',['class'=>'required']) !!}
-                                {!! Form::password('password',['class'=>'form-control ','required' => 'required']) !!}
+                                {!! Form::password('password',['class'=>'form-control ','required']) !!}
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="form-group">
                                 {!! Form::label('password_confirmation', 'Nhập lại mật khẩu:',['class'=>'required']) !!}
-                                {!! Form::password('password_confirmation',['class'=>'form-control','required' => 'required']) !!}
+                                {!! Form::password('password_confirmation',['class'=>'form-control','required']) !!}
                             </div>
                         </div>
                     </div>
@@ -132,15 +133,15 @@
                     <div class="row">
                         <div class="col-md-4">
                             <div class="form-group">
-                                {!! Form::label('email', 'Địa chỉ email:') !!}
-                                {!! Form::email('email',null,['class'=>'form-control','placeholder'=>'Địa chỉ email']) !!}
+                                {!! Form::label('email', 'Địa chỉ email:',['class'=>'required']) !!}
+                                {!! Form::email('email',null,['class'=>'form-control','placeholder'=>'Địa chỉ email','required']) !!}
 
                             </div>
                         </div>
                         <div class="col-md-4">
                             <div class="form-group">
                                 {!! Form::label('phone_number', 'Số điện thoại:',['class'=>'required']) !!}
-                                {!! Form::text('phone_number',null,['class'=>'form-control']) !!}
+                                {!! Form::text('phone_number',null,['class'=>'form-control','required']) !!}
 
                             </div>
                         </div>
@@ -249,21 +250,21 @@
                                 <label class="text-danger">Hình thức xét tuyển</label>
                                 <select class="form-control select2bs4" id="admis_sion" name="admission_form"
                                         style="width: 100%;">
-                                    <option value="admission1">Xét tuyển sử dụng kết quả THPT lớp 10,11 và học kỳ 1 lớp
+                                    <option value="1">Xét tuyển sử dụng kết quả THPT lớp 10,11 và học kỳ 1 lớp
                                         12
                                     </option>
-                                    <option value="admission1">Xét tuyển dử dụng kết quả học bà THPT lớp 12</option>
-                                    <option value="admission1">Kết quả thi THPT 2020</option>
-                                    <option value="admission2">Kết quả kỳ thi đáng giá năng lực của ĐHQG-TP.HCM
+                                    <option value="2">Xét tuyển dử dụng kết quả học bà THPT lớp 12</option>
+                                    <option value="3">Kết quả thi THPT 2020</option>
+                                    <option value="4">Kết quả kỳ thi đáng giá năng lực của ĐHQG-TP.HCM
                                     </option>
-                                    <option value="admission3">Xét tuyển thẳng</option>
+                                    <option value="5">Xét tuyển thẳng</option>
                                 </select>
                             </div>
                         </div>
                     </div>
 
 
-                    <div class="admission1 box">
+                    <div class="1 2 3 box">
                         <div class="row">
                             <div class="col-lg-4">
                                 <div class="form-group">
@@ -299,12 +300,12 @@
 
                     </div>{{--/admission1 box--}}
 
-                    <div class="admission2 box">
+                    <div class="4 box">
                         {!! Form::label('total_point_HCM', 'Điểm đạt được kỳ thi đáng giá năng lực của ĐHQG-TP.HCM:') !!}
                         {!! Form::number('total_point_HCM',0,['class'=>'form-control']) !!}
                     </div>{{--/admission2 box--}}
 
-                    <div class="admission3 box">
+                    <div class="5 box">
                         {!! Form::label('study_point', 'Học lực:') !!}
                         {!! Form::select('study_point', ['Khá' => 'Khá', 'Giỏi' => 'Giỏi'], null, ['class' => 'form-control select2bs4','placeholder' => 'Chọn học lực...']) !!}
                         {!! Form::label('active_point', 'Hạng kiểm:') !!}

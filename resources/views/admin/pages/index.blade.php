@@ -1,5 +1,5 @@
 @extends('admin.layouts.admin-master')
-@section('title','Dashboard Mẫu')
+@section('title','Trang quản trị')
 @section('content-header')
     <b>Trang chủ ADMIN</b>
 @endsection
@@ -12,7 +12,7 @@
                 <div class="inner">
                     <h3>{{$admin}}</h3>
 
-                    <p>Admin</p>
+                    <p>Quản trị viên</p>
                 </div>
                 <div class="icon">
                     <i class="fas fa-user-tie"></i>

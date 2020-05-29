@@ -28,5 +28,7 @@
     });
 </script>
 
-
+<script>
+    $("input[required]").parent("label").addClass("required");
+</script>
 @yield('js')

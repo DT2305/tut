@@ -28,12 +28,10 @@ class AdminUserCreateRequest extends FormRequest
             'gender' => 'required',
             'birthday' => 'required',
 
-            'email' => 'unique:users,email',
-            'phone_number' => 'numeric|unique:users,phone_number',
-//            'phone_number' => 'numeric|unique:users,phone_number|regex:/(0)[0-9]{9}/',
+            'email' => 'required|email|unique:users,email',
+            'phone_number' => 'numeric|unique:users,phone_number|regex:/(0)[0-9]{9}/',
 
-//            'identity_number' => 'required|numeric|unique:users,identity_number|regex:/[0-9]{12}/',
-            'identity_number' => 'required|numeric|unique:users,identity_number',
+            'identity_number' => 'required|numeric|unique:users,identity_number|regex:/[0-9]{12}/',
             'id_issue_place' => '',
             'id_number_date' => '',
 

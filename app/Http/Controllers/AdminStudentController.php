@@ -8,6 +8,7 @@ use App\Education_level;
 use App\Education_type;
 use App\Faculty;
 use App\Http\Requests\AdminStudentCreateRequest;
+use App\Http\Requests\AdminStudentEditRequest;
 use App\Issued_place;
 use App\Student;
 use Illuminate\Http\Request;
@@ -38,7 +39,6 @@ class AdminStudentController extends Controller
 
     public function store(AdminStudentCreateRequest $request){
         $student = Student::create($request->validated());
-        dd($student);
         return redirect()->route('admin.students.get.list');
     }
 
@@ -74,7 +74,7 @@ class AdminStudentController extends Controller
         return view('admin.pages.students.edit',compact('std','isd','fal','dep','cor','maxStuCode','edu_type','edu_level','religions','nations'));
     }
 
-    public function update(Request $request,$id){
+    public function update(AdminStudentEditRequest $request,$id){
         $std = Student::find($id);
 
         $std->update($request->all());

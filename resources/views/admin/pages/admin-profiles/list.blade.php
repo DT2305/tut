@@ -6,6 +6,20 @@
 
 @section('content')
     <div class="row">
+        <div class="col-lg-12">
+            <div class="card card-primary card-outline">
+                <div class="card-header">
+                    <a>
+                        <button class="btn btn-secondary float-right" onClick="window.location.reload();">Tải lại</button>
+                    </a>
+                    <a href="{{route('admin.users.create')}}">
+                        <button class="btn btn-primary">Thêm quản trị viên</button>
+                    </a>
+
+                </div>
+            </div>
+        </div>
+
         <div class="col-12">
             <div class="card">
                 <div class="card-header">
@@ -32,9 +46,11 @@
                                 <td>{{$val->level}}</td>
                                 <td>{{$val->status}}</td>
                                 <td>
-                                    <button class="btn btn-primary"><i class="fas fa-search"></i></button>
-                                    <button class="btn btn-success"><i class="fas fa-edit"></i></button>
-                                    <button class="btn btn-danger"><i class="fas fa-trash-alt"></i></button>
+                                    <a class="btn btn-warning" href=""><i class="fas fa-info-circle text-white"></i></a>
+                                    <a class="btn btn-success" href=""><i class="fas fa-pen"></i></a>
+                                    <a class="btn btn-danger" href=""><i class="fas fa-trash-alt"></i></a>
+
+
                                 </td>
                             </tr>
                             @endforeach

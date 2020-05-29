@@ -24,14 +24,14 @@ class AdminStudentEditRequest extends FormRequest
     public function rules()
     {
         return [
-            'name'=>'',
-            'gender'=>'',
-            'birthday'=>'',
+            'name' => 'required',
+            'gender' => 'required',
+            'birthday' => 'required',
 
-            'email'=>'',
-            'phone_number'=>'',
+            'email'=>'required|email|unique:students,email,'.$this->id,
+            'phone_number' => "numeric|unique:students,phone_number,{$this->id}",
 
-            'identity_number'=>'',
+            'identity_number' => 'required|numeric|regex:/[0-9]{12}/|unique:students,identity_number,'.$this->id,
             'id_number_date'=>'',
             'id_issue_place'=>'',
 
@@ -46,8 +46,8 @@ class AdminStudentEditRequest extends FormRequest
 
             'start_date'=>'',
             'school_name'=>'',
-            'education_type'=>'',
-            'education_level'=>'',
+            'education_type'=>'required',
+            'education_level'=>'required',
 
             'birth_province'=>'',
             'birth_district'=>'',
@@ -69,6 +69,12 @@ class AdminStudentEditRequest extends FormRequest
             'position'=>'',
             'description'=>'',
             'status'=>'',
+        ];
+    }
+    public function attributes()
+    {
+        return [
+            'student_code' => 'Mã số sinh viên',
         ];
     }
 }

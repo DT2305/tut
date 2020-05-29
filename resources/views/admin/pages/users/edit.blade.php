@@ -86,6 +86,21 @@
                         </div>
                     </div>
 
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                {!! Form::label('nation', 'Dân tộc:') !!}
+                                {!! Form::select('nation',$nations,$usr->nation, ['class' => 'form-control select2bs4','style'=>'width: 100%;']) !!}
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                {!! Form::label('religion', 'Tôn giáo:') !!}
+                                {!! Form::select('religion',$religions,$usr->religion, ['class' => 'form-control select2bs4','style'=>'width: 100%;']) !!}
+                            </div>
+                        </div>
+                    </div>
+
                 </div>
             </div>
 

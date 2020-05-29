@@ -6,7 +6,7 @@ use App\Admin;
 use App\Faculty;
 use App\Http\Requests\AdminUserCreateRequest;
 use App\Http\Requests\AdminUserEditRequest;
-use App\Http\Requests\HomeUserRequest;
+use App\Http\Requests\HomeUserCreateRequest;
 use App\Issued_place;
 use App\Subject_combination;
 use App\User;
@@ -37,7 +37,6 @@ class AdminUserController extends Controller
         $user = User::create($request->validated());
         $user['password'] = bcrypt($request['password']);
         $user -> save();
-        dd($user);
         return redirect()->route('admin.users.index');
 
     }
@@ -55,9 +54,11 @@ class AdminUserController extends Controller
         $isd = Issued_place::pluck('name','id');
         $fal = Faculty::pluck('name','id');
         $scm = Subject_combination::pluck('name','id');
+        $religions = DB::table('religions')->pluck('name','id');
+        $nations = DB::table('nations')->pluck('name','id');
         $usr = User::find($id);
 
-        return view('admin.pages.users.edit',compact('usr','isd','fal','scm','id'));
+        return view('admin.pages.users.edit',compact('usr','isd','fal','scm','id','nations','religions'));
     }
     public function update(AdminUserEditRequest $request,$id){
         $usr = User::find($id);

@@ -33,15 +33,10 @@ class AdminUserEditRequest extends FormRequest
             'gender' => 'required',
             'birthday' => 'required',
 
-//            'email' => 'unique:users,email,'.$this->user,
             'email'=>'required|email|unique:users,email,'.$this->id,
-//            'phone_number' => 'numeric|unique:users,phone_number,'.$this->user,
             'phone_number' => "numeric|unique:users,phone_number,{$this->id}",
-//            'phone_number' => 'numeric|unique:users,phone_number|regex:/(0)[0-9]{9}/',
 
-//            'identity_number' => 'required|numeric|unique:users,identity_number|regex:/[0-9]{12}/',
-//            'identity_number' => "required|numeric|unique:users,identity_number,{$this->user()->id}",
-            'identity_number' => 'required|numeric|unique:users,identity_number,'.$this->id,
+            'identity_number' => 'required|numeric|regex:/[0-9]{12}/|unique:users,identity_number,'.$this->id,
             'id_issue_place' => '',
             'id_number_date' => '',
 

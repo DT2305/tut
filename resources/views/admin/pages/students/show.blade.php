@@ -10,7 +10,7 @@
             <div class="card card-primary card-outline">
                 <div class="card-header">
 
-                    <a href="{{route('admin.students.index')}}" class="btn btn-primary float-right">Danh sách ứng viên</a>
+                    <a href="{{route('admin.students.index')}}" class="btn btn-primary float-right">Danh sách sinh viên</a>
                     <a href="{{route('admin.students.edit',$std->id)}}" class="btn btn-success">Chỉnh sửa</a>
                     <input type="button" class="btn btn-secondary" value="Quay lại" onclick="history.back()">
                 </div>
@@ -84,7 +84,34 @@
 
                             </div>
                         </div>
-                        <div class="col-md-4"></div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                {!! Form::label('education_type', 'Loại hình đào tạo:') !!}
+                                {!! Form::text('religion',$std->show_education_type->name,['class'=>'form-control','readonly']) !!}
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                {!! Form::label('education_level', 'Bậc đào tạo:') !!}
+                                {!! Form::text('religion',$std->show_education_level->name,['class'=>'form-control','readonly']) !!}
+
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                {!! Form::label('course_id', 'Lớp:') !!}
+                                {!! Form::text('religion',$std->show_course->name,['class'=>'form-control','readonly']) !!}
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                {!! Form::label('student_code', 'Mã số sinh viên:') !!}
+                                {!! Form::text('religion',$std->student_code,['class'=>'form-control','readonly']) !!}
+                            </div>
+                        </div>
                     </div>
 
 
