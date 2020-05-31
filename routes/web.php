@@ -104,11 +104,18 @@ Route::group(['prefix' => 'admin'], function(){
 
         Route::group(['prefix' => 'info'],function(){
             Route::post('/change-password','AdminController@postChangePass')->name('admin.info.post.changepass');
-
             Route::get('/list-admin','AdminController@getListAdmin')->name('admin.info.get.list');
-
-
         });/*group - prefix 'info'*/
+
+        Route::group(['prefix'=>'news'],function (){
+            Route::get('/index', 'AdminNewController@index')->name('admin.news.index');
+            Route::get('/create', 'AdminNewController@create')->name('admin.news.create');
+            Route::post('/store', 'AdminNewController@store')->name('admin.news.store');
+            Route::get('/{id}/show', 'AdminNewController@show')->name('admin.news.show');
+            Route::get('/{id}/edit', 'AdminNewController@edit')->name('admin.news.edit');
+            Route::post('/{id}/update', 'AdminNewController@update')->name('admin.news.update');
+            Route::get('/delete/{id}','AdminNewController@delete')->name('admin.news.delete');
+        });/*group - prefix 'news'*/
 
     });/*group - middleware 'admin'*/
 });/*group - prefix 'admin'*/

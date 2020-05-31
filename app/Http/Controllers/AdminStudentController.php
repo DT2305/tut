@@ -18,6 +18,7 @@ class AdminStudentController extends Controller
 {
     public function index(){
         $std = Student::all();
+
         return view('admin.pages.students.list',compact('std'));
     }
 
@@ -43,19 +44,20 @@ class AdminStudentController extends Controller
     }
 
     public function show($id){
-        $isd = Issued_place::pluck('name','id');
-        $fal = Faculty::pluck('name','id');
-        $dep = Department::pluck('name','id');
-        $cor = Course::pluck('name','id');
-
-        $religions = DB::table('religions')->pluck('name','id');
-        $nations = DB::table('nations')->pluck('name','id');
-
-        $edu_type = Education_type::pluck('name');
-        $edu_level = Education_level::pluck('name');
+//        $isd = Issued_place::pluck('name','id');
+//        $fal = Faculty::pluck('name','id');
+//        $dep = Department::pluck('name','id');
+//        $cor = Course::pluck('name','id');
+//
+//        $religions = DB::table('religions')->pluck('name','id');
+//        $nations = DB::table('nations')->pluck('name','id');
+//
+//        $edu_type = Education_type::pluck('name');
+//        $edu_level = Education_level::pluck('name');
 
         $std = Student::find($id);
-        return view('admin.pages.students.show',compact('std','isd','fal','dep','cor','edu_type','edu_level','religions','nations'));
+//        return view('admin.pages.students.show',compact('std','isd','fal','dep','cor','edu_type','edu_level','religions','nations'));
+        return view('admin.pages.students.show',compact('std'));
     }
 
     public function  edit($id){

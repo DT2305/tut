@@ -2,81 +2,108 @@
 
 namespace App\Http\Controllers;
 
+use App\Category;
+use App\News;
+use Auth;
 use Illuminate\Http\Request;
 
 class AdminNewController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function index()
     {
-        //
+        $new = News::all();
+        return view('admin.pages.news.list',compact('new'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function create()
     {
-        //
+        // $cate = Category::all();
+        $cat = Category::pluck('cate_name','id');
+        $auth = Auth::guard('admin')->user();
+        $author = $auth['fullname'];
+        return view('admin.pages.news.create',compact('cat','auth'));
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
     public function store(Request $request)
     {
-        //
+        $this -> validate($request,[
+            'title' => 'required',
+            'description' => 'required',
+            'author' => 'required',
+            'avatar' => 'required',
+            'category' => 'required',
+            'status' => 'required',
+            'content' => 'required',
+        ],[
+            'title.required' => 'Vui lòng nhập title',
+            'description.required' => 'Vui lòng nhập description',
+            'author.required' => 'Vui lòng nhập author',
+            'avatar.required' => 'Vui lòng pick avatar',
+            'category.required' => 'Vui lòng nhập category',
+            'status.required' => 'Vui lòng nhập status',
+            'content.required' => 'Vui lòng nhập content'
+        ]);
+
+        if($request -> hasFile('avatar')){
+            $file = $request -> file('avatar');
+            $fileType = $file -> getClientOriginalExtension('avatar');
+            if($fileType == "jpg" || $fileType == 'png' || $fileType == 'jpeg'){
+                $title = $request['title'];
+                $description = $request['description'];
+                $changetitle = changeTitle(trim($title));
+                $changetitle .= rand(10,10000000);
+                $author = $request['author'];
+                $category = $request['category'];
+                $status = $request['status'];
+                $content = $request['content'];
+
+                $AvatarName = 'avatar_'.$author.rand().'.'.$fileType;
+                $file -> move('admin_layout/images/avatar-new',$AvatarName);
+                $urlAvatar = 'admin_layout/images/avatar-new/'.$AvatarName;
+
+                $new = new news;
+                $ad = Auth::guard('admin')->user();
+                $id = $ad['id'];
+                $admin = admin::find($id);
+                $author2 = $admin['username'];
+                $new['title'] = $title;
+                $new['changetitle'] = $changetitle;
+                $new['description'] = $description;
+                $new['author'] = $author;
+                $new['author2'] = $author2;
+                $new['category'] = $category;
+                $new['status'] = $status;
+                $new['content'] = $content;
+                $new['avatar'] = $urlAvatar;
+                $new -> save();
+
+                return redirect()->route('admin.news.index');
+                
+            }
+            else{
+                return back()->with("error","Phải là file ảnh (jpg , png ,jpeg)");
+            }
+        }
+        else{
+            return back()->with("error","Bạn chưa chọn avatar");
+        }
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function show($id)
     {
         //
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function edit($id)
     {
         //
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function update(Request $request, $id)
     {
         //
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function destroy($id)
     {
         //

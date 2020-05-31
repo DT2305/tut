@@ -9,13 +9,8 @@
         <div class="col-lg-12">
             <div class="card card-primary card-outline">
                 <div class="card-header">
-                    <a>
-                        <button class="btn btn-secondary float-right" onClick="window.location.reload();">Tải lại
-                        </button>
-                    </a>
-                    <a href="{{route('admin.students.create')}}">
-                        <button class="btn btn-primary">Thêm Sinh Viên</button>
-                    </a>
+                    <a class="btn btn-secondary float-right text-white" onClick="window.location.reload();">Tải lại</a>
+                    <a class="btn btn-primary" href="{{route('admin.students.create')}}">Thêm Sinh Viên</a>
 
                 </div>
             </div>
@@ -34,7 +29,7 @@
                         <tr>
                             <th>STT</th>
                             <th>Họ và tên</th>
-                            <th>Giới tính</th>
+{{--                            <th>Giới tính</th>--}}
                             <th>Mã số sinh viên</th>
                             <th>Lớp</th>
                             <th>Hành động</th>
@@ -46,7 +41,7 @@
                             <tr>
                                 <td width="3%">{{$key}}</td>
                                 <td>{{$val->name}}</td>
-                                <td>{{$val->gender}}</td>
+{{--                                <td>{{$val->gender}}</td>--}}
                                 <td>{{$val->student_code}}</td>
                                 <td>{{$val->show_course->name}}</td>
                                 <td width="15%">
@@ -65,7 +60,7 @@
                         <tr>
                             <th>STT</th>
                             <th>Họ và tên</th>
-                            <th>Giới tính</th>
+{{--                            <th>Giới tính</th>--}}
                             <th>Mã số sinh viên</th>
                             <th>Lớp</th>
                             <th>Hành động</th>
