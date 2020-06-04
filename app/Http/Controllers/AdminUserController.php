@@ -4,9 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Admin;
 use App\Faculty;
-use App\Http\Requests\AdminUserCreateRequest;
-use App\Http\Requests\AdminUserEditRequest;
-use App\Http\Requests\HomeUserCreateRequest;
+use App\Http\Requests\AdminUserStoreRequest;
+use App\Http\Requests\AdminUserUpdateRequest;
+use App\Http\Requests\HomeUserStoreRequest;
 use App\Issued_place;
 use App\Subject_combination;
 use App\User;
@@ -33,10 +33,10 @@ class AdminUserController extends Controller
 
     }
 
-    public function store(AdminUserCreateRequest $request){
-        $user = User::create($request->validated());
-        $user['password'] = bcrypt($request['password']);
-        $user -> save();
+    public function store(AdminUserStoreRequest $request){
+        $usr = User::create($request->validated());
+        $usr['password'] = bcrypt($request['password']);
+        $usr -> save();
         return redirect()->route('admin.users.index');
 
     }
@@ -60,13 +60,17 @@ class AdminUserController extends Controller
 
         return view('admin.pages.users.edit',compact('usr','isd','fal','scm','id','nations','religions'));
     }
-    public function update(AdminUserEditRequest $request,$id){
+    public function update(AdminUserUpdateRequest $request, $id){
         $usr = User::find($id);
-
-        $usr->update($request->all());
-
+        $usr->update($request->validated());
 
         return redirect()->route('admin.users.show',$id);
 
+    }
+    public function destroy($id)
+    {
+        $usr = User::find($id);
+        $usr->delete();
+        return redirect()->route('admin.students.index');
     }
 }

@@ -24,9 +24,9 @@
             <div class="card card-primary card-outline">
                 <div class="card-header">
                     {!! Form::open(['method'=>'POST','route'=>['admin.students.update',$std->id]]) !!}
-                    <a href="{{route('admin.students.index')}}" class="btn btn-primary float-right">Danh sách sinh viên</a>
                     {!! Form::submit('Cập nhật',['class'=>'btn btn-success']) !!}
-                    <input type="button" class="btn btn-secondary" value="Quay lại" onclick="history.back()">
+                    <a class="btn btn-secondary text-white" onClick="window.location.reload();">Tải lại</a>
+                    <a href="{{route('admin.students.index')}}" class="btn btn-primary">Danh sách sinh viên</a>
                 </div>
             </div>
         </div>
@@ -48,7 +48,7 @@
                         <div class="col-md-4">
                             <div class="form-group">
                                 {!! Form::label('birthday', 'Ngày sinh:',['class'=>'required']) !!}
-                                {!! Form::date('birthday', $std->birthday,['class'=>'form-control']) !!}
+                                {!! Form::date('birthday',$std->birthday,['class'=>'form-control']) !!}
                             </div>
                         </div>
                         <div class="col-md-4">
@@ -98,6 +98,30 @@
                                 {!! Form::select('religion',$religions,$std->religion, ['class' => 'form-control select2bs4','style'=>'width: 100%;']) !!}
                             </div>
                         </div>
+                    </div>
+
+                    <div class="row">
+                        {{-- Đổi mật khẩu--}}
+                        <div class="col-md-12">
+                            <label class="checkbox">
+                                <input type="checkbox"
+                                       onchange="document.getElementById('password').disabled = !this.checked;"/>
+                                Đổi mật khẩu
+                            </label>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                {!! Form::label('password', 'Mật khẩu:') !!}
+                                {!! Form::password('password',['class'=>'form-control','disabled','required']) !!}
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                {!! Form::label('password_confirmation', 'Nhập lại mật khẩu:') !!}
+                                {!! Form::password('password_confirmation',['class'=>'form-control' ]) !!}
+                            </div>
+                        </div>
+                        {{-- /Đổi mật khẩu--}}
                     </div>
 
                     <div class="row">
@@ -167,10 +191,10 @@
                     <div class="row">
                         <div class="col-md-4">
                             <div class="form-group">
-                                {!! Form::label('birth_province', 'Nơi sinh Tỉnh/Thành phố:') !!}
+                                {!! Form::label('birth_province', 'Nơi sinh Tỉnh/TP:') !!}
                                 <select name="birth_province" id="birth_province" class="form-control select2bs4">
                                     <option selected value="{{$std->birth_province}}">{{$std->show_birth_province->name}}</option>
-                                    {{--                                    <option value="0">Chọn Tỉnh/Thành phố</option>--}}
+                                    {{--                                    <option value="0">Chọn Tỉnh/TP</option>--}}
                                 </select>
                             </div>
                         </div>
@@ -206,7 +230,7 @@
                     <div class="row">
                         <div class="col-md-4">
                             <div class="form-group">
-                                {!! Form::label('permanent_province', 'HKTT Tỉnh/Thành phố:') !!}
+                                {!! Form::label('permanent_province', 'HKTT Tỉnh/TP:') !!}
                                 {!! Form::select('permanent_province',[$std->permanent_province=>$std->show_permanent_province->name],null, ['class' => 'form-control select2bs4','style'=>'width: 100%;']) !!}
                             </div>
                         </div>
@@ -262,14 +286,14 @@
             load_json_data('birth_province');
 
             function load_json_data(id, parent_id) {
-                $choosed={{$std->birth_province}}
+                $choosed_birth_province={{$std->birth_province}}
 
                 var html_code = '';
                 $.getJSON('province_district_ward.json', function (data) {
 
                     // html_code += '<option value="'+$choosed+'">Chọn '+id+'</option>';
 
-                    html_code += '<option value="'+$choosed+'">Chọn</option>';
+                    html_code += '<option value="'+$choosed_birth_province+'">Chọn</option>';
                     $.each(data, function (key, value) {
                         if (id == 'birth_province') {
                             if (value.parent_id == '0') {
@@ -311,14 +335,14 @@
             load_json_data('permanent_province');
 
             function load_json_data(id, parent_id) {
-                $choosed={{$std->permanent_province}}
+                $choosed_permanent_province={{$std->permanent_province}}
 
                 var html_code = '';
                 $.getJSON('province_district_ward.json', function (data) {
 
                     // html_code += '<option value="'+$choosed+'">Chọn '+id+'</option>';
 
-                    html_code += '<option value="'+$choosed+'">Chọn</option>';
+                    html_code += '<option value="'+$choosed_permanent_province+'">Chọn</option>';
                     $.each(data, function (key, value) {
                         if (id == 'permanent_province') {
                             if (value.parent_id == '0') {

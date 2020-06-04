@@ -14,6 +14,9 @@ $user = DB::table('users')->count();
 $student = DB::table('students')->count();
 $new = DB::table('news')->count();
 $category = DB::table('categories')->count();
+$department = DB::table('departments')->count();
+$faculty = DB::table('faculties')->count();
+$course = DB::table('courses')->count();
 ?>
 
 @include('admin.includes.head')

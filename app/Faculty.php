@@ -6,7 +6,9 @@ use Illuminate\Database\Eloquent\Model;
 
 class Faculty extends Model
 {
-    public function showDepartment(){
+    protected $guarded = [];
+
+    public function show_department(){
         return $this->belongsTo('App\Department','department_id','id')->withDefault(['name'   =>  '[Khoa đã bị xóa]']);
     }
     public function showCourse(){

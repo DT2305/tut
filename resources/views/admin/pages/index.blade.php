@@ -4,11 +4,81 @@
     <b>Trang chủ ADMIN</b>
 @endsection
 @section('content')
+    <h3>Đào tạo</h3>
     <!-- Small boxes (Stat box 1) -->
     <div class="row">
-        <div class="col-lg-3 col-6">
+        <div class="col-lg-4 col-6">
             <!-- small box -->
-            <div class="small-box bg-danger">
+            <div class="small-box bg-gradient-dark">
+                <div class="inner">
+                    <h3>{{$department}}</h3>
+
+                    <p>Khoa</p>
+                </div>
+                <div class="icon">
+                    <i class="fas fa-university"></i>
+                </div>
+                <a href="{{route('admin.departments.index')}}" class="small-box-footer">Xem chi tiết <i
+                        class="far fa-eye"></i></a>
+            </div>
+        </div>
+        <!-- ./col -->
+        <div class="col-lg-4 col-6">
+            <!-- small box -->
+            <div class="small-box bg-gradient-dark">
+                <div class="inner">
+                    {{--                    <h3>53<sup style="font-size: 20px">%</sup></h3>--}}
+                    <h3>{{$faculty}}</h3>
+
+                    <p>Ngành</p>
+                </div>
+                <div class="icon">
+                    <i class="fas fa-school"></i>
+                </div>
+                <a href="{{route('admin.faculties.index')}}" class="small-box-footer">Xem chi tiết <i
+                        class="far fa-eye"></i></a>
+            </div>
+        </div>
+        <!-- ./col -->
+        <div class="col-lg-4 col-6">
+            <!-- small box -->
+            <div class="small-box bg-gradient-dark">
+                <div class="inner">
+                    <h3>{{$course}}</h3>
+
+                    <p>Lớp</p>
+                </div>
+                <div class="icon">
+                    <i class="fas fa-building"></i>
+                </div>
+                <a href="{{route('admin.courses.index')}}" class="small-box-footer">Xem chi tiết <i
+                        class="far fa-eye"></i></a>
+            </div>
+        </div>
+        <!-- ./col -->
+    {{--        <div class="col-lg-4 col-6">--}}
+    {{--            <!-- small box -->--}}
+    {{--            <div class="small-box bg-info">--}}
+    {{--                <div class="inner">--}}
+    {{--                    <h3>{{$user}}</h3>--}}
+
+    {{--                    <p>Ứng cử viên</p>--}}
+    {{--                </div>--}}
+    {{--                <div class="icon">--}}
+    {{--                    <i class="fas fa-user-clock"></i>--}}
+    {{--                </div>--}}
+    {{--                <a href="" class="small-box-footer">Xem chi tiết <i class="far fa-eye"></i></a>--}}
+    {{--            </div>--}}
+    {{--        </div>--}}
+    <!-- ./col -->
+    </div>
+    <!-- /.row -->
+    <h3>Người dùng</h3>
+    <!-- Small boxes (Stat box 2) -->
+    <div class="row">
+        <div class="col-lg-4 col-6">
+            <!-- small box -->
+            <div class="small-box bg-gradient-dark">
                 <div class="inner">
                     <h3>{{$admin}}</h3>
 
@@ -17,30 +87,16 @@
                 <div class="icon">
                     <i class="fas fa-user-tie"></i>
                 </div>
-                <a href="{{route('admin.info.get.list')}}" class="small-box-footer">Xem chi tiết <i class="far fa-eye"></i></a>
+                <a href="{{route('admin.managers.index')}}" class="small-box-footer">Xem chi tiết <i
+                        class="far fa-eye"></i></a>
             </div>
         </div>
         <!-- ./col -->
-        <div class="col-lg-3 col-6">
+        <div class="col-lg-4 col-6">
             <!-- small box -->
-            <div class="small-box bg-warning">
+            <div class="small-box bg-gradient-dark">
                 <div class="inner">
-{{--                    <h3>53<sup style="font-size: 20px">%</sup></h3>--}}
-                    <h3>{{$new}}</h3>
-
-                    <p>Tin tức</p>
-                </div>
-                <div class="icon">
-                   <i class="fas fa-newspaper"></i>
-                </div>
-                <a href="#" class="small-box-footer">Xem chi tiết <i class="far fa-eye"></i></a>
-            </div>
-        </div>
-        <!-- ./col -->
-        <div class="col-lg-3 col-6">
-            <!-- small box -->
-            <div class="small-box bg-success">
-                <div class="inner">
+                    {{--                    <h3>53<sup style="font-size: 20px">%</sup></h3>--}}
                     <h3>{{$student}}</h3>
 
                     <p>Sinh viên</p>
@@ -48,29 +104,83 @@
                 <div class="icon">
                     <i class="fas fa-user-graduate"></i>
                 </div>
-                <a href="{{route('admin.students.index')}}" class="small-box-footer">Xem chi tiết <i class="far fa-eye"></i></a>
+                <a href="{{route('admin.students.index')}}" class="small-box-footer">Xem chi tiết <i
+                        class="far fa-eye"></i></a>
             </div>
         </div>
         <!-- ./col -->
-        <div class="col-lg-3 col-6">
+        <div class="col-lg-4 col-6">
             <!-- small box -->
-            <div class="small-box bg-info">
+            <div class="small-box bg-gradient-dark">
                 <div class="inner">
                     <h3>{{$user}}</h3>
 
-                    <p>Ứng cử viên</p>
+                    <p>Ứng viên</p>
                 </div>
                 <div class="icon">
                     <i class="fas fa-user-clock"></i>
                 </div>
-                <a href="{{route('admin.users.index')}}" class="small-box-footer">Xem chi tiết <i class="far fa-eye"></i></a>
+                <a href="{{route('admin.users.index')}}" class="small-box-footer">Xem chi tiết <i
+                        class="far fa-eye"></i></a>
             </div>
         </div>
         <!-- ./col -->
-        {{Auth::guard('admin')->user()->username}}
-        {{Auth::guard('admin')->user()->email}}
+{{--        <div class="col-lg-4 col-6">--}}
+{{--            <!-- small box -->--}}
+{{--            <div class="small-box bg-danger">--}}
+{{--                <div class="inner">--}}
+{{--                    <h3>{{$new}}</h3>--}}
+
+{{--                    <p>Tin tức</p>--}}
+{{--                </div>--}}
+{{--                <div class="icon">--}}
+{{--                    <i class="fas fa-newspaper"></i>--}}
+{{--                </div>--}}
+{{--                <a href="" class="small-box-footer">Xem chi tiết <i class="far fa-eye"></i></a>--}}
+{{--            </div>--}}
+{{--        </div>--}}
+{{--        <!-- ./col -->--}}
+        {{--        {{Auth::guard('admin')->user()->username}}--}}
+        {{--        {{Auth::guard('admin')->user()->email}}--}}
     </div>
     <!-- /.row -->
 
+    <h3>Tin tức</h3>
+    <!-- Small boxes (Stat box 3) -->
+    <div class="row">
+        <div class="col-lg-4 col-6">
+            <!-- small box -->
+            <div class="small-box bg-gradient-dark">
+                <div class="inner">
+                    <h3>{{$new}}</h3>
 
+                    <p>Tin tức</p>
+                </div>
+                <div class="icon">
+                    <i class="fas fa-newspaper"></i>
+                </div>
+                <a href="" class="small-box-footer">Xem chi tiết <i
+                        class="far fa-eye"></i></a>
+            </div>
+        </div>
+        <!-- ./col -->
+        <div class="col-lg-4 col-6">
+            <!-- small box -->
+            <div class="small-box bg-gradient-dark">
+                <div class="inner">
+{{--                                        <h3>53<sup style="font-size: 20px">%</sup></h3>--}}
+                    <h3>{{$category}}</h3>
+
+                    <p>Thể loại</p>
+                </div>
+                <div class="icon">
+                    <i class="fas fa-th-large"></i>
+                </div>
+                <a href="" class="small-box-footer">Xem chi tiết <i
+                        class="far fa-eye"></i></a>
+            </div>
+        </div>
+        <!-- ./col -->
+    </div>
+    <!-- /.row -->
 @endsection

@@ -8,7 +8,7 @@ use Auth;
 use Hash;
 use App\Admin;
 
-class AdminController extends Controller
+class  AdminController extends Controller
 {
     public function getLogin()
     {
@@ -18,16 +18,18 @@ class AdminController extends Controller
         return view('admin.other.login');
     }
 
-    public function getIndex()
+    public function index()
     {
         $admin = DB::table('admins')->count();
         $user = DB::table('users')->count();
         $student = DB::table('students')->count();
         $new = DB::table('news')->count();
         $category = DB::table('categories')->count();
+        $department = DB::table('departments')->count();
+        $faculty = DB::table('faculties')->count();
+        $course = DB::table('courses')->count();
 
-//        return view('admin.index', ['admin' => $admin,'user' => $user,'student'=>$student,'new'=>$new,'category'=>$category]);
-        return view('admin.pages.index',compact('admin','user','student','new','category'));
+        return view('admin.pages.index',compact('admin','user','student','new','category','department','faculty','course'));
     }
 
     public function getLogout()
@@ -65,11 +67,6 @@ class AdminController extends Controller
             echo 'Vui lòng nhập đầy đủ thông tin !';
         }
 
-    }
-
-    public function getListAdmin(){
-        $check = admin::all();
-        return view('admin.pages.admin-profiles.list',compact('check'));
     }
 
     public function postLogin(Request $request)

@@ -11,7 +11,7 @@
 
             <!-- Modal body -->
             <div class="modal-body">
-                <form class="chpass" method="POST" action="{{route('admin.info.post.changepass')}}">
+                <form class="chpass" method="POST" action="{{route('admin.post.changepass')}}">
                     {{ csrf_field() }}
                     <div class="modal-body">
                         <div class="form-group">

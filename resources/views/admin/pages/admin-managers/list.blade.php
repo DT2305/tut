@@ -9,12 +9,8 @@
         <div class="col-lg-12">
             <div class="card card-primary card-outline">
                 <div class="card-header">
-                    <a>
-                        <button class="btn btn-secondary float-right" onClick="window.location.reload();">Tải lại</button>
-                    </a>
-                    <a href="{{route('admin.users.create')}}">
-                        <button class="btn btn-primary">Thêm quản trị viên</button>
-                    </a>
+                    <a class="btn btn-primary" href="{{route('admin.managers.create')}}">Thêm quản trị viên</a>
+                    <a class="btn btn-secondary text-white" onClick="window.location.reload();">Tải lại</a>
 
                 </div>
             </div>
@@ -46,9 +42,9 @@
                                 <td>{{$val->level}}</td>
                                 <td>{{$val->status}}</td>
                                 <td>
-                                    <a class="btn btn-warning" href=""><i class="fas fa-info-circle text-white"></i></a>
-                                    <a class="btn btn-success" href=""><i class="fas fa-pen"></i></a>
-                                    <a class="btn btn-danger" href=""><i class="fas fa-trash-alt"></i></a>
+                                    <a class="btn btn-warning" href="{{route('admin.managers.show',$val->id)}}"><i class="fas fa-info-circle text-white"></i></a>
+                                    <a class="btn btn-success" href="{{route('admin.managers.edit',$val->id)}}"><i class="fas fa-pen"></i></a>
+                                    <a class="btn btn-danger" href="{{route('admin.managers.destroy',$val->id)}}"><i class="fas fa-trash-alt"></i></a>
 
 
                                 </td>

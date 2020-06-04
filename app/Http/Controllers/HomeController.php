@@ -2,13 +2,13 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\HomeUserEditRequest;
+use App\Http\Requests\HomeUserUpdateRequest;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Auth;
 use Hash;
 use App\User;
-use App\Http\Requests\HomeUserCreateRequest;
+use App\Http\Requests\HomeUserStoreRequest;
 
 class HomeController extends Controller
 {
@@ -19,7 +19,7 @@ class HomeController extends Controller
         return view('home.others.register');
     }
 
-    public function postRegis(HomeUserCreateRequest $request){
+    public function postRegis(HomeUserStoreRequest $request){
         if(Auth::check()){
             return back();
         }
@@ -105,7 +105,7 @@ class HomeController extends Controller
         $user = User::find($id);
         return view('home.pages.edit',['usr' => $user], ['isu' => $issued_place])->with(['rel' => $religions])->with(['nat' => $nations]);
     }
-    public function postEdit(HomeUserEditRequest $request,User $user){
+    public function postEdit(HomeUserUpdateRequest $request, User $user){
 
         $ad = Auth::user();
         $id = $ad['id'];

@@ -3,14 +3,13 @@
 @section('content-header')
     <b>Danh sách sinh viên</b>
 @endsection
-
 @section('content')
     <div class="row">
         <div class="col-lg-12">
             <div class="card card-primary card-outline">
                 <div class="card-header">
-                    <a class="btn btn-secondary float-right text-white" onClick="window.location.reload();">Tải lại</a>
                     <a class="btn btn-primary" href="{{route('admin.students.create')}}">Thêm Sinh Viên</a>
+                    <a class="btn btn-secondary text-white" onClick="window.location.reload();">Tải lại</a>
 
                 </div>
             </div>
@@ -50,7 +49,8 @@
                                                 class="fas fa-info-circle text-white"></i></a>
                                         <a class="btn btn-sm btn-success" href="{{route('admin.students.edit',$val->id)}}"><i
                                                 class="fas fa-pen"></i></a>
-                                        <button class="btn btn-sm btn-danger"><i class="fas fa-trash-alt"></i></button>
+                                        <a class="btn btn-sm btn-danger" href="{{route('admin.students.destroy',$val->id)}}"><i
+                                                class="fas fa-trash-alt"></i></a>
                                     </div>
                                 </td>
                             </tr>
@@ -78,8 +78,7 @@
 @endsection
 @section('js')
     <!-- DataTables -->
-    <script src={{asset("dashboard_layout/plugins/datatables/jquery.dataTables.js")}}></script>
-    <script src={{asset("dashboard_layout/plugins/datatables-bs4/js/dataTables.bootstrap4.js")}}></script>
+    
     <script>
         $(function () {
             $("#example2").DataTable({

@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-use App\Http\Requests\StudentEditRequest;
+use App\Http\Requests\StudentUpdateRequest;
 use Illuminate\Http\Request;
 use Auth;
 use Hash;
@@ -81,7 +81,7 @@ class StudentController extends Controller
         return view('student.pages.edit',['usr' => $user], ['isu' => $issued_place])->with(['rel' => $religions])->with(['nat' => $nations]);
     }
 
-    public function postEdit(StudentEditRequest $request,Student $user){
+    public function postEdit(StudentUpdateRequest $request, Student $user){
 
         $ad = Auth('student')->user();
         $id = $ad['id'];

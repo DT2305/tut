@@ -9,7 +9,9 @@
 <script src={{asset("dashboard_layout/plugins/bs-custom-file-input/bs-custom-file-input.min.js")}}></script>
 <!-- AdminLTE App -->
 <script src={{asset("dashboard_layout/dist/js/adminlte.min.js")}}></script>
-
+<!-- DataTables -->
+<script src={{asset("dashboard_layout/plugins/datatables/jquery.dataTables.js")}}></script>
+<script src={{asset("dashboard_layout/plugins/datatables-bs4/js/dataTables.bootstrap4.js")}}></script>
 <script>
     $(function () {
         //Initialize Select2 Elements

@@ -33,29 +33,29 @@
                     </a>
                 </li>
 
-{{--                <li class="nav-item has-treeview menu-open">--}}
-{{--                    <a href="#" class="nav-link ">--}}
-{{--                        <i class="nav-icon fas fa-user-shield "></i>--}}
-{{--                        <p>--}}
-{{--                            Quản trị viên--}}
-{{--                            <i class="right fas fa-angle-left"></i>--}}
-{{--                        </p>--}}
-{{--                    </a>--}}
-{{--                    <ul class="nav nav-treeview">--}}
-{{--                        <li class="nav-item">--}}
-{{--                            <a href="#" class="nav-link text-danger active">--}}
-{{--                                <i class="fas fa-power-off nav-icon"></i>--}}
-{{--                                <p>Đăng xuất</p>--}}
-{{--                            </a>--}}
-{{--                        </li>--}}
-{{--                        <li class="nav-item">--}}
-{{--                            <a href="#" class="nav-link text-success">--}}
-{{--                                <i class="fas fa-key nav-icon"></i>--}}
-{{--                                <p>Đổi mật khẩu</p>--}}
-{{--                            </a>--}}
-{{--                        </li>--}}
-{{--                    </ul>--}}
-{{--                </li>--}}
+                <li class="nav-item has-treeview menu-open">
+                    <a href="#" class="nav-link ">
+                        <i class="nav-icon fas fa-user-shield "></i>
+                        <p>
+                            {{Auth::guard('admin')->user()->username}}
+                            <i class="right fas fa-angle-left"></i>
+                        </p>
+                    </a>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="{{route('admin.get.logout')}}" class="nav-link text-danger active" >
+                                <i class="fas fa-power-off nav-icon"></i>
+                                <p>Đăng xuất</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#" class="nav-link text-success" data-toggle="modal" data-target="#myModal">
+                                <i class="fas fa-key nav-icon"></i>
+                                <p>Đổi mật khẩu</p>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
 
                 <li class="nav-header">
                     Người dùng
@@ -73,13 +73,13 @@
                     </a>
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
-                            <a href="{{route('admin.info.get.list')}}" class="nav-link ">
+                            <a href="{{route('admin.managers.index')}}" class="nav-link ">
                                 <i class="fas fa-list nav-icon"></i>
                                 <p>Danh sách Admin</p>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="#" class="nav-link">
+                            <a href="{{route('admin.managers.create')}}" class="nav-link">
                                 <i class="far fa-plus-square nav-icon"></i>
                                 <p>Thêm Admin</p>
                             </a>
@@ -147,6 +147,86 @@
 {{--                </li>--}}
 
                 <li class="nav-header">
+                    Đào tạo
+                </li>
+
+                {{--                Khoa--}}
+                <li class="nav-item has-treeview ">
+                    <a href="#" class="nav-link">
+                        <i class="nav-icon fas fa-university"></i>
+                        <p>
+                            Khoa
+                            <i class="right fas fa-angle-left"></i>
+                            <span class="badge badge-danger right">{{$department}}</span>
+                        </p>
+                    </a>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="{{route('admin.departments.index')}}" class="nav-link ">
+                                <i class="fas fa-list nav-icon"></i>
+                                <p>Danh sách Khoa</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{route('admin.departments.create')}}" class="nav-link">
+                                <i class="far fa-plus-square nav-icon"></i>
+                                <p>Thêm Khoa</p>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                {{--                Ngành--}}
+                <li class="nav-item has-treeview ">
+                    <a href="#" class="nav-link">
+                        <i class="nav-icon fas fa-school"></i>
+                        <p>
+                            Ngành
+                            <i class="right fas fa-angle-left"></i>
+                            <span class="badge badge-success right">{{$faculty}}</span>
+                        </p>
+                    </a>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="{{route('admin.faculties.index')}}" class="nav-link ">
+                                <i class="fas fa-list nav-icon"></i>
+                                <p>Danh sách ngành</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{route('admin.faculties.create')}}" class="nav-link">
+                                <i class="far fa-plus-square nav-icon"></i>
+                                <p>Thêm ngành</p>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                {{--                Lớp--}}
+                <li class="nav-item has-treeview ">
+                    <a href="" class="nav-link">
+                        <i class="nav-icon fas fa-building"></i>
+                        <p>
+                            Lớp
+                            <i class="right fas fa-angle-left"></i>
+                            <span class="badge badge-primary right">{{$course}}</span>
+                        </p>
+                    </a>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="{{route('admin.courses.index')}}" class="nav-link ">
+                                <i class="fas fa-list nav-icon"></i>
+                                <p>Danh sách lớp học</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{route('admin.courses.create')}}" class="nav-link">
+                                <i class="far fa-plus-square nav-icon"></i>
+                                <p>Thêm lớp học</p>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+
+                <li class="nav-header">
                     Thông tin
                 </li>
 
@@ -175,6 +255,8 @@
                     </ul>
                 </li>
 
+
+
                 <li class="nav-item has-treeview ">
                     <a href="#" class="nav-link ">
                         <i class="nav-icon fas fa-th"></i>
@@ -186,13 +268,13 @@
                     </a>
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
-                            <a href="#" class="nav-link ">
+                            <a href="{{route('admin.categories.index')}}" class="nav-link ">
                                 <i class="fas fa-list nav-icon"></i>
                                 <p>Danh sách thể lọai</p>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="#" class="nav-link">
+                            <a href="{{route('admin.categories.create')}}" class="nav-link">
                                 <i class="far fa-plus-square nav-icon"></i>
                                 <p>Thêm thể loại</p>
                             </a>

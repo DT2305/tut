@@ -24,9 +24,9 @@
             <div class="card card-primary card-outline">
                 <div class="card-header">
                     {!! Form::open(['method'=>'POST','route'=>['admin.users.update',$usr->id]]) !!}
-                    <a href="{{route('admin.users.index')}}" class="btn btn-secondary float-right">Danh sách ứng viên</a>
                     {!! Form::submit('Cập nhật',['class'=>'btn btn-success']) !!}
                     <input type="button" class="btn btn-secondary" value="Quay lại" onclick="history.back()">
+                    <a href="{{route('admin.users.index')}}" class="btn btn-secondary">Danh sách ứng viên</a>
 
                 </div>
             </div>
@@ -100,6 +100,29 @@
                             </div>
                         </div>
                     </div>
+                    <div class="row">
+                        {{-- Đổi mật khẩu--}}
+                        <div class="col-md-12">
+                            <label class="checkbox">
+                                <input type="checkbox"
+                                       onchange="document.getElementById('password').disabled = !this.checked;"/>
+                                Đổi mật khẩu
+                            </label>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                {!! Form::label('password', 'Mật khẩu:') !!}
+                                {!! Form::password('password',['class'=>'form-control','disabled','required']) !!}
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                {!! Form::label('password_confirmation', 'Nhập lại mật khẩu:') !!}
+                                {!! Form::password('password_confirmation',['class'=>'form-control' ]) !!}
+                            </div>
+                        </div>
+                        {{-- /Đổi mật khẩu--}}
+                    </div>
 
                 </div>
             </div>
@@ -135,10 +158,10 @@
                     <div class="row">
                         <div class="col-md-4">
                             <div class="form-group">
-                                {!! Form::label('birth_province', 'Nơi sinh Tỉnh/Thành phố:') !!}
+                                {!! Form::label('birth_province', 'Nơi sinh Tỉnh/TP:') !!}
                                 <select name="birth_province" id="birth_province" class="form-control select2bs4">
                                     <option selected value="{{$usr->birth_province}}">{{$usr->show_birth_province->name}}</option>
-{{--                                    <option value="0">Chọn Tỉnh/Thành phố</option>--}}
+{{--                                    <option value="0">Chọn Tỉnh/TP</option>--}}
                                 </select>
                             </div>
                         </div>
@@ -174,7 +197,7 @@
                     <div class="row">
                         <div class="col-md-4">
                             <div class="form-group">
-                                {!! Form::label('permanent_province', 'HKTT Tỉnh/Thành phố:') !!}
+                                {!! Form::label('permanent_province', 'HKTT Tỉnh/TP:') !!}
                                 {!! Form::select('permanent_province',[$usr->permanent_province=>$usr->show_permanent_province->name],null, ['class' => 'form-control select2bs4','style'=>'width: 100%;']) !!}
                             </div>
                         </div>
@@ -354,14 +377,14 @@
             load_json_data('birth_province');
 
             function load_json_data(id, parent_id) {
-                    $choosed_1={{$usr->birth_province}}
+                    $choosed_birth_province={{$usr->birth_province}}
 
                 var html_code = '';
                 $.getJSON('province_district_ward.json', function (data) {
 
                     // html_code += '<option value="'+$choosed+'">Chọn '+id+'</option>';
 
-                    html_code += '<option value="'+$choosed_1+'">Chọn</option>';
+                    html_code += '<option value="'+$choosed_birth_province+'">Chọn</option>';
                     $.each(data, function (key, value) {
                         if (id == 'birth_province') {
                             if (value.parent_id == '0') {
@@ -403,14 +426,14 @@
             load_json_data('permanent_province');
 
             function load_json_data(id, parent_id) {
-                    $choosed={{$usr->permanent_province}}
+                    $choosed_permanent_province={{$usr->permanent_province}}
 
                 var html_code = '';
                 $.getJSON('province_district_ward.json', function (data) {
 
                     // html_code += '<option value="'+$choosed+'">Chọn '+id+'</option>';
 
-                    html_code += '<option value="'+$choosed+'">Chọn</option>';
+                    html_code += '<option value="'+$choosed_permanent_province+'">Chọn</option>';
                     $.each(data, function (key, value) {
                         if (id == 'permanent_province') {
                             if (value.parent_id == '0') {

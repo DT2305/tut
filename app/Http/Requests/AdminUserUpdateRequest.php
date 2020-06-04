@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class AdminUserEditRequest extends FormRequest
+class AdminUserUpdateRequest extends FormRequest
 {
     /**
      * @var mixed
@@ -41,7 +41,7 @@ class AdminUserEditRequest extends FormRequest
             'id_number_date' => '',
 
             'avatar' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-            '' => '',
+            'password' => '',
 
             'address' => '',
             'birth_province' => '',

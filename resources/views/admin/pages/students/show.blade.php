@@ -4,15 +4,13 @@
     <b>Thông tin sinh viên: {{$std->name}} </b>
 @endsection
 @section('content')
-
     <div class="row">
         <div class="col-lg-12">
             <div class="card card-primary card-outline">
                 <div class="card-header">
-
-                    <a href="{{route('admin.students.index')}}" class="btn btn-primary float-right">Danh sách sinh viên</a>
                     <a href="{{route('admin.students.edit',$std->id)}}" class="btn btn-success">Chỉnh sửa</a>
-                    <input type="button" class="btn btn-secondary" value="Quay lại" onclick="history.back()">
+                    <a class="btn btn-secondary text-white" onClick="window.location.reload();">Tải lại</a>
+                    <a href="{{route('admin.students.index')}}" class="btn btn-primary">Danh sách sinh viên</a>
                 </div>
             </div>
         </div>
@@ -150,7 +148,7 @@
                     <div class="row">
                         <div class="col-md-4">
                             <div class="form-group">
-                                {!! Form::label('birth_province', 'Nơi sinh Tỉnh/Thành phố:') !!}
+                                {!! Form::label('birth_province', 'Nơi sinh Tỉnh/TP:') !!}
                                 {{--                                {!! Form::select('birth_province',['0'=>''],null, ['class' => 'form-control select2bs4','style'=>'width: 100%;']) !!}--}}
                                 {!! Form::text('birth_province',$std->show_birth_province->name,['class'=>'form-control','readonly']) !!}
                             </div>
@@ -184,7 +182,7 @@
                     <div class="row">
                         <div class="col-md-4">
                             <div class="form-group">
-                                {!! Form::label('permanent_province', 'HKTT Tỉnh/Thành phố:') !!}
+                                {!! Form::label('permanent_province', 'HKTT Tỉnh/TP:') !!}
                                 {{--                                {!! Form::select('permanent_province',['0'=>''],null, ['class' => 'form-control select2bs4','style'=>'width: 100%;']) !!}--}}
                                 {!! Form::text('permanent_province',$std->show_permanent_province->name,['class'=>'form-control','readonly']) !!}
                             </div>

@@ -3,15 +3,13 @@
 @section('content-header')
     <b>Danh sách ứng viên</b>
 @endsection
-
 @section('content')
     <div class="row">
-
         <div class="col-lg-12">
             <div class="card card-primary card-outline">
                 <div class="card-header">
-                    <a class="btn btn-secondary float-right text-white"onClick="window.location.reload()">Tải lại</a>
                     <a class="btn btn-primary" href="{{route('admin.users.create')}}">Thêm ứng viên</a>
+                    <a class="btn btn-secondary text-white" onClick="window.location.reload();">Tải lại</a>
 
                 </div>
             </div>
@@ -66,7 +64,7 @@
                                                 <i class="fas fa-info text-warning mr-2"></i>Xem chi tiết</a>
                                             <a class="dropdown-item" href="{{route('admin.users.edit',$val->id)}}">
                                                 <i class="fas fa-pen text-success mr-2"></i>Sửa</a>
-                                            <a class="dropdown-item" href="#">
+                                            <a class="dropdown-item" href="{{route('admin.users.destroy',$val->id)}}">
                                                 <i class="fas fa-trash-alt text-danger mr-2"></i>Xóa</a>
                                             <div class="dropdown-divider"></div>
                                             <a class="dropdown-item" href="#">

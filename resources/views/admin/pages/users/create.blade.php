@@ -152,7 +152,7 @@
                     <div class="row">
                         <div class="col-md-4">
                             <div class="form-group">
-                                {!! Form::label('birth_province', 'Nơi sinh Tỉnh/Thành phố:') !!}
+                                {!! Form::label('birth_province', 'Nơi sinh Tỉnh/TP:') !!}
                                 {!! Form::select('birth_province',['1'=>''],null, ['class' => 'form-control select2bs4','style'=>'width: 100%;']) !!}
                             </div>
                         </div>
@@ -182,7 +182,7 @@
                     <div class="row">
                         <div class="col-md-4">
                             <div class="form-group">
-                                {!! Form::label('permanent_province', 'HKTT Tỉnh/Thành phố:') !!}
+                                {!! Form::label('permanent_province', 'HKTT Tỉnh/TP:') !!}
                                 {!! Form::select('permanent_province',['1'=>''],null, ['class' => 'form-control select2bs4','style'=>'width: 100%;']) !!}
                             </div>
                         </div>
