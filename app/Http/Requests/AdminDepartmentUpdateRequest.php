@@ -25,6 +25,7 @@ class AdminDepartmentUpdateRequest extends FormRequest
     {
         return [
             'name'=>'required|unique:departments,name,'.$this->id,
+            'description'=>'',
         ];
     }
     public function attributes()

@@ -41,7 +41,7 @@ class AdminUserUpdateRequest extends FormRequest
             'id_number_date' => '',
 
             'avatar' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-            'password' => '',
+            'password'=>'confirmed',
 
             'address' => '',
             'birth_province' => '',

@@ -39,7 +39,7 @@ AdminStudentUpdateRequest extends FormRequest
             'avatar'=>'',
 
             'address'=>'',
-            'password'=>'',
+            'password'=>'confirmed',
 
             'student_code'=>'',
 

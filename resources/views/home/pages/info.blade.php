@@ -30,36 +30,6 @@
 
                         </div>
 
-                        <div class="col-md-12 col-lg-3 mb-3 text-center">
-                            {{--                            <img src="{{$usr->avatar}}" alt="" class="img-thumbnail">--}}
-                        </div>
-                        {{--                        <div class="col-md-12 col-lg-4 mb-3">--}}
-                        {{--                            <p class="m-0 font-weight-bold">Khoa: </p>--}}
-                        {{--                            <h5>{{$usr->showCourse->showFaculty->showDepartment->name}}</h5>--}}
-                        {{--                            <p class="m-0 font-weight-bold">Chuyên ngành:</p>--}}
-                        {{--                            <h5>{{$usr->showCourse->showFaculty->name}}</h5>--}}
-                        {{--                            <p class="m-0 font-weight-bold">Lớp:</p>--}}
-                        {{--                            <h5>{{$usr->showCourse->name}}</h5>--}}
-                        {{--                            <p class="m-0 font-weight-bold">Khóa:</p>--}}
-                        {{--                            <h5>{{$usr->showCourse->year_start}}</h5>--}}
-                        {{--                        </div>--}}
-
-                        {{--                        <div class="col-md-12 col-lg-5 mb-3">--}}
-                        {{--                            <p class="m-0 font-weight-bold">Ngày vào trường:</p>--}}
-                        {{--                            --}}{{--<h5>{{$usr->start_date}}</h5>--}}
-                        {{--                            <h5>{{date('d-m-Y', strtotime($usr->start_date))}}</h5>--}}
-                        {{--                            <p class="m-0 font-weight-bold">Cơ sở:</p>--}}
-                        {{--                            <h5>{{$usr->school_name}}</h5>--}}
-                        {{--                            <p class="m-0 font-weight-bold">Loại hình đào tạo:</p>--}}
-                        {{--                            <h5>{{$usr->education_type}}</h5>--}}
-                        {{--                            <p class="m-0 font-weight-bold">Bậc đào tạo: </p>--}}
-                        {{--                            <h5>{{$usr->education_level}}</h5>--}}
-                        {{--                        </div>--}}
-
-                        {{--                        <div class="col-md-12 col-lg-12 mb-3 text-center">--}}
-                        {{--                            <h3 class="font-weight-bold">Thông tin cá nhân</h3>--}}
-                        {{--                        </div>--}}
-
                         <div class="col-md-12 col-lg-12">
                             @if (count($errors) > 0)
                                 <div class="alert alert-danger span8">
@@ -151,7 +121,7 @@
                                 <label class="font-weight-bold" for="">Nơi cấp CMND:</label>
                                 <select name="id_issue_place" class="custom-select" disabled>
                                     <option selected
-                                            value="{{$usr->id_issue_place}}"> {{$usr->id_issue_place}}</option>
+                                            value="{{$usr->id_issue_place}}"> {{$usr->show_id_issue_place->name}}</option>
                                     <option value="0">Chọn</option>
                                     @foreach ($isu as $ise)
 

@@ -49,7 +49,7 @@
                                                 class="fas fa-info-circle text-white"></i></a>
                                         <a class="btn btn-sm btn-success" href="{{route('admin.students.edit',$val->id)}}"><i
                                                 class="fas fa-pen"></i></a>
-                                        <a class="btn btn-sm btn-danger" href="{{route('admin.students.destroy',$val->id)}}"><i
+                                        <a class="btn btn-sm btn-danger confirmClick" href="{{route('admin.students.destroy',$val->id)}}"><i
                                                 class="fas fa-trash-alt"></i></a>
                                     </div>
                                 </td>
@@ -78,7 +78,7 @@
 @endsection
 @section('js')
     <!-- DataTables -->
-    
+
     <script>
         $(function () {
             $("#example2").DataTable({

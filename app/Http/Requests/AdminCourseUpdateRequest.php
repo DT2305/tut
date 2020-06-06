@@ -26,6 +26,7 @@ class AdminCourseUpdateRequest extends FormRequest
         return [
             'name'=>'required|unique:courses,name,'.$this->id,
             'faculty_id'=>'required',
+            'description'=>'',
         ];
     }
     public function attributes()

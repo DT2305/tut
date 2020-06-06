@@ -38,13 +38,13 @@
                         </div>
                         <div class="col-md-12 col-lg-4 mb-3">
                             <p class="m-0 font-weight-bold">Khoa: </p>
-                            <h5>{{$usr->showCourse->showFaculty->showDepartment->name}}</h5>
+                            <h5>{{$usr->show_course->show_faculty->show_department->name}}</h5>
                             <p class="m-0 font-weight-bold">Chuyên ngành:</p>
-                            <h5>{{$usr->showCourse->showFaculty->name}}</h5>
+                            <h5>{{$usr->show_course->show_faculty->name}}</h5>
                             <p class="m-0 font-weight-bold">Lớp:</p>
-                            <h5>{{$usr->showCourse->name}}</h5>
+                            <h5>{{$usr->show_course->name}}</h5>
                             <p class="m-0 font-weight-bold">Khóa:</p>
-                            <h5>{{$usr->showCourse->year_start}}</h5>
+                            <h5>{{$usr->show_course->year_start}}</h5>
                         </div>
 
                         <div class="col-md-12 col-lg-5 mb-3">
@@ -54,9 +54,9 @@
                             <p class="m-0 font-weight-bold">Cơ sở:</p>
                             <h5>{{$usr->school_name}}</h5>
                             <p class="m-0 font-weight-bold">Loại hình đào tạo:</p>
-                            <h5>{{$usr->education_type}}</h5>
+                            <h5>{{$usr->show_education_type->name}}</h5>
                             <p class="m-0 font-weight-bold">Bậc đào tạo: </p>
-                            <h5>{{$usr->education_level}}</h5>
+                            <h5>{{$usr->show_education_level->name}}</h5>
                         </div>
 
                         <div class="col-md-12 col-lg-12 mb-3 text-center">
@@ -154,7 +154,7 @@
                                 <label class="font-weight-bold" for="">Nơi cấp CMND:</label>
                                 <select name="id_issue_place" class="custom-select" disabled>
                                     <option selected
-                                            value="{{$usr->id_issue_place}}"> {{$usr->id_issue_place}}</option>
+                                            value="{{$usr->id_issue_place}}"> {{$usr->show_id_issue_place->name}}</option>
                                     <option value="0">Chọn</option>
                                     @foreach ($isu as $ise)
 

@@ -26,10 +26,10 @@ class AdminCategoryController extends Controller
     public function store(AdminCategoryStoreRequest $request)
     {
         $cat = Category::create($request->all());
-        return redirect()->route('admin.categories.index');
+        return redirect()->route('admin.categories.index')->with('success', 'Thêm thể loại thành công');
     }
 
-    public function show(Category $category,$id)
+    public function show($id)
     {
         $cat = Category::find($id);
         return view('admin.pages.categories.show',compact('cat'));
@@ -45,13 +45,13 @@ class AdminCategoryController extends Controller
     {
         $cat = Category::findOrFail($id);
         $cat->update($request->all());
-        return redirect()->route('admin.categories.show',$cat);
+        return redirect()->route('admin.categories.show',$cat)->with('success', 'Cập nhật thể loại thành công');
     }
 
     public function destroy($id)
     {
         $cat = Category::find($id);
         $cat->delete();
-        return redirect()->route('admin.categories.index');
+        return redirect()->route('admin.categories.index')->with('danger', 'Xóa thể loại thành công');
     }
 }

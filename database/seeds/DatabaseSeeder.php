@@ -26,6 +26,7 @@ class DatabaseSeeder extends Seeder
         $this->call(EducationTypesTable::class);
         $this->call(AdmissionFormsSeeder::class);
         $this->call(CategoriesTableSeeder::class);
+        $this->call(PostSeeder::class);
 
     }
 }

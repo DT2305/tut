@@ -12,11 +12,11 @@ use Illuminate\Support\Facades\DB;
 $admin = DB::table('admins')->count();
 $user = DB::table('users')->count();
 $student = DB::table('students')->count();
-$new = DB::table('news')->count();
 $category = DB::table('categories')->count();
 $department = DB::table('departments')->count();
 $faculty = DB::table('faculties')->count();
 $course = DB::table('courses')->count();
+$post = DB::table('posts')->count();
 ?>
 
 @include('admin.includes.head')
@@ -39,7 +39,8 @@ $course = DB::table('courses')->count();
     <!-- Main content -->
     <div class="content">
       <div class="container-fluid">
-        @yield('content')
+          @include('admin.includes.alert')
+          @yield('content')
       </div><!-- /.container-fluid -->
     </div>
     <!-- /.content -->

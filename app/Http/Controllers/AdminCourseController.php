@@ -26,7 +26,7 @@ class AdminCourseController extends Controller
     public function store(AdminCourseStoreRequest $request)
     {
         $cor = Course::create($request->validated());
-        return redirect()->route('admin.courses.index');
+        return redirect()->route('admin.courses.index')->with('success', 'Thêm Lớp thành công');
     }
 
     public function show($id)
@@ -46,13 +46,13 @@ class AdminCourseController extends Controller
     {
         $cor = Course::findOrFail($id);
         $cor->update($request->all());
-        return redirect()->route('admin.courses.show',$id);
+        return redirect()->route('admin.courses.show',$id)->with('success', 'Cập nhật Lớp thành công');
     }
 
     public function destroy($id)
     {
         $cor = Course::find($id);
         $cor->delete();
-        return redirect()->route('admin.courses.index');
+        return redirect()->route('admin.courses.index')->with('danger', 'Xóa Lớp thành công');
     }
 }

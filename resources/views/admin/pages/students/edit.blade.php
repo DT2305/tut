@@ -4,22 +4,7 @@
     <b>Sửa thông tin sinh viên: {{$std->name}}</b>
 @endsection
 @section('content')
-
     <div class="row">
-        <div class="col-lg-12">
-            @if(count($errors) > 0)
-                <div class="alert alert-danger alert-dismissible">
-                    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-                    <h5><i class="icon fas fa-ban"></i> Cảnh báo!!!</h5>
-                    <ul>
-                        @foreach($errors->all() as $error)
-                            <li>{{$error}}</li>
-                        @endforeach
-                    </ul>
-                </div>
-            @endif
-        </div>{{--/col-lg-12--}}
-
         <div class="col-lg-12">
             <div class="card card-primary card-outline">
                 <div class="card-header">
@@ -62,9 +47,9 @@
                                 @endif
                             </select>
                         </div>
-                    </div>
 
-                    <div class="row">
+
+
                         <div class="col-md-4">
                             <div class="form-group">
                                 {!! Form::label('identity_number', 'CMND:',['class'=>'required']) !!}
@@ -83,24 +68,6 @@
                                 {!! Form::date('id_number_date', $std->id_number_date,['class'=>'form-control']) !!}
                             </div>
                         </div>
-                    </div>
-
-                    <div class="row">
-                        <div class="col-md-4">
-                            <div class="form-group">
-                                {!! Form::label('nation', 'Dân tộc:') !!}
-                                {!! Form::select('nation',$nations,$std->nation, ['class' => 'form-control select2bs4','style'=>'width: 100%;']) !!}
-                            </div>
-                        </div>
-                        <div class="col-md-4">
-                            <div class="form-group">
-                                {!! Form::label('religion', 'Tôn giáo:') !!}
-                                {!! Form::select('religion',$religions,$std->religion, ['class' => 'form-control select2bs4','style'=>'width: 100%;']) !!}
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="row">
                         {{-- Đổi mật khẩu--}}
                         <div class="col-md-12">
                             <label class="checkbox">
@@ -122,7 +89,21 @@
                             </div>
                         </div>
                         {{-- /Đổi mật khẩu--}}
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                {!! Form::label('nation', 'Dân tộc:') !!}
+                                {!! Form::select('nation',$nations,$std->nation, ['class' => 'form-control select2bs4','style'=>'width: 100%;']) !!}
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                {!! Form::label('religion', 'Tôn giáo:') !!}
+                                {!! Form::select('religion',$religions,$std->religion, ['class' => 'form-control select2bs4','style'=>'width: 100%;']) !!}
+                            </div>
+                        </div>
                     </div>
+
+
 
                     <div class="row">
                         <div class="col-md-12">

@@ -70,36 +70,6 @@ class User extends Authenticatable
 
 
     /**
-     * The attributes that are mass assignable.
-     *
-     * @var array
-     */
-    protected $guarded = [];
-
-//    protected $fillable = [
-//        'name',
-//        'email',
-//        'password',
-//        'identity_number',
-//        'gender',
-//        'phone_number',
-//        'birthday','avatar',
-//        'address',
-//        'major_1',
-//        'major_2',
-//        'major_3',
-//        'subject_combination_1',
-//        'subject_combination_2',
-//        'subject_combination_3',
-//        'point_1',
-//        'point_2',
-//        'point_3',
-//        'point_img',
-//        'priority',
-//        'area',
-//    ];
-
-    /**
      * The attributes that should be hidden for arrays.
      *
      * @var array
@@ -115,6 +85,54 @@ class User extends Authenticatable
      */
     protected $casts = [
         'email_verified_at' => 'datetime',
+    ];
+
+    /**
+     * The attributes that are mass assignable.
+     *
+     * @var array
+     */
+//    protected $guarded = [];
+
+    protected $fillable = [
+        'name',
+        'gender',
+        'birthday',
+        'email',
+        'phone_number',
+        'identity_number',
+        'id_issue_place',
+        'id_number_date',
+        'avatar',
+        'password',
+        'address',
+        'birth_province',
+        'birth_district',
+        'birth_ward',
+        'permanent_address',
+        'permanent_province',
+        'permanent_district',
+        'permanent_ward',
+        'nation',
+        'religion',
+        'admission_form',
+        'subject_combination_1',
+        'subject_combination_2',
+        'subject_combination_3',
+        'major_1',
+        'major_2',
+        'major_3',
+        'point_img',
+        'total_point_1' => 'numeric|min:0|max:30',
+        'total_point_2' => 'numeric|min:0|max:30',
+        'total_point_3' => 'numeric|min:0|max:30',
+        'total_point_HCM' => 'numeric|min:0|max:30',
+        'study_point',
+        'active_point',
+        'description',
+        'status',
+        'priority',
+        'area',
     ];
 
 

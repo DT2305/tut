@@ -15,62 +15,89 @@ use Illuminate\Support\Facades\DB;
 
 class AdminUserController extends Controller
 {
-    public function index(){
+    public function index()
+    {
         $usr = User::all();
-        return view('admin.pages.users.list',compact('usr'));
+        return view('admin.pages.users.list', compact('usr'));
     }
 
-    public function  create(){
+    public function create()
+    {
 //        $isd =Issued_place::get();
-        $isd = Issued_place::pluck('name','id');
-        $fal = Faculty::pluck('name','id');
-        $scm = Subject_combination::pluck('name','id');
+        $isd = Issued_place::pluck('name', 'id');
+        $fal = Faculty::pluck('name', 'id');
+        $scm = Subject_combination::pluck('name', 'id');
 
-        $religions = DB::table('religions')->pluck('name','id');
-        $nations = DB::table('nations')->pluck('name','id');
+        $religions = DB::table('religions')->pluck('name', 'id');
+        $nations = DB::table('nations')->pluck('name', 'id');
 
-        return view('admin.pages.users.create',compact('isd','fal','scm','religions','nations'));
+        return view('admin.pages.users.create', compact('isd', 'fal', 'scm', 'religions', 'nations'));
 
     }
 
-    public function store(AdminUserStoreRequest $request){
+    public function store(AdminUserStoreRequest $request)
+    {
         $usr = User::create($request->validated());
         $usr['password'] = bcrypt($request['password']);
-        $usr -> save();
-        return redirect()->route('admin.users.index');
+        $usr->save();
+        return redirect()->route('admin.users.index')->with('success', 'Thêm Ứng viên thành công');
 
     }
 
     public function show($id)
     {
-        $isd = Issued_place::pluck('name','id');
-        $fal = Faculty::pluck('name','id');
-        $scm = Subject_combination::pluck('name','id');
+        $isd = Issued_place::pluck('name', 'id');
+        $fal = Faculty::pluck('name', 'id');
+        $scm = Subject_combination::pluck('name', 'id');
         $usr = User::find($id);
-        return view('admin.pages.users.show',compact('usr','isd','fal','scm'));
+        return view('admin.pages.users.show', compact('usr', 'isd', 'fal', 'scm'));
     }
 
-    public function edit($id){
-        $isd = Issued_place::pluck('name','id');
-        $fal = Faculty::pluck('name','id');
-        $scm = Subject_combination::pluck('name','id');
-        $religions = DB::table('religions')->pluck('name','id');
-        $nations = DB::table('nations')->pluck('name','id');
+    public function edit($id)
+    {
+        $isd = Issued_place::pluck('name', 'id');
+        $fal = Faculty::pluck('name', 'id');
+        $scm = Subject_combination::pluck('name', 'id');
+        $religions = DB::table('religions')->pluck('name', 'id');
+        $nations = DB::table('nations')->pluck('name', 'id');
         $usr = User::find($id);
 
-        return view('admin.pages.users.edit',compact('usr','isd','fal','scm','id','nations','religions'));
+        return view('admin.pages.users.edit', compact('usr', 'isd', 'fal', 'scm', 'id', 'nations', 'religions'));
     }
-    public function update(AdminUserUpdateRequest $request, $id){
+
+    public function update(AdminUserUpdateRequest $request, $id)
+    {
         $usr = User::find($id);
-        $usr->update($request->validated());
-
-        return redirect()->route('admin.users.show',$id);
-
+        if ($request['password'] != null) {
+            $usr->update($request->except('password'));
+            $usr['password'] = bcrypt($request['password']);
+            $usr->save();
+//            dd($usr);
+        } else {
+            $usr->update($request->except('password'));
+//            dd($usr);
+        }
+        return redirect()->route('admin.students.show', $id)->with('success', 'Cập nhật Ứng viên thành công');
     }
+
     public function destroy($id)
     {
         $usr = User::find($id);
         $usr->delete();
-        return redirect()->route('admin.students.index');
+        return redirect()->route('admin.students.index')->with('danger', 'Xóa Ứng viên thành công');
     }
+    public  function addStudent($id){
+        $isd = Issued_place::pluck('name', 'id');
+        $fal = Faculty::pluck('name', 'id');
+        $scm = Subject_combination::pluck('name', 'id');
+        $religions = DB::table('religions')->pluck('name', 'id');
+        $nations = DB::table('nations')->pluck('name', 'id');
+        $usr = User::find($id);
+
+        return view('admin.pages.users.edit', compact('usr', 'isd', 'fal', 'scm', 'id', 'nations', 'religions'));
+    }
+    public  function userTostudent($id){
+
+    }
+
 }

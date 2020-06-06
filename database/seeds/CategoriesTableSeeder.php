@@ -18,6 +18,11 @@ class CategoriesTableSeeder extends Seeder
                 'target' => '1',
             ],
             [
+                'cate_name' => 'Cơ hội việc làm',
+                'status' => '1',
+                'target' => '1',
+            ],
+            [
                 'cate_name' => 'Tuyển sinh',
                 'status' => '1',
                 'target' => '1',
@@ -33,12 +38,17 @@ class CategoriesTableSeeder extends Seeder
                 'target' => '1',
             ],
             [
-                'cate_name' => 'Tin túc',
+                'cate_name' => 'Tin tức',
                 'status' => '1',
                 'target' => '2',
             ],
             [
                 'cate_name' => 'Cơ hội việc làm',
+                'status' => '1',
+                'target' => '2',
+            ],
+            [
+                'cate_name' => 'Tuyển sinh',
                 'status' => '1',
                 'target' => '2',
             ],
@@ -49,6 +59,11 @@ class CategoriesTableSeeder extends Seeder
             ],
             [
                 'cate_name' => 'Thể thao',
+                'status' => '1',
+                'target' => '2',
+            ],
+            [
+                'cate_name' => 'Sự kiện',
                 'status' => '1',
                 'target' => '2',
             ],

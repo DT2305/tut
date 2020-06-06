@@ -236,20 +236,20 @@
                         <p>
                             Tin tức
                             <i class="right fas fa-angle-left"></i>
-                            <span class="badge badge-warning right">{{$new}}</span>
+                            <span class="badge badge-warning right">{{$post}}</span>
                         </p>
                     </a>
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
-                            <a href="#" class="nav-link ">
+                            <a href="{{route('admin.posts.index')}}" class="nav-link ">
                                 <i class="fas fa-list nav-icon"></i>
-                                <p>Danh sách tin tức</p>
+                                <p>Danh sách bài đăng</p>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="#" class="nav-link">
+                            <a href="{{route('admin.posts.create')}}" class="nav-link">
                                 <i class="far fa-plus-square nav-icon"></i>
-                                <p>Thêm tin tức</p>
+                                <p>Thêm Bài đăng</p>
                             </a>
                         </li>
                     </ul>

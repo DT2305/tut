@@ -66,55 +66,54 @@ class Student extends Authenticatable
      *
      * @var array
      */
-    protected $guarded = [];
-//    protected $fillable = [
-//        'name',
-//        'gender',
-//        'email',
-//        'birthday',
-//
-//        'identity_number',
-//        'id_number_date',
-//        'id_issue_place',
-//
-//        'phone_number',
-//        'avatar',
-//        'address',
-//        'student_code',
-//        'password',
-//
-//        'course_id',
-//
-//        'start_date',
-//        'school_name',
-//        'education_type',
-//        'education_level',
-//
-//        'birth_province',
-//        'birth_district',
-//        'birth_ward',
-//
-//        'permanent_address',
-//        'permanent_province',
-//        'permanent_district',
-//        'permanent_ward',
-//
-//        'nation',
-//        'religion',
-//
-//        'parent_number',
-//
-//        'insurance_number',
-//
-//        'bank_card',
-//        'bank_card',
-//
-//        'position',
-//        'description',
-//        'status',
-//
-//        'remember_token',
-//    ];
+//    protected $guarded = [];
+    protected $fillable = [
+        'name',
+        'gender',
+        'birthday',
+
+        'email',
+        'phone_number',
+
+        'identity_number',
+        'id_number_date',
+        'id_issue_place',
+
+        'avatar',
+
+        'address',
+        'password',
+
+        'student_code',
+
+        'course_id',
+
+        'start_date',
+        'school_name',
+        'education_type',
+        'education_level',
+
+        'birth_province',
+        'birth_district',
+        'birth_ward',
+
+        'permanent_address',
+        'permanent_province',
+        'permanent_district',
+        'permanent_ward',
+
+        'nation',
+        'religion',
+
+        'parent_number',
+
+        'insurance_number',
+        'bank_card',
+        'bank',
+        'position',
+        'description',
+        'status',
+    ];
 
     /**
      * The attributes that should be hidden for arrays.

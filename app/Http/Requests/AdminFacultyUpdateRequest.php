@@ -26,6 +26,7 @@ class AdminFacultyUpdateRequest extends FormRequest
         return [
             'name'=>'required|unique:faculties,name,'.$this->id,
             'department_id'=>'required',
+            'description'=>'',
         ];
     }
     public function attributes()

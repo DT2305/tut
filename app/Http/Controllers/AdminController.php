@@ -23,13 +23,13 @@ class  AdminController extends Controller
         $admin = DB::table('admins')->count();
         $user = DB::table('users')->count();
         $student = DB::table('students')->count();
-        $new = DB::table('news')->count();
+        $post = DB::table('posts')->count();
         $category = DB::table('categories')->count();
         $department = DB::table('departments')->count();
         $faculty = DB::table('faculties')->count();
         $course = DB::table('courses')->count();
 
-        return view('admin.pages.index',compact('admin','user','student','new','category','department','faculty','course'));
+        return view('admin.pages.index',compact('admin','user','student','category','department','faculty','course','post'));
     }
 
     public function getLogout()

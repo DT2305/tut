@@ -12,6 +12,8 @@
 <!-- DataTables -->
 <script src={{asset("dashboard_layout/plugins/datatables/jquery.dataTables.js")}}></script>
 <script src={{asset("dashboard_layout/plugins/datatables-bs4/js/dataTables.bootstrap4.js")}}></script>
+<!-- SweetAlert2 -->
+{{--<script src={{asset("dashboard_layout/plugins/sweetalert2/sweetalert2.min.js")}}></script>--}}
 <script>
     $(function () {
         //Initialize Select2 Elements
@@ -32,5 +34,28 @@
 
 <script>
     $("input[required]").parent("label").addClass("required");
+</script>
+<script>
+
+    $('#luu').click(function(event){
+        event.preventDefault();
+        $.ajax({
+            url: '{{route('home.post.changepass')}}',
+            type: 'post',
+            data: $('.chpass').serialize(),
+        })
+            .done(function(data) {
+                $('#ketqua').html(data);
+            });
+    });
+</script>
+<script>
+    $(function() {
+        $('.confirmClick').click(function(e) {
+            if (!confirm('Bạn chắc chắn không ? ')) {
+                e.preventDefault();
+            }
+        });
+    });
 </script>
 @yield('js')

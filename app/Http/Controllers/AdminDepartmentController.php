@@ -24,7 +24,7 @@ class AdminDepartmentController extends Controller
     public function store(AdminDepartmentStoreRequest $request)
     {
         $dep = Department::create($request->validated());
-        return redirect()->route('admin.departments.index');
+        return redirect()->route('admin.departments.index')->with('success', 'Thêm Khoa thành công');
     }
 
     public function show($id)
@@ -43,13 +43,13 @@ class AdminDepartmentController extends Controller
     {
         $dep = Department::findOrFail($id);
         $dep->update($request->all());
-        return redirect()->route('admin.departments.show',$id);
+        return redirect()->route('admin.departments.show',$id)->with('success', 'Cập nhật Khoa thành công');
     }
 
     public function destroy($id)
     {
         $dep = Department::find($id);
         $dep->delete();
-        return redirect()->route('admin.departments.index');
+        return redirect()->route('admin.departments.index')->with('danger', 'Xóa Khoa thành công');
     }
 }

@@ -133,7 +133,7 @@
                                 <label class="font-weight-bold" for="">Nơi cấp CMND:</label>
                                 <select name="id_issue_place" class="custom-select">
                                     <option selected
-                                            value="{{$usr->id_issue_place}}"> {{$usr->id_issue_place}}</option>
+                                            value="{{$usr->id_issue_place}}"> {{$usr->show_id_issue_place->name}}</option>
                                     <option value="0">Chọn</option>
                                     @foreach ($isu as $ise)
 

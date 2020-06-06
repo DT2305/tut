@@ -77,6 +77,7 @@ class CreateUsersTable extends Migration
 
             $table->string('description')->nullable();
             $table->string('status')->nullable();
+            $table->string('is_student')->nullable();
 
 //            $table->timestamp('email_verified_at')->nullable();
             $table->rememberToken();

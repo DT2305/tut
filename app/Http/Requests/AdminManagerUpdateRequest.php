@@ -25,10 +25,10 @@ class AdminManagerUpdateRequest extends FormRequest
     {
         return [
             'username'=>'required',
-            'password'=>'',
+            'password'=>'confirmed',
             'email'=>'',
             'level'=>'required',
-            'phone_number'=>'',
+            'phone_number'=>'required',
             'avatar'=>'',
             'full_name'=>'',
             'position'=>'',

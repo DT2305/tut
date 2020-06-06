@@ -154,7 +154,7 @@
                 <!-- Menu Footer-->
                 <li class="user-footer">
 {{--                    <a href="#" class="btn btn-default btn-flat">Thông tin</a>--}}
-                    <a href="#" class="btn btn-default btn-flat" data-toggle="moda  l" data-target="#myModal">Đổi mật khẩu</a>
+                    <a href="#" class="btn btn-default btn-flat" data-toggle="modal" data-target="#myModal">Đổi mật khẩu</a>
                     <a href="{{route('admin.get.logout')}}" class="btn btn-default btn-flat float-right">Đăng xuất</a>
                 </li>
             </ul>

@@ -26,6 +26,7 @@ class AdminCourseStoreRequest extends FormRequest
         return [
             'name'=>'required|unique:courses,name',
             'faculty_id'=>'required',
+            'description'=>'',
         ];
     }
     public function attributes()

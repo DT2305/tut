@@ -25,6 +25,7 @@ class AdminDepartmentStoreRequest extends FormRequest
     {
         return [
             'name'=>'required|unique:departments,name',
+            'description'=>'',
         ];
     }
     public function attributes()

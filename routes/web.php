@@ -110,14 +110,14 @@ Route::group(['prefix' => 'admin'], function(){
             Route::post('/{id}/update', 'AdminCategoryController@update')->name('admin.categories.update');
             Route::get('/destroy/{id}','AdminCategoryController@destroy')->name('admin.categories.destroy');
         });/*group - prefix 'categories'*/
-        Route::group(['prefix'=>'news'],function (){
-            Route::get('/index', 'AdminNewController@index')->name('admin.news.index');
-            Route::get('/create', 'AdminNewController@create')->name('admin.news.create');
-            Route::post('/store', 'AdminNewController@store')->name('admin.news.store');
-            Route::get('/{id}/show', 'AdminNewController@show')->name('admin.news.show');
-            Route::get('/{id}/edit', 'AdminNewController@edit')->name('admin.news.edit');
-            Route::post('/{id}/update', 'AdminNewController@update')->name('admin.news.update');
-            Route::get('/destroy/{id}','AdminNewController@destroy')->name('admin.news.destroy');
+        Route::group(['prefix'=>'posts'],function (){
+            Route::get('/index', 'AdminPostController@index')->name('admin.posts.index');
+            Route::get('/create', 'AdminPostController@create')->name('admin.posts.create');
+            Route::post('/store', 'AdminPostController@store')->name('admin.posts.store');
+            Route::get('/{id}/show', 'AdminPostController@show')->name('admin.posts.show');
+            Route::get('/{id}/edit', 'AdminPostController@edit')->name('admin.posts.edit');
+            Route::post('/{id}/update', 'AdminPostController@update')->name('admin.posts.update');
+            Route::get('/destroy/{id}','AdminPostController@destroy')->name('admin.posts.destroy');
         });/*group - prefix 'news'*/
     });/*group - middleware 'admin'*/
 });/*group - prefix 'admin'*/

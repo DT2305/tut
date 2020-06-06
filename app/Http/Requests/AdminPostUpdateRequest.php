@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class AdminManagerStoreRequest extends FormRequest
+class AdminPostUpdateRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,16 +24,17 @@ class AdminManagerStoreRequest extends FormRequest
     public function rules()
     {
         return [
-            'username'=>'required',
-            'password'=>'required|confirmed',
-            'email'=>'',
-            'level'=>'required',
-            'phone_number'=>'required',
+            'title'=>'required',
+            'changedtitle'=>'',
+            'description'=>'max:255',
+            'content'=>'required',
+            'author'=>'required',
+            'author2'=>'',
             'avatar'=>'',
-            'full_name'=>'',
-            'position'=>'',
-            'description'=>'',
-            'status'=>'',
+            'category'=>'required',
+            'status'=>'required',
+            'target'=>'required',
+            'view'=>'',
         ];
     }
 }

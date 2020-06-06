@@ -64,7 +64,7 @@
                                                 <i class="fas fa-info text-warning mr-2"></i>Xem chi tiết</a>
                                             <a class="dropdown-item" href="{{route('admin.users.edit',$val->id)}}">
                                                 <i class="fas fa-pen text-success mr-2"></i>Sửa</a>
-                                            <a class="dropdown-item" href="{{route('admin.users.destroy',$val->id)}}">
+                                            <a class="dropdown-item confirmClick" href="{{route('admin.users.destroy',$val->id)}}">
                                                 <i class="fas fa-trash-alt text-danger mr-2"></i>Xóa</a>
                                             <div class="dropdown-divider"></div>
                                             <a class="dropdown-item" href="#">

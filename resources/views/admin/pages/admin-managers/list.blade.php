@@ -44,7 +44,7 @@
                                 <td>
                                     <a class="btn btn-warning" href="{{route('admin.managers.show',$val->id)}}"><i class="fas fa-info-circle text-white"></i></a>
                                     <a class="btn btn-success" href="{{route('admin.managers.edit',$val->id)}}"><i class="fas fa-pen"></i></a>
-                                    <a class="btn btn-danger" href="{{route('admin.managers.destroy',$val->id)}}"><i class="fas fa-trash-alt"></i></a>
+                                    <a class="btn btn-danger confirmClick" href="{{route('admin.managers.destroy',$val->id)}}"><i class="fas fa-trash-alt"></i></a>
 
 
                                 </td>
@@ -75,27 +75,23 @@
     <script src={{asset("dashboard_layout/plugins/datatables-bs4/js/dataTables.bootstrap4.js")}}></script>
     <script>
         $(function () {
-            $("#example1").DataTable();
-            $('#example2').DataTable({
-                "paging": true,
-                "lengthChange": true,
-                "searching": true,
-                "ordering": true,
-                "info": true,
-                "autoWidth": true,
-
-                // "columns": [
-                //     null,
-                //     null,
-                //     null,
-                //     null,
-                //     { "width": "15%" }
-                // ]
-
-                // "columnDefs": [
-                //     { "width": "20%", "targets": 0 }
-                // ]
+            $("#example2").DataTable({
+                "language": {
+                    "lengthMenu": "Hiển thị _MENU_ hàng mỗi trang",
+                    "zeroRecords": "Không có kết quả nào - sorry :(",
+                    "info": "Đang hiển thị trang _PAGE_ trong _PAGES_ trang ",
+                    "infoEmpty": "Không có kết quả nào",
+                    "infoFiltered": "(Lọc từ _MAX_ kết quả tổng cộng)",
+                    "paginate": {
+                        "previous": "<",
+                        "next": ">"
+                    },
+                    "search": "Tìm kiếm",
+                }
             });
+
         });
+
     </script>
+
 @endsection

@@ -9,8 +9,8 @@
         <div class="col-lg-12">
             <div class="card card-primary card-outline">
                 <div class="card-header">
-                    <a class="btn btn-secondary float-right text-white" onClick="window.location.reload()">Tải lại</a>
-                    <a class="btn btn-primary" href="{{route('admin.news.create')}}">Thêm tin tức</a>
+                    <a class="btn btn-success" href="{{route('admin.posts.create')}}">Thêm tin tức</a>
+                    <a class="btn btn-secondary text-white" onClick="window.location.reload()">Tải lại</a>
                 </div>
             </div>
         </div>
@@ -33,20 +33,34 @@
                             <th>Thể loại</th>
                             <th>Đối tượng</th>
                             <th>Ảnh bài đăng</th>
+                            <th>Trạng thái</th>
                             <th>Hành động</th>
                         </tr>
                         </thead>
                         <tbody>
-                        @foreach($new as $key=> $val)
+                        @foreach($pos as $key=> $val)
 
                             <tr>
                                 <td width="3%">{{$key}}</td>
                                 <td>{{$val->title}}</td>
                                 <td>{{$val->description}}</td>
                                 <td>{{$val->author}}</td>
-                                <td>{{$val->category}}</td>
-                                <td>{{$val->target}}</td>
+                                <td>{{$val->show_category->cate_name}}</td>
+                                <td>
+                                    @if($val->target==1)
+                                        <p class="text-red">Ứng viên</p>
+                                    @else
+                                        <p class="text-blue">Sinh viên</p>
+                                    @endif
+                                </td>
                                 <td><img src="{{asset($val->avatar)}}" width="50px" height="50px"></td>
+                                <td>
+                                    @if($val->status==1)
+                                        <p class="text-black">Kích hoạt</p>
+                                    @else
+                                        <p class="text-gray">Ẩn</p>
+                                    @endif
+                                </td>
                                 <td width="10%">
                                     <div class="dropdown dropleft float-right">
                                         <button type="button" class="btn btn-primary btn-sm dropdown-toggle"
@@ -54,15 +68,13 @@
                                             Hành động
                                         </button>
                                         <div class="dropdown-menu">
-                                            <a class="dropdown-item" href="#">
+                                            <a class="dropdown-item" href="{{route('admin.posts.show',$val->id)}}">
                                                 <i class="fas fa-info text-warning mr-2"></i>Xem chi tiết</a>
-                                            <a class="dropdown-item" href="#">
+                                            <a class="dropdown-item" href="{{route('admin.posts.edit',$val->id)}}">
                                                 <i class="fas fa-pen text-success mr-2"></i>Sửa</a>
-                                            <a class="dropdown-item" href="#">
+                                            <a class="dropdown-item confirmClick"
+                                               href="{{route('admin.posts.destroy',$val->id)}}">
                                                 <i class="fas fa-trash-alt text-danger mr-2"></i>Xóa</a>
-                                            <div class="dropdown-divider"></div>
-                                            <a class="dropdown-item" href="#">
-                                                <i class="fas fa-plus text-primary mr-2"></i>Thêm sinh viên</a>
                                         </div>
                                     </div>
                                 </td>
@@ -78,6 +90,7 @@
                             <th>Thể loại</th>
                             <th>Đối tượng</th>
                             <th>Ảnh bài đăng</th>
+                            <th>Trạng thái</th>
                             <th>Hành động</th>
                         </tr>
                         </tfoot>

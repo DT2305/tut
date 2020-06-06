@@ -26,7 +26,7 @@ class AdminFacultyController extends Controller
     public function store(AdminFacultyStoreRequest $request)
     {
         $fal = Faculty::create($request->validated());
-        return redirect()->route('admin.faculties.index');
+        return redirect()->route('admin.faculties.index')->with('success', 'Thêm ngành thành công');
     }
 
     public function show($id)
@@ -46,13 +46,13 @@ class AdminFacultyController extends Controller
     {
         $fal = Faculty::findOrFail($id);
         $fal->update($request->all());
-        return redirect()->route('admin.faculties.show',$id);
+        return redirect()->route('admin.faculties.show',$id)->with('success', 'Cập nhật Khoa thành công');
     }
 
     public function destroy($id)
     {
         $fal = Faculty::find($id);
         $fal->delete();
-        return redirect()->route('admin.faculties.index');
+        return redirect()->route('admin.faculties.index')->with('danger', 'Xóa Khoa thành công');
     }
 }

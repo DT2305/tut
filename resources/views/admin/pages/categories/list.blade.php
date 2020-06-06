@@ -14,7 +14,6 @@
                 </div>
             </div>
         </div>
-
         <div class="col-12">
             <div class="card">
                 <div class="card-header">
@@ -29,6 +28,7 @@
                             <th>STT</th>
                             <th>Tên thể loại</th>
                             <th>Đối tượng</th>
+                            <th>Trạng thái</th>
                             <th>Hành động</th>
                         </tr>
                         </thead>
@@ -45,6 +45,13 @@
                                         <p class="text-blue">Sinh viên</p>
                                     @endif
                                 </td>
+                                <td>
+                                    @if($val->status==1)
+                                        <p class="text-black">Kích hoạt</p>
+                                    @else
+                                        <p class="text-gray">Ẩn</p>
+                                    @endif
+                                </td>
                                 <td width="15%">
                                     <div class="dropdown dropleft float-right">
                                         <button type="button" class="btn btn-primary btn-sm dropdown-toggle"
@@ -56,7 +63,8 @@
                                                 <i class="fas fa-info text-warning mr-2"></i>Xem chi tiết</a>
                                             <a class="dropdown-item" href="{{route('admin.categories.edit',$val->id)}}">
                                                 <i class="fas fa-pen text-success mr-2"></i>Sửa</a>
-                                            <a class="dropdown-item" href="{{route('admin.categories.destroy',$val->id)}}">
+                                            <a class="dropdown-item confirmClick"
+                                               href="{{route('admin.categories.destroy',$val->id)}}">
                                                 <i class="fas fa-trash-alt text-danger mr-2"></i>Xóa</a>
                                         </div>
                                     </div>
@@ -69,6 +77,7 @@
                             <th>STT</th>
                             <th>Tên thể loại</th>
                             <th>Đối tượng</th>
+                            <th>Trạng thái</th>
                             <th>Hành động</th>
                         </tr>
                         </tfoot>
@@ -99,7 +108,7 @@
                         "previous": "<",
                         "next": ">"
                     },
-                    "search":"Tìm kiếm",
+                    "search": "Tìm kiếm",
                 }
             });
 

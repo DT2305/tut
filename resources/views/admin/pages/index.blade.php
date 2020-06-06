@@ -152,14 +152,14 @@
             <!-- small box -->
             <div class="small-box bg-gradient-dark">
                 <div class="inner">
-                    <h3>{{$new}}</h3>
+                    <h3>{{$post}}</h3>
 
-                    <p>Tin tức</p>
+                    <p>Bài đăng</p>
                 </div>
                 <div class="icon">
                     <i class="fas fa-newspaper"></i>
                 </div>
-                <a href="" class="small-box-footer">Xem chi tiết <i
+                <a href="{{route('admin.posts.index')}}" class="small-box-footer">Xem chi tiết <i
                         class="far fa-eye"></i></a>
             </div>
         </div>
@@ -176,7 +176,7 @@
                 <div class="icon">
                     <i class="fas fa-th-large"></i>
                 </div>
-                <a href="" class="small-box-footer">Xem chi tiết <i
+                <a href="{{route('admin.categories.index')}}" class="small-box-footer">Xem chi tiết <i
                         class="far fa-eye"></i></a>
             </div>
         </div>
