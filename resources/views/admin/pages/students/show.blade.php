@@ -104,10 +104,16 @@
                                 {!! Form::text('religion',$std->show_course->name,['class'=>'form-control','readonly']) !!}
                             </div>
                         </div>
-                        <div class="col-md-12">
+                        <div class="col-md-6">
                             <div class="form-group">
                                 {!! Form::label('student_code', 'Mã số sinh viên:') !!}
                                 {!! Form::text('religion',$std->student_code,['class'=>'form-control','readonly']) !!}
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                {!! Form::label('start_date', 'Ngày vào trường:',['class'=>'required']) !!}
+                                {!! Form::date('start_date',$std->start_date,['class'=>'form-control','required','readonly']) !!}
                             </div>
                         </div>
                     </div>

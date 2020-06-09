@@ -133,6 +133,7 @@ class User extends Authenticatable
         'status',
         'priority',
         'area',
+        'is_student',
     ];
 
 

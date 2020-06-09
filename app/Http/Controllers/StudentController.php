@@ -1,7 +1,9 @@
 <?php
 
 namespace App\Http\Controllers;
+use App\Category;
 use App\Http\Requests\StudentUpdateRequest;
+use App\Post;
 use Illuminate\Http\Request;
 use Auth;
 use Hash;
@@ -18,17 +20,43 @@ class StudentController extends Controller
 
     public function getIndex(){
         /*TODO: thêm giao diện hiện thị tin tức cho sinh viên*/
-//        return view('student.index');
+//        $pos = Post::orderBy('id', 'desc')->paginate(6);
+        $pos = Post::where('status','1')
+            ->where('target','0')
+            ->orderBy('id', 'desc')
+            ->paginate(6);
         if (Auth::guard('student')->check()){
-            return view('student.pages.index');
+            return view('student.pages.posts.index',compact('pos'));
         }
         return view('student.others.login');
+    }
+
+    public function getCategory($cate){
+//        $new = DB::table('news')->where('category','=',$cate)->get();
+        $cat = Category::findOrFail($cate)->cate_name;
+        $pos = Post::where('category_id',$cate)
+            ->where('target','0')
+            ->where('status','1')
+            ->paginate(6);
+        return view('student.pages.posts.posts-cate',compact('pos','cat','cate'));
+    }
+
+    public function getContent($tit){
+        $pos = Post::where('changedtitle','=',$tit)->get();
+
+        foreach($pos as $val){
+            $id = $val->id;
+            $n = Post::find($id);
+            $n['view'] += 1;
+            $n->save();
+        }
+        return view('student.pages.posts.single-post',compact('pos'));
     }
 
     public function  getLogin(){
         if (Auth::guard('student')->check()){
 //            return back();
-            return view('student.pages.index');
+            return view('student.pages.posts.index');
         }
         return view('student.others.login');
     }

@@ -5,7 +5,7 @@
     <!-- summernote -->
     <link rel="stylesheet" href={{asset("dashboard_layout/plugins/summernote/summernote-bs4.css")}}>
     <style>
-        .note-editor.note-frame .note-editing-area .note-editable{
+        .note-editor.note-frame .note-editing-area .note-editable {
             height: 800px;
         }
     </style>
@@ -18,7 +18,7 @@
         <div class="card card-primary card-outline">
             <div class="card-body">
                 <h5 class="card-title"></h5>
-                {!! Form::open(['method'=>'POST','route'=>'admin.posts.store']) !!}
+                {!! Form::open(['method'=>'POST','route'=>'admin.posts.store','files' => true]) !!}
                 {!! Form::submit('Thêm',['class'=>'btn btn-success']) !!}
                 <a class="btn btn-secondary text-white" onClick="window.location.reload();">Tải lại</a>
                 <a href="{{route('admin.posts.index')}}" class="btn btn-primary">Danh sách tin tức</a>
@@ -40,12 +40,29 @@
                             {!! Form::textarea('title',null,['class'=>'form-control','required','rows'=>3]) !!}
                         </div>
                     </div>
+{{--                    --}}{{-- Up load ảnh tiêu đề--}}
 {{--                    <div class="col-md-12">--}}
 {{--                        <div class="form-group">--}}
-{{--                            {!! Form::label('changedtitle', 'Tiêu đề 2:',['class'=>'required']) !!}--}}
-{{--                            {!! Form::text('changedtitle',null,['class'=>'form-control','required']) !!}--}}
+{{--                            {!! Form::label('avatar', 'Tiêu đề:',['class'=>'required']) !!}--}}
+{{--                            <div class="input-group">--}}
+{{--                                <div class="custom-file">--}}
+{{--                                    <input type="file" class="custom-file-input" name="avatar"--}}
+{{--                                           onchange="document.getElementById('blah').src = window.URL.createObjectURL(this.files[0])">--}}
+{{--                                    <label class="custom-file-label" for="exampleInputFile">Chọn ảnh</label>--}}
+{{--                                </div>--}}
+{{--                                <div class="input-group-append">--}}
+{{--                                    <span class="input-group-text" id="">Tìm kiếm</span>--}}
+{{--                                </div>--}}
+{{--                            </div>--}}
 {{--                        </div>--}}
 {{--                    </div>--}}
+{{--                    xem trước ảnh--}}
+{{--                    <div class="col-md-6">--}}
+{{--                        <img id="blah" alt="your image" width="100%"  />--}}
+
+{{--                    </div>--}}
+
+{{--                    --}}{{-- /Up load ảnh tiêu đề--}}
                     <div class="col-md-12">
                         <div class="form-group">
                             {!! Form::label('description', 'Mô tả tóm tắt:') !!}
@@ -60,8 +77,8 @@
                     </div>
                     <div class="col-md-4">
                         <div class="form-group">
-                            {!! Form::label('category', 'Thể loại',['class'=>'required']) !!}
-                            {!! Form::select('category',$cat,null, ['class' => 'form-control select2bs4' ,'style'=>'width: 100%;','required','placeholder'=>'Chọn thể loại']) !!}
+                            {!! Form::label('category_id', 'Thể loại',['class'=>'required']) !!}
+                            {!! Form::select('category_id',$cat,null, ['class' => 'form-control select2bs4' ,'style'=>'width: 100%;','required','placeholder'=>'Chọn thể loại']) !!}
                         </div>
                     </div>
                     <div class="col-md-4">

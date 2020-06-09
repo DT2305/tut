@@ -84,7 +84,6 @@
                                 {!! Form::select('religion',$religions,null, ['class' => 'form-control select2bs4','style'=>'width: 100%;']) !!}
                             </div>
                         </div>
-                        <div class="col-md-4"></div>
                     </div>
 
                     <div class="row">
@@ -102,19 +101,19 @@
                         </div>
                     </div>
                     <div class="row">
-                        <div class="col-md-4">
+                        <div class="col-md-12">
                             <div class="form-group">
                                 {!! Form::label('education_type', 'Loại hình đào tạo:',['class'=>'required']) !!}
                                 {!! Form::select('education_type',$edu_type,null, ['class' => 'form-control select2bs4','style'=>'width: 100%;','required','placeholder'=>'Chọn loại đào tạo']) !!}
                             </div>
                         </div>
-                        <div class="col-md-4">
+                        <div class="col-md-12">
                             <div class="form-group">
                                 {!! Form::label('education_level', 'Bậc đào tạo:',['class'=>'required']) !!}
                                 {!! Form::select('education_level',$edu_level,null, ['class' => 'form-control select2bs4','style'=>'width: 100%;','required','placeholder'=>'Chọn bậc đào tạo']) !!}
                             </div>
                         </div>
-                        <div class="col-md-4">
+                        <div class="col-md-12">
                             <div class="form-group">
                                 {!! Form::label('course_id', 'Lớp:',['class'=>'required']) !!}
                                 {!! Form::select('course_id',$cor,null, ['class' => 'form-control select2bs4','style'=>'width: 100%;','required','placeholder'=>'Chọn lớp']) !!}
@@ -123,7 +122,7 @@
                     </div>
 
                     <div class="row">
-                        <div class="col-md-4">
+                        <div class="col-md-6">
                             <div class="form-group">
                                 {!! Form::label('student_code', 'Mã số sinh viên:',['class'=>'required']) !!}
                                 {!! Form::text('student_code',$maxStuCode+1,['class'=>'form-control','required','readonly']) !!}
@@ -131,7 +130,7 @@
                             </div>
                         </div>
 
-                        <div class="col-md-4">
+                        <div class="col-md-6">
                             <div class="form-group">
                                 {!! Form::label('start_date', 'Ngày vào trường:',['class'=>'required']) !!}
                                 {!! Form::date('start_date', \Carbon\Carbon::now(),['class'=>'form-control','required']) !!}

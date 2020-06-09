@@ -40,12 +40,26 @@
                             {!! Form::textarea('title',$pos->title,['class'=>'form-control','required','rows'=>3]) !!}
                         </div>
                     </div>
+{{--                    --}}{{-- Up load ảnh tiêu đề--}}
 {{--                    <div class="col-md-12">--}}
 {{--                        <div class="form-group">--}}
-{{--                            {!! Form::label('changedtitle', 'Tiêu đề 2:',['class'=>'required']) !!}--}}
-{{--                            {!! Form::text('changedtitle',$pos->changedtitle,['class'=>'form-control','required','disabled']) !!}--}}
+{{--                            {!! Form::label('avatar', ' Ảnh tiêu đề:',['class'=>'required']) !!}--}}
+{{--                            <div class="input-group">--}}
+{{--                                <div class="custom-file">--}}
+{{--                                    <input type="file" class="custom-file-input" name="avatar"--}}
+{{--                                           onchange="document.getElementById('blah').src = window.URL.createObjectURL(this.files[0])" src="post_avatar/{{$pos->avatar}}">--}}
+{{--                                    <label class="custom-file-label" for="exampleInputFile">{{$pos->avatar}}</label>--}}
+{{--                                </div>--}}
+{{--                            </div>--}}
 {{--                        </div>--}}
 {{--                    </div>--}}
+{{--                    --}}{{--                    xem trước ảnh--}}
+{{--                    <div class="col-md-6">--}}
+{{--                        <img id="blah" alt="your image" width="100%" src="post_avatar/{{$pos->avatar}}" />--}}
+
+{{--                    </div>--}}
+
+{{--                    --}}{{-- /Up load ảnh tiêu đề--}}
                     <div class="col-md-12">
                         <div class="form-group">
                             {!! Form::label('description', 'Mô tả tóm tắt:') !!}
@@ -60,8 +74,8 @@
                     </div>
                     <div class="col-md-4">
                         <div class="form-group">
-                            {!! Form::label('category', 'Thể loại',['class'=>'required']) !!}
-                            {!! Form::select('category',$cat,$pos->category, ['class' => 'form-control select2bs4' ,'style'=>'width: 100%;','required','placeholder'=>'Chọn thể loại']) !!}
+                            {!! Form::label('category_id', 'Thể loại',['class'=>'required']) !!}
+                            {!! Form::select('category_id',$cat,$pos->category_id, ['class' => 'form-control select2bs4' ,'style'=>'width: 100%;','required','placeholder'=>'Chọn thể loại']) !!}
                         </div>
                     </div>
                     <div class="col-md-4">

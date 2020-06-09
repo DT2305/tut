@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Category;
 use App\Http\Requests\HomeUserUpdateRequest;
+use App\Post;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Auth;
@@ -39,17 +41,44 @@ class HomeController extends Controller
 
     public function getIndex(){
         /*TODO: thêm giao diện hiện thị tin tức cho ứng viên*/
-//        return view('home.pages.index');
+//        $pos = Post::orderBy('id', 'desc')->paginate(6);
+        $pos = Post::where('status','1')
+            ->where('target','1')
+            ->orderBy('id', 'desc')
+            ->paginate(6);
         if (Auth::check()){
-            return view('home.pages.index');
+            return view('home.pages.posts.index',compact('pos'));
         }
         return view('home.others.login');
+    }
+
+//    Lấy tin tức theo Thể loại
+    public function getCategory($cate){
+//        $new = DB::table('news')->where('category','=',$cate)->get();
+        $cat = Category::findOrFail($cate)->cate_name;
+        $pos = Post::where('category_id',$cate)
+            ->where('target','1')
+            ->where('status','1')
+            ->paginate(6);
+        return view('home.pages.posts.posts-cate',compact('pos','cat','cate'));
+    }
+
+    public function getContent($tit){
+        $pos = Post::where('changedtitle','=',$tit)->get();
+
+        foreach($pos as $val){
+            $id = $val->id;
+            $n = Post::find($id);
+            $n['view'] += 1;
+            $n->save();
+        }
+        return view('home.pages.posts.single-post',compact('pos'));
     }
 
     public function  getLogin(){
         if (Auth::check()){
 //            return back();
-            return view('home.pages.index');
+            return view('home.pages.posts.index');
         }
         return view('home.others.login');
     }
@@ -63,7 +92,7 @@ class HomeController extends Controller
         $password = $rq->password;
 
         if(Auth::attempt(['phone_number' => $phone_number , 'password' => $password])){
-            return redirect()->route('home.get.welcome');
+            return redirect()->route('home.get.index');
         }
         else{
             return back()->with('error','Đăng nhập không thành công!!!');

@@ -12,7 +12,7 @@
     <p class="text-center mb-3 "></p>
     <p class="bcrumb text-center"><a href="">Trang chủ</a>
         <span class="sep ion-android-arrow-dropright px-2"></span>
-        <span class="current"> <a href="{{route('home.get.edit')}}">Cập nhất thông tin</a></span>
+        <span class="current"> <a>Cập nhất thông tin</a></span>
     </p>
 
 @endsection
@@ -246,7 +246,6 @@
                             </div>
                         </div>
 
-
                         <div class="col-md-12 col-lg-12 mb-3 text-center">
                             <h3 class="font-weight-bold" >Thông tin ứng tuyển</h3>
                         </div>
@@ -259,10 +258,7 @@
                         </div>
 
                         <div class="col-md-12 col-lg-12 mb-3">
-                            {{--                           @foreach ($rel as $rell)--}}
-                            {{--                           <li> {{$rell->name}};</li>--}}
 
-                            {{--                            @endforeach--}}
                         </div>
 
 
@@ -271,7 +267,7 @@
 
                 <!-- END content -->
                 <div class="col-md-5 col-lg-3 order-md-1">
-                    @include('student.includes.sidebar')
+                    @include('home.includes.sidebar')
                 </div>
                 <!-- END Sidebar -->
             </div>

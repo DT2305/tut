@@ -9,6 +9,7 @@ use App\Post;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
+
 //use Psy\Util\Str;
 use Illuminate\Support\Str;
 
@@ -17,7 +18,7 @@ class AdminPostController extends Controller
 
     public function index()
     {
-        $pos = Post::all();
+        $pos = Post::orderBy('id', 'desc')->get();
         return view('admin.pages.posts.list', compact('pos'));
     }
 
@@ -33,10 +34,16 @@ class AdminPostController extends Controller
     public function store(AdminPostStoreRequest $request)
     {
         $pos = Post::create($request->all());
-        $pos['changedtitle'] = Str::slug($request['title'] . rand(10, 10000000), '-');
+        $pos['changedtitle'] = Str::slug($request['title'] . '-'.rand(10, 10000000), '-');
         $pos['origional_author'] = $request['author'];
-        $pos->save();
 
+//        $image = $request->file('avatar');
+//        $new_name = $image->getClientOriginalName() . '.' . $image->getClientOriginalExtension();
+//        $image->move(public_path('post_avatar'), $new_name);
+//        $pos['avatar'] = $new_name;
+
+        $pos->save();
+//        dd($pos);
         return redirect()->route('admin.posts.index')->with('success', ' Thêm tin tức thành công');
     }
 
@@ -69,10 +76,6 @@ class AdminPostController extends Controller
 //            dd($pos);
             return redirect()->route('admin.posts.show', $pos)->with('success', 'Cập nhật tin tức thành công');
         }
-
-
-
-
     }
 
     public function destroy($id)

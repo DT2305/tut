@@ -12,7 +12,7 @@
     <p class="text-center mb-3 "></p>
     <p class="bcrumb text-center"><a href="">Trang chủ</a>
         <span class="sep ion-android-arrow-dropright px-2"></span>
-        <span class="current"> <a href="{{route('home.get.info')}}">Thông tin ứng viên</a></span>
+        <span class="current"> <a>Thông tin ứng viên</a></span>
     </p>
 
 @endsection
@@ -263,7 +263,7 @@
 
                 <!-- END content -->
                 <div class="col-md-5 col-lg-3 order-md-1">
-                    @include('student.includes.sidebar')
+                    @include('home.includes.sidebar')
                 </div>
                 <!-- END Sidebar -->
             </div>

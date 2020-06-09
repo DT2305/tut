@@ -10,4 +10,7 @@ class Course extends Model
     public function show_faculty(){
         return $this->belongsTo('App\Faculty','faculty_id','id')->withDefault(['name'   =>  '[Ngành đã bị xóa]']);
     }
+    public function show_Student(){
+        return $this->hasMany('App\Student');
+    }
 }

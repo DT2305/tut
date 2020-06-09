@@ -26,7 +26,7 @@
 
                         <thead>
                         <tr>
-                            <th>STT</th>
+{{--                            <th>STT</th>--}}
                             <th>Tiêu đề</th>
                             <th>Mô tả</th>
                             <th>Tác giả</th>
@@ -41,7 +41,7 @@
                         @foreach($pos as $key=> $val)
 
                             <tr>
-                                <td width="3%">{{$key}}</td>
+{{--                                <td width="3%">{{$key}}</td>--}}
                                 <td>{{$val->title}}</td>
                                 <td>{{$val->description}}</td>
                                 <td>{{$val->author}}</td>
@@ -83,7 +83,7 @@
                         </tbody>
                         <tfoot>
                         <tr>
-                            <th>STT</th>
+{{--                            <th>STT</th>--}}
                             <th>Tiêu đề</th>
                             <th>Mô tả</th>
                             <th>Tác giả</th>

@@ -12,7 +12,7 @@
     <p class="text-center mb-3 "></p>
     <p class="bcrumb text-center"><a href="{{route('home.get.index')}}">Trang chủ</a>
         <span class="sep ion-android-arrow-dropright px-2"></span>
-        <span class="current"><a href="{{route('home.get.welcome')}}">Giới thiệu</a></span>
+        <span class="current"><a>Giới thiệu</a></span>
     </p>
 
 @endsection

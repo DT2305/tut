@@ -22,7 +22,7 @@ class CreatePostsTable extends Migration
             $table->string('author')->nullable();
             $table->string('origional_author')->default(1);
             $table->string('avatar')->nullable();
-            $table->text('category');
+            $table->text('category_id');
             $table->integer('status');
             $table->integer('target');
             $table->integer('view')->nullable()->default(0);

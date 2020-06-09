@@ -18,19 +18,17 @@ class AdminStudentController extends Controller
 {
     public function index()
     {
-        $std = cache()->remember('remember_student', 60 * 60 * 24, function () {
-            return Student::all();
-        });
+        $std =Student::all('id','name','student_code','course_id')->sortByDesc('id');
 
         return view('admin.pages.students.list', compact('std'));
     }
 
     public function create()
     {
-        $isd = Issued_place::pluck('name', 'id');
-        $fal = Faculty::pluck('name', 'id');
-        $dep = Department::pluck('name', 'id');
-        $cor = Course::pluck('name', 'id');
+        $isd = Issued_place::pluck('name');
+        $fal = Faculty::pluck('name');
+        $dep = Department::pluck('name');
+        $cor = Course::pluck('name');
 
         $religions = DB::table('religions')->pluck('name', 'id');
         $nations = DB::table('nations')->pluck('name', 'id');

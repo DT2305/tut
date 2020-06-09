@@ -66,8 +66,8 @@
                     </div>
                     <div class="col-md-4">
                         <div class="form-group">
-                            {!! Form::label('category', 'Thể loại',['class'=>'required']) !!}
-                            {!! Form::select('category',$cat,$pos->category, ['class' => 'form-control select2bs4' ,'style'=>'width: 100%;','required','disabled','placeholder'=>'Chọn thể loại']) !!}
+                            {!! Form::label('category_id', 'Thể loại',['class'=>'required']) !!}
+                            {!! Form::select('category_id',$cat,$pos->category_id, ['class' => 'form-control select2bs4' ,'style'=>'width: 100%;','required','disabled','placeholder'=>'Chọn thể loại']) !!}
                         </div>
                     </div>
                     <div class="col-md-4">

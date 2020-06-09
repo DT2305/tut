@@ -59,7 +59,7 @@
                         <div class="col-md-4">
                             <div class="form-group">
                                 {!! Form::label('id_issue_place', 'Nơi cấp:') !!}
-                                {!! Form::select('id_issue_place',$isd,$std->id_issue_place, ['class' => 'form-control select2bs4','placeholder'=>'Chọn nơi cấp CMND']) !!}
+                                {!! Form::select('id_issue_place',$isd,$std->id_issue_place, ['class' => 'form-control select2bs4','style'=>'width: 100%;','placeholder'=>'Chọn nơi cấp CMND']) !!}
                             </div>
                         </div>
                         <div class="col-md-4">
@@ -68,6 +68,20 @@
                                 {!! Form::date('id_number_date', $std->id_number_date,['class'=>'form-control']) !!}
                             </div>
                         </div>
+
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                {!! Form::label('nation', 'Dân tộc:') !!}
+                                {!! Form::select('nation',$nations,$std->nation, ['class' => 'form-control select2bs4','style'=>'width: 100%;']) !!}
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                {!! Form::label('religion', 'Tôn giáo:') !!}
+                                {!! Form::select('religion',$religions,$std->religion, ['class' => 'form-control select2bs4','style'=>'width: 100%;']) !!}
+                            </div>
+                        </div>
+
                         {{-- Đổi mật khẩu--}}
                         <div class="col-md-12">
                             <label class="checkbox">
@@ -76,6 +90,7 @@
                                 Đổi mật khẩu
                             </label>
                         </div>
+
                         <div class="col-md-6">
                             <div class="form-group">
                                 {!! Form::label('password', 'Mật khẩu:') !!}
@@ -89,18 +104,7 @@
                             </div>
                         </div>
                         {{-- /Đổi mật khẩu--}}
-                        <div class="col-md-4">
-                            <div class="form-group">
-                                {!! Form::label('nation', 'Dân tộc:') !!}
-                                {!! Form::select('nation',$nations,$std->nation, ['class' => 'form-control select2bs4','style'=>'width: 100%;']) !!}
-                            </div>
-                        </div>
-                        <div class="col-md-4">
-                            <div class="form-group">
-                                {!! Form::label('religion', 'Tôn giáo:') !!}
-                                {!! Form::select('religion',$religions,$std->religion, ['class' => 'form-control select2bs4','style'=>'width: 100%;']) !!}
-                            </div>
-                        </div>
+
                     </div>
 
 
@@ -129,11 +133,17 @@
                                 {!! Form::select('course_id',$cor,$std->course_id, ['class' => 'form-control select2bs4','style'=>'width: 100%;','placeholder'=>'Chọn lớp']) !!}
                             </div>
                         </div>
-                        <div class="col-md-12">
+                        <div class="col-md-6">
                             <div class="form-group">
                                 {!! Form::label('student_code', 'Mã số sinh viên:') !!}
                                 <b class="text-red">{{$std->student_code}}</b>
                                 {!! Form::text('student_code',$std->student_code,['class'=>'form-control ','readonly']) !!}
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                {!! Form::label('start_date', 'Ngày vào trường:',['class'=>'required']) !!}
+                                {!! Form::date('start_date', $std->start_date,['class'=>'form-control','required','readonly']) !!}
                             </div>
                         </div>
                     </div>

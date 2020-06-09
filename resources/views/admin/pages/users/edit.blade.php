@@ -12,6 +12,7 @@
                     {!! Form::submit('Cập nhật',['class'=>'btn btn-success']) !!}
                     <a class="btn btn-secondary text-white" onClick="window.location.reload();">Tải lại</a>
                     <a href="{{route('admin.users.index')}}" class="btn btn-primary">Danh sách ứng viên</a>
+                    <a href="{{route('admin.users.move',$usr->id)}}" class="btn btn-warning float-right">Chuyển sang sinh viên</a>
 
                 </div>
             </div>
@@ -133,7 +134,6 @@
                             <div class="form-group">
                                 {!! Form::label('phone_number', 'Số điện thoại:',['class'=>'required']) !!}
                                 {!! Form::text('phone_number',$usr->phone_number,['class'=>'form-control']) !!}
-
                             </div>
                         </div>
                         <div class="col-md-4">
@@ -337,7 +337,7 @@
             </div>
 
         </div>
-        <!-- /.col-md-6 -->
+        <!-- /.col-lg-12 -->
     </div>
     <!-- /.row -->
 @endsection
