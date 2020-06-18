@@ -24,9 +24,9 @@ class AdminCategoryStoreRequest extends FormRequest
     public function rules()
     {
         return [
-            'cate_name'=>'required',
+            'name'=>'required',
             'status'=>'required',
-            'target'=>'required',
+//            'target'=>'required',
         ];
     }
 }

@@ -8,7 +8,7 @@
         <div class="col-lg-12">
             <div class="card card-primary card-outline">
                 <div class="card-header">
-                    <a class="btn btn-primary" href="{{route('admin.categories.create')}}">Thêm thể loại</a>
+                    <a class="btn btn-success" href="{{route('admin.categories.create')}}">Thêm thể loại</a>
                     <a class="btn btn-secondary text-white" onClick="window.location.reload();">Tải lại</a>
 
                 </div>
@@ -27,7 +27,7 @@
                         <tr>
                             <th>STT</th>
                             <th>Tên thể loại</th>
-                            <th>Đối tượng</th>
+{{--                            <th>Đối tượng</th>--}}
                             <th>Trạng thái</th>
                             <th>Hành động</th>
                         </tr>
@@ -37,14 +37,14 @@
 
                             <tr>
                                 <td width="3%">{{$key}}</td>
-                                <td>{{$val->cate_name}}</td>
-                                <td>
-                                    @if($val->target==1)
-                                        <p class="text-red">Ứng viên</p>
-                                    @else
-                                        <p class="text-blue">Sinh viên</p>
-                                    @endif
-                                </td>
+                                <td>{{$val->name}}</td>
+{{--                                <td>--}}
+{{--                                    @if($val->target==1)--}}
+{{--                                        <p class="text-red">Ứng viên</p>--}}
+{{--                                    @else--}}
+{{--                                        <p class="text-blue">Sinh viên</p>--}}
+{{--                                    @endif--}}
+{{--                                </td>--}}
                                 <td>
                                     @if($val->status==1)
                                         <p class="text-black">Kích hoạt</p>
@@ -76,7 +76,7 @@
                         <tr>
                             <th>STT</th>
                             <th>Tên thể loại</th>
-                            <th>Đối tượng</th>
+{{--                            <th>Đối tượng</th>--}}
                             <th>Trạng thái</th>
                             <th>Hành động</th>
                         </tr>

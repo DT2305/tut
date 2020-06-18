@@ -4,8 +4,11 @@
 <body>
 @include('home.includes.nav')
 <!-- END header -->
-@include('home.includes.hero')
-
+@if(Route::is('home.get.welcome'))
+    @include('home.includes.hero-big')
+@else
+    @include('home.includes.hero')
+@endif
 
 @yield('content')
 

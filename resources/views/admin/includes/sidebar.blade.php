@@ -34,7 +34,7 @@
                 </li>
 
                 <li class="nav-item has-treeview menu-open">
-                    <a href="#" class="nav-link ">
+                    <a  class="nav-link ">
                         <i class="nav-icon fas fa-user-shield "></i>
                         <p>
                             {{Auth::guard('admin')->user()->username}}
@@ -49,7 +49,7 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="#" class="nav-link text-success" data-toggle="modal" data-target="#myModal">
+                            <a  class="nav-link text-success" data-toggle="modal" data-target="#myModal">
                                 <i class="fas fa-key nav-icon"></i>
                                 <p>Đổi mật khẩu</p>
                             </a>
@@ -63,7 +63,7 @@
 
 {{--                Quản trị viên--}}
                 <li class="nav-item has-treeview ">
-                    <a href="#" class="nav-link">
+                    <a  class="nav-link">
                         <i class="nav-icon fas fa-user-tie"></i>
                         <p>
                             Quản trị viên
@@ -88,7 +88,7 @@
                 </li>
 {{--                Sinh viên--}}
                 <li class="nav-item has-treeview ">
-                    <a href="#" class="nav-link">
+                    <a  class="nav-link">
                         <i class="nav-icon fas fa-user-graduate"></i>
                         <p>
                             Sinh viên
@@ -125,19 +125,19 @@
                         <li class="nav-item">
                             <a href="{{route('admin.users.index')}}" class="nav-link ">
                                 <i class="fas fa-list nav-icon"></i>
-                                <p>Danh sách ứng cử viên</p>
+                                <p>Danh sách ứng viên</p>
                             </a>
                         </li>
                         <li class="nav-item">
                             <a href="{{route('admin.users.create')}}" class="nav-link">
                                 <i class="far fa-plus-square nav-icon"></i>
-                                <p>Thêm ứng cử viên</p>
+                                <p>Thêm ứng viên</p>
                             </a>
                         </li>
                     </ul>
                 </li>
 {{--                <li class="nav-item">--}}
-{{--                    <a href="#" class="nav-link">--}}
+{{--                    <a  class="nav-link">--}}
 {{--                        <i class="nav-icon fas fa-th"></i>--}}
 {{--                        <p>--}}
 {{--                            Simple Link--}}
@@ -152,7 +152,7 @@
 
                 {{--                Khoa--}}
                 <li class="nav-item has-treeview ">
-                    <a href="#" class="nav-link">
+                    <a  class="nav-link">
                         <i class="nav-icon fas fa-university"></i>
                         <p>
                             Khoa
@@ -177,7 +177,7 @@
                 </li>
                 {{--                Ngành--}}
                 <li class="nav-item has-treeview ">
-                    <a href="#" class="nav-link">
+                    <a  class="nav-link">
                         <i class="nav-icon fas fa-school"></i>
                         <p>
                             Ngành
@@ -231,7 +231,7 @@
                 </li>
 
                 <li class="nav-item has-treeview ">
-                    <a href="#" class="nav-link ">
+                    <a  class="nav-link ">
                         <i class="nav-icon fas fa-newspaper"></i>
                         <p>
                             Tin tức
@@ -258,7 +258,7 @@
 
 
                 <li class="nav-item has-treeview ">
-                    <a href="#" class="nav-link ">
+                    <a  class="nav-link ">
                         <i class="nav-icon fas fa-th"></i>
                         <p>
                             Thể loại
@@ -270,7 +270,7 @@
                         <li class="nav-item">
                             <a href="{{route('admin.categories.index')}}" class="nav-link ">
                                 <i class="fas fa-list nav-icon"></i>
-                                <p>Danh sách thể lọai</p>
+                                <p>Danh sách thể loại</p>
                             </a>
                         </li>
                         <li class="nav-item">

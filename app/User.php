@@ -134,6 +134,7 @@ class User extends Authenticatable
         'priority',
         'area',
         'is_student',
+        'education_level',
     ];
 
 

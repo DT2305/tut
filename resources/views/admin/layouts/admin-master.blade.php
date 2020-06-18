@@ -23,37 +23,39 @@ $post = DB::table('posts')->count();
 <body class="hold-transition sidebar-mini sidebar-collapse ">
 <div class="wrapper">
 
-  <!-- Navbar -->
-  @include('admin.includes.navbar')
-  <!-- /.navbar -->
+    <!-- Navbar -->
+@include('admin.includes.navbar')
+<!-- /.navbar -->
 
-  <!-- Main Sidebar Container -->
-  @include('admin.includes.sidebar')
+    <!-- Main Sidebar Container -->
+@include('admin.includes.sidebar')
 
-  <!-- Content Wrapper. Contains page content -->
-  <div class="content-wrapper">
-    <!-- Content Header (Page header) -->
+<!-- Content Wrapper. Contains page content -->
+    <div class="content-wrapper">
+        <!-- Content Header (Page header) -->
 
-    <!-- /.content-header -->
-    @include('admin.includes.content-header')
+        <!-- /.content-header -->
+    @if(Route::is('admin.get.index'))
+    @else
+        @include('admin.includes.content-header')
+    @endif
     <!-- Main content -->
-    <div class="content">
-      <div class="container-fluid">
-          @include('admin.includes.alert')
-          @yield('content')
-      </div><!-- /.container-fluid -->
+        <div class="content">
+            <div class="container-fluid">
+                @include('admin.includes.alert')
+                @yield('content')
+            </div><!-- /.container-fluid -->
+        </div>
+        <!-- /.content -->
     </div>
-    <!-- /.content -->
-  </div>
-  <!-- /.content-wrapper -->
+    <!-- /.content-wrapper -->
 
-  <!-- Control Sidebar -->
-  @include('admin.includes.control-sidebar')
-  <!-- /.control-sidebar -->
+    <!-- Control Sidebar -->
+@include('admin.includes.control-sidebar')
+<!-- /.control-sidebar -->
 
-  <!-- Main Footer -->
-  @include('admin.includes.footer')
-
+    <!-- Main Footer -->
+    @include('admin.includes.footer')
 
 
 </div>

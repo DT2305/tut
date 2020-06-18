@@ -15,6 +15,7 @@ class CreateAdmissionFormsTable extends Migration
     {
         Schema::create('admission_forms', function (Blueprint $table) {
             $table->id();
+            $table->string('admission_code')->unique();
             $table->string('name');
             $table->timestamps();
         });

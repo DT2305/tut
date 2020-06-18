@@ -8,7 +8,7 @@
         <div class="col-lg-12">
             <div class="card card-primary card-outline">
                 <div class="card-header">
-                    <a class="btn btn-primary" href="{{route('admin.courses.create')}}">Thêm lớp</a>
+                    <a class="btn btn-success" href="{{route('admin.courses.create')}}">Thêm lớp</a>
                     <a class="btn btn-secondary text-white" onClick="window.location.reload();">Tải lại</a>
 
                 </div>
@@ -27,6 +27,7 @@
                         <thead>
                         <tr>
                             <th>STT</th>
+                            <th>Mã lớp</th>
                             <th>Tên lớp</th>
                             <th>Ngành</th>
                             <th>Khoa</th>
@@ -38,6 +39,7 @@
 
                             <tr>
                                 <td width="3%">{{$key}}</td>
+                                <td>{{$val->course_code}}</td>
                                 <td>{{$val->name}}</td>
                                 <td>{{$val->show_faculty->name}}</td>
                                 <td>{{$val->show_faculty->show_department->name}}</td>
@@ -63,6 +65,7 @@
                         <tfoot>
                         <tr>
                             <th>STT</th>
+                            <th>Mã lớp</th>
                             <th>Tên lớp</th>
                             <th>Ngành</th>
                             <th>Khoa</th>

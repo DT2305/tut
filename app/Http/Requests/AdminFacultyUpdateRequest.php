@@ -24,7 +24,8 @@ class AdminFacultyUpdateRequest extends FormRequest
     public function rules()
     {
         return [
-            'name'=>'required|unique:faculties,name,'.$this->id,
+            'faculty_code'=>'required|unique:faculties,faculty_code,'.$this->id,
+            'name'=>'required',
             'department_id'=>'required',
             'description'=>'',
         ];
@@ -32,7 +33,7 @@ class AdminFacultyUpdateRequest extends FormRequest
     public function attributes()
     {
         return [
-
+            'faculty_code'=>'Mã ngành'
         ];
     }
 }

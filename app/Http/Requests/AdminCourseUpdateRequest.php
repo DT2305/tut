@@ -24,7 +24,8 @@ class AdminCourseUpdateRequest extends FormRequest
     public function rules()
     {
         return [
-            'name'=>'required|unique:courses,name,'.$this->id,
+            'course_code'=>'required|unique:courses,course_code,'.$this->id,
+            'name'=>'required',
             'faculty_id'=>'required',
             'description'=>'',
         ];
@@ -32,7 +33,7 @@ class AdminCourseUpdateRequest extends FormRequest
     public function attributes()
     {
         return [
-
+            'course_code'=>'Mã lớp'
         ];
     }
 }

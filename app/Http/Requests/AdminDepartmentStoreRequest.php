@@ -24,14 +24,15 @@ class AdminDepartmentStoreRequest extends FormRequest
     public function rules()
     {
         return [
-            'name'=>'required|unique:departments,name',
+            'name'=>'required',
+            'department_code'=>'required|unique:departments,department_code',
             'description'=>'',
         ];
     }
     public function attributes()
     {
         return [
-
+            'department_code'=>'Mã khoa'
         ];
     }
 }

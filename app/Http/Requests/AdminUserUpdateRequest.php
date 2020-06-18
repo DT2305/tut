@@ -34,9 +34,9 @@ class AdminUserUpdateRequest extends FormRequest
             'birthday' => 'required',
 
             'email'=>'required|email|unique:users,email,'.$this->id,
+            'identity_number' => 'required|numeric|regex:/[0-9]{12}/|unique:users,identity_number,'.$this->id,
             'phone_number' => "numeric|unique:users,phone_number,{$this->id}",
 
-            'identity_number' => 'required|numeric|regex:/[0-9]{12}/|unique:users,identity_number,'.$this->id,
             'id_issue_place' => '',
             'id_number_date' => '',
 

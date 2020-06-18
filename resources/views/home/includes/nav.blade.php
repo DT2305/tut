@@ -42,17 +42,17 @@
 
                     </li>
 
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="dropdown05" data-toggle="dropdown"
-                           aria-haspopup="true" aria-expanded="false">Tin tức</a>
-                        <div class="dropdown-menu" aria-labelledby="dropdown05">
-                            <a class="dropdown-item" href="#">Thông tin nhà trường</a>
-                            <a class="dropdown-item" href="#">Tuyển sinh</a>
-                            <a class="dropdown-item" href="#">Công bố kết quả</a>
+{{--                    <li class="nav-item dropdown">--}}
+{{--                        <a class="nav-link dropdown-toggle" href="#" id="dropdown05" data-toggle="dropdown"--}}
+{{--                           aria-haspopup="true" aria-expanded="false">Tin tức</a>--}}
+{{--                        <div class="dropdown-menu" aria-labelledby="dropdown05">--}}
+{{--                            <a class="dropdown-item" href="#">Thông tin nhà trường</a>--}}
+{{--                            <a class="dropdown-item" href="#">Tuyển sinh</a>--}}
+{{--                            <a class="dropdown-item" href="#">Công bố kết quả</a>--}}
 
-                        </div>
+{{--                        </div>--}}
 
-                    </li>
+{{--                    </li>--}}
                     <li class="nav-item">
                         <a class="nav-link" href="">Liên hệ</a>
                     </li>

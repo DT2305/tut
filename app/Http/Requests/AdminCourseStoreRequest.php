@@ -24,7 +24,8 @@ class AdminCourseStoreRequest extends FormRequest
     public function rules()
     {
         return [
-            'name'=>'required|unique:courses,name',
+            'course_code'=>'required|unique:courses,course_code',
+            'name'=>'required',
             'faculty_id'=>'required',
             'description'=>'',
         ];
@@ -32,7 +33,7 @@ class AdminCourseStoreRequest extends FormRequest
     public function attributes()
     {
         return [
-
+            'course_code'=>'Mã lớp'
         ];
     }
 }

@@ -8,7 +8,7 @@
         <div class="col-lg-12">
             <div class="card card-primary card-outline">
                 <div class="card-header">
-                    <a class="btn btn-primary" href="{{route('admin.departments.create')}}">Thêm khoa</a>
+                    <a class="btn btn-success" href="{{route('admin.departments.create')}}">Thêm khoa</a>
                     <a class="btn btn-secondary text-white" onClick="window.location.reload();">Tải lại</a>
 
                 </div>
@@ -27,6 +27,7 @@
                         <thead>
                         <tr>
                             <th>STT</th>
+                            <th>Mã khoa</th>
                             <th>Tên</th>
                             <th>Hành động</th>
                         </tr>
@@ -36,6 +37,7 @@
 
                             <tr>
                                 <td width="3%">{{$key}}</td>
+                                <td>{{$val->department_code}}</td>
                                 <td>{{$val->name}}</td>
                                 <td width="15%">
                                     <div class="dropdown dropleft float-right">
@@ -59,6 +61,7 @@
                         <tfoot>
                         <tr>
                             <th>STT</th>
+                            <th>Mã khoa</th>
                             <th>Tên khoa</th>
                             <th>Hành động</th>
                         </tr>

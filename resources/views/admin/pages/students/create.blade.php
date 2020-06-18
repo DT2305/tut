@@ -9,7 +9,7 @@
             <div class="card card-primary card-outline">
                 <div class="card-header">
                     {!! Form::open(['method'=>'POST','route'=>'admin.students.store']) !!}
-                    <a href="{{route('admin.students.index')}}" class="btn btn-primary float-right">Danh sách sinh viên</a>
+                    <a href="{{route('admin.students.index')}}" class="btn btn-primary float-right">DS sinh viên</a>
                     {!! Form::submit('Thêm',['class'=>'btn btn-success']) !!}
                     <input type="button" class="btn btn-secondary" value="Quay lại" onclick="history.back()">
 

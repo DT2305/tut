@@ -33,8 +33,9 @@ class StudentController extends Controller
 
     public function getCategory($cate){
 //        $new = DB::table('news')->where('category','=',$cate)->get();
-        $cat = Category::findOrFail($cate)->cate_name;
+        $cat = Category::findOrFail($cate)->name;
         $pos = Post::where('category_id',$cate)
+            ->orderBy('id', 'desc')
             ->where('target','0')
             ->where('status','1')
             ->paginate(6);

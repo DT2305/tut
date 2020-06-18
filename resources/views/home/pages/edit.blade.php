@@ -3,12 +3,6 @@
 @section('content')
 @section('breadcrumb_1','Cập nhật thông tin')
 @section('breadcrumb_2')
-    {{--    <p class="text-center mb-3 "></p>
-        <p class="bcrumb text-center"><a href="">Trang chủ</a>
-            <span class="sep ion-android-arrow-dropright px-2"></span>
-            <span class="current"> <a href="{{route('home.get.edit')}}">Giới thiệu</a></span>
-        </p>--}}
-
     <p class="text-center mb-3 "></p>
     <p class="bcrumb text-center"><a href="">Trang chủ</a>
         <span class="sep ion-android-arrow-dropright px-2"></span>
@@ -27,13 +21,9 @@
                     <div class="row">
                         <div class="col-md-12 col-lg-12 mb-3 text-center">
 
-                            <h3 class="font-weight-bold" >Thông tin ứng viên</h3>
-{{--                            <h3 class="m-0 font-weight-bold">{{$usr->name}}</h3>--}}
-
+                            <h4 class="font-weight-bold" >Thông tin ứng viên</h4>
+                            <h3 class="m-0 font-weight-bold">{{$usr->name}}</h3>
                         </div>
-
-
-
 {{--                        <div class="col-md-12 col-lg-12">--}}
 {{--                            @if (count($errors) > 0)--}}
 {{--                                <div class="alert alert-danger span8">--}}
@@ -124,7 +114,7 @@
                         <div class="col-md-12 col-lg-4 mb-3">
                             <div class="form-group">
                                 <i class="fas fa-id-card"></i>
-                                <label class="font-weight-bold" for="">Số chứng minh nhân dân:</label>
+                                <label class="font-weight-bold" for="">Số CNND:</label>
                                 <input type="tel" value="{{$usr['identity_number']}}" class="form-control" id=""
                                        name="identity_number">
                                 @error('identity_number')<p style="color: red">{{$message}}</p> @enderror
@@ -159,31 +149,6 @@
                                 @error('address')<p style="color: red">{{$message}}</p> @enderror
                             </div>
                         </div>
-
-
-                        {{--                        <div class="col-md-12 col-lg-4 mb-3">--}}
-                        {{--                            <div class="form-group">--}}
-                        {{--                                <label class="font-weight-bold" for="_________">_________:</label>--}}
-                        {{--                                <input type="text" value="{{$usr['_________']}}" class="form-control" id=""--}}
-                        {{--                                       name="_________">--}}
-                        {{--                                @error('_________')<p style="color: red">{{$message}}</p> @enderror--}}
-                        {{--                            </div>--}}
-                        {{--                            <div class="form-group">--}}
-                        {{--                                <label class="font-weight-bold" for="">_________:</label>--}}
-                        {{--                                <input type="text" value="{{$usr['_________']}}" class="form-control" id=""--}}
-                        {{--                                       name="_________">--}}
-                        {{--                                @error('_________')<p style="color: red">{{$message}}</p> @enderror--}}
-                        {{--                            </div>--}}
-                        {{--                            <div class="form-group">--}}
-                        {{--                                <label class="font-weight-bold" for="">_________:</label>--}}
-                        {{--                                <select name="_________" class="custom-select">--}}
-                        {{--                                    <option selected value="{{$usr['_________']}}"> {{$usr['_________']}}</option>--}}
-                        {{--                                    <option value="0">Chọn</option>--}}
-                        {{--                                </select>--}}
-                        {{--                                @error('_________')<p style="color: red">{{$message}}</p> @enderror--}}
-                        {{--                            </div>--}}
-                        {{--                        </div>--}}
-
                         <div class="col-md-12 col-lg-4 mb-3">
 
                         </div>

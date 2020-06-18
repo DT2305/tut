@@ -10,7 +10,7 @@
                 <div class="card-header">
                     <a href="{{route('admin.students.edit',$std->id)}}" class="btn btn-success">Chỉnh sửa</a>
                     <a class="btn btn-secondary text-white" onClick="window.location.reload();">Tải lại</a>
-                    <a href="{{route('admin.students.index')}}" class="btn btn-primary">Danh sách sinh viên</a>
+                    <a href="{{route('admin.students.index')}}" class="btn btn-primary">DS sinh viên</a>
                 </div>
             </div>
         </div>

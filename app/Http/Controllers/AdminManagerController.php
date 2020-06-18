@@ -11,6 +11,10 @@ use Illuminate\Support\Facades\DB;
 
 class AdminManagerController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('admin3')->except('index');
+    }
     public function index()
     {
         $check = admin::all();
@@ -27,7 +31,7 @@ class AdminManagerController extends Controller
         $adm = Admin::create($request->all());
         $adm['password'] = bcrypt($request['password']);
         $adm->save();
-        return redirect()->route('admin.managers.index')->with('success', 'Thêm Quản trị viên thành công');
+        return view('admin.pages.admin-managers.show', compact('adm'))->with('success', 'Thêm Quản trị viên thành công');
     }
 
     public function show($id)

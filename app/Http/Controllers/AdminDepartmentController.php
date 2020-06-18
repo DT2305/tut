@@ -9,7 +9,10 @@ use Illuminate\Http\Request;
 
 class AdminDepartmentController extends Controller
 {
-
+    public function __construct()
+    {
+        $this->middleware('admin2')->except('index');
+    }
     public function index()
     {
         $dep = Department::all();
@@ -24,7 +27,8 @@ class AdminDepartmentController extends Controller
     public function store(AdminDepartmentStoreRequest $request)
     {
         $dep = Department::create($request->validated());
-        return redirect()->route('admin.departments.index')->with('success', 'Thêm Khoa thành công');
+        return redirect()->route('admin.departments.show',$dep)->with('success', 'Thêm Khoa thành công');
+//        return redirect()->route('admin.departments.index')->with('success', 'Thêm Khoa thành công');
     }
 
     public function show($id)

@@ -24,14 +24,15 @@ class AdminDepartmentUpdateRequest extends FormRequest
     public function rules()
     {
         return [
-            'name'=>'required|unique:departments,name,'.$this->id,
+            'name'=>'required',
+            'department_code'=>'required|unique:departments,department_code,'.$this->id,
             'description'=>'',
         ];
     }
     public function attributes()
     {
         return [
-
+            'department_code'=>'Mã khoa'
         ];
     }
 }

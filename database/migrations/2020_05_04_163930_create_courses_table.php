@@ -15,17 +15,16 @@ class CreateCoursesTable extends Migration
     {
         Schema::create('courses', function (Blueprint $table) {
             $table->id();
+            $table->string('course_code')->unique();
+            $table->string('name');
             $table->foreignId('faculty_id')->nullable()->default(1)
                 ->constrained('faculties')
                 ->onDelete('set null')
                 ->onUpdate('cascade');
-
-            $table->string('name');
             $table->integer('student_amount')->nullable();
             $table->string('description')->nullable();
             $table->string('status')->nullable();
             $table->string('year_start')->nullable();
-            $table->string('course_code')->nullable();
             $table->timestamps();
         });
     }

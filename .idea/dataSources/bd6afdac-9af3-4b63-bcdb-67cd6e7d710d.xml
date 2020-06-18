@@ -1816,7 +1816,6 @@
     <column id="483" parent="351" name="password">
       <Position>12</Position>
       <DataType>varchar(255)|0s</DataType>
-      <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
     <column id="484" parent="351" name="student_code">

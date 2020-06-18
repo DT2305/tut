@@ -9,9 +9,9 @@
             <div class="card card-primary card-outline">
                 <div class="card-header">
                     {!! Form::open(['method'=>'POST','route'=>'admin.users.store']) !!}
-                    <a href="{{route('admin.users.index')}}" class="btn btn-primary float-right">Danh sách ứng viên</a>
+                    <a href="{{route('admin.users.index')}}" class="btn btn-primary float-right">DS ứng viên</a>
                     {!! Form::submit('Thêm',['class'=>'btn btn-success']) !!}
-                    <input type="button" class="btn btn-secondary" value="Quay lại" onclick="history.back()">
+                    <a class="btn btn-secondary text-white" onClick="window.location.reload();">Tải lại</a>
                 </div>
             </div>
         </div>

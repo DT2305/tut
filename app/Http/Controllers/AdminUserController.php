@@ -9,6 +9,7 @@ use App\Education_level;
 use App\Education_type;
 use App\Faculty;
 use App\Http\Requests\AdminStudentStoreRequest;
+use App\Http\Requests\AdminUserMovedRequest;
 use App\Http\Requests\AdminUserStoreRequest;
 use App\Http\Requests\AdminUserUpdateRequest;
 use App\Http\Requests\HomeUserStoreRequest;
@@ -23,9 +24,13 @@ use Illuminate\Support\Facades\DB;
 
 class AdminUserController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('admin2')->except('index');
+    }
     public function index()
     {
-        $usr = User::all();
+        $usr = User::orderBy('id', 'desc')->where('is_student',null)->get();
         return view('admin.pages.users.list', compact('usr'));
     }
 
@@ -35,6 +40,7 @@ class AdminUserController extends Controller
         $isd = Issued_place::pluck('name', 'id');
         $fal = Faculty::pluck('name', 'id');
         $scm = Subject_combination::pluck('name', 'id');
+
 
         $religions = DB::table('religions')->pluck('name', 'id');
         $nations = DB::table('nations')->pluck('name', 'id');
@@ -48,7 +54,7 @@ class AdminUserController extends Controller
         $usr = User::create($request->validated());
         $usr['password'] = bcrypt($request['password']);
         $usr->save();
-        return redirect()->route('admin.users.index')->with('success', 'Thêm Ứng viên thành công');
+        return view('admin.pages.users.show', compact('usr'))->with('success', 'Thêm Ứng viên thành công');
 
     }
 
@@ -92,9 +98,11 @@ class AdminUserController extends Controller
     {
         $usr = User::find($id);
         $usr->delete();
-        return redirect()->route('admin.user.index')->with('danger', 'Xóa Ứng viên thành công');
+        return redirect()->route('admin.users.index')->with('danger', 'Xóa Ứng viên thành công');
     }
-    public  function addStudent($id){
+
+    public function addStudent($id)
+    {
         $isd = Issued_place::pluck('name', 'id');
         $fal = Faculty::pluck('name', 'id');
         $scm = Subject_combination::pluck('name', 'id');
@@ -105,32 +113,61 @@ class AdminUserController extends Controller
         return view('admin.pages.users.edit', compact('usr'
             , 'isd', 'fal', 'scm', 'id', 'nations', 'religions'));
     }
-    public  function move($id){
-        $isd = Issued_place::pluck('name');
-        $fal = Faculty::pluck('name', 'id');
-        $scm = Subject_combination::pluck('name');
-        $religions = Religion::pluck('name');
-        $nations = Nation::pluck('name');
-        $dep = Department::pluck('name');
-        $cor = Course::pluck('name');
 
-        $edu_type = Education_type::pluck('name');
-        $edu_level = Education_level::pluck('name');
-        $maxStuCode = Student::max('student_code');
+    public function move($id)
+    {
+        $isd = Issued_place::pluck('name', 'id');
+        $fal = Faculty::pluck('name', 'id');
+        $scm = Subject_combination::pluck('name', 'id');
+        $religions = Religion::pluck('name', 'id');
+        $nations = Nation::pluck('name', 'id');
+        $dep = Department::pluck('name', 'id');
+        $cor = Course::pluck('name', 'id');
+
+        $edu_type = Education_type::pluck('name', 'id');
+        $edu_level = Education_level::pluck('name', 'id');
+        $maxStuCode = Student::max('student_code', 'id');
 
         $usr = User::find($id);
 
         return view('admin.pages.users.move', compact('usr'
-            , 'isd', 'fal', 'scm', 'id', 'nations', 'religions','dep','cor','edu_level','edu_type','maxStuCode'));
+            , 'isd', 'fal', 'scm', 'id', 'nations', 'religions', 'dep', 'cor', 'edu_level', 'edu_type', 'maxStuCode'));
     }
-    public function moved(AdminStudentStoreRequest $request)
+
+    public function moved(AdminUserMovedRequest $request)
     {
+
+        $usr = User::where('email', $request->email)
+            ->orWhere('identity_number',$request->identity_number)
+            ->first();
+//        $usr = User::where(function ($query){
+//            $query->where()
+//        });
+        if ($request->password == $usr->password) {
+            $std = Student::create($request->all());
+            $usr->is_student = 1;
+            $usr->save();
+            return redirect()->route('admin.students.show', $std['id'])->with('success', 'Chuyển ứng viên sang sinh viên thành công (Sử dụng mật khẩu cũ)');
+        }
         $std = Student::create($request->all());
-        $std['password'] = bcrypt($request['password']);
-//        $std['is_student'] = 1;
+        $std->password = bcrypt($request->password);
         $std->save();
-        return redirect()->route('admin.students.index')->with('success', 'Chuyển thành công');
+        $usr->is_student = 1;
+        $usr->save();
+        return redirect()->route('admin.students.show', $std['id'])->with('success', 'Chuyển thành công (Sử dụng mật khẩu mới)');
+
+
     }
 
 
 }
+//
+//$std = Student::create($request->all());
+//$std->password = bcrypt($request->password);
+//if ($std->save())
+//{
+//    $usr =  User::where('email',$request->email)->first();
+//    $usr->is_student = 1;
+//    $usr->save();
+//    return redirect()->route('admin.students.index')->with('success', 'Chuyển thành công');
+//}

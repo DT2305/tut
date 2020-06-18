@@ -20,7 +20,7 @@ $cat = Category::all();
     <ul>
         @foreach($cat as $val)
 {{--            @if($val->status==1)--}}
-                <li><a href="{{route('student.get.category',$val->id)}}">{{$val->cate_name}} <span></span></a></li>
+                <li><a href="{{route('student.get.category',$val->id)}}">{{$val->name}} <span></span></a></li>
 {{--            @endif--}}
         @endforeach
     </ul>

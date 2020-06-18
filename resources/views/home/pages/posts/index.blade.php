@@ -5,8 +5,8 @@
 @section('breadcrumb_2')
     <p class="text-center mb-3 "></p>
     <p class="bcrumb text-center"><a href="">Trang chủ</a>
-        <span class="sep ion-android-arrow-dropright px-2"></span>
-        <span class="current"> <a >Tin tức</a></span>
+{{--        <span class="sep ion-android-arrow-dropright px-2"></span>--}}
+{{--        <span class="current"> <a >Tin tức</a></span>--}}
 @endsection
 <div class="site-section bg-light">
     <div class="container">

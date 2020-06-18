@@ -4,7 +4,11 @@
 <body>
 @include('student.includes.nav')
 <!-- END header -->
-@include('student.includes.hero')
+@if(Route::is('student.get.welcome'))
+    @include('student.includes.hero-big')
+@else
+    @include('student.includes.hero')
+@endif
 
 
 @yield('content')

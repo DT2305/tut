@@ -74,7 +74,6 @@ class CreateUsersTable extends Migration
             $table->integer('priority')->nullable()->default(1);
             $table->integer('area')->nullable()->default(1);
 
-
             $table->string('description')->nullable();
             $table->string('status')->nullable();
             $table->string('is_student')->nullable();

@@ -58,6 +58,7 @@ Route::group(['prefix' => 'admin'], function () {
         Route::get('/', 'AdminController@index')->name('admin.get.index');
         Route::get('/logout', 'AdminController@getLogout')->name('admin.get.logout');
         Route::post('/change-password', 'AdminController@postChangePass')->name('admin.post.changepass');
+
         Route::group(['prefix' => 'users'], function () {
             Route::get('/index', 'AdminUserController@index')->name('admin.users.index');
             Route::get('/create', 'AdminUserController@create')->name('admin.users.create');
@@ -107,7 +108,7 @@ Route::group(['prefix' => 'admin'], function () {
             Route::get('/destroy/{id}', 'AdminStudentController@destroy')->name('admin.students.destroy');
         });/*group - prefix 'students'*/
         Route::group(['prefix' => 'managers'], function () {
-            Route::get('/index', 'AdminManagerController@index')->name('admin.managers.index');
+            Route::get('/index', 'AdminManagerController@index')->name('admin.managers.index')->middleware('admin3');
             Route::get('/create', 'AdminManagerController@create')->name('admin.managers.create');
             Route::post('/store', 'AdminManagerController@store')->name('admin.managers.store');
             Route::get('/{id}/show', 'AdminManagerController@show')->name('admin.managers.show');

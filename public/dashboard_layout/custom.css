@@ -1,11 +1,40 @@
-.required:after {
-    content:" *";
-    color: red;
+
+
+/*.bg-ctut{*/
+/*    background: #000166; !important;*/
+/*}*/
+
+/*----------COLOR----------*/
+
+.bg-1a{
+   background: #00A6ED;
+}
+.bg-2a{
+    background:#EF476F;
+}
+.bg-3a{
+    background: #ffd166;
+}
+.bg-4a{
+    background:#06D6A0;
+}
+.bg-5a{
+    background:#9A7FC7;
 }
 
-.fakeimg {
-    height: 180px;
-    width:135px;
-    background: #aaa;
-}
 
+.bg-6a{
+    background:#FF8C40;
+}
+.bg-7a{
+    background: #dfb6eb;
+}
+.bg-8a{
+    background: #58CCC8;
+}
+.bg-9a{
+    background: #a7a7b4;
+}
+.bg-10a{
+    background: #5651F5;
+}

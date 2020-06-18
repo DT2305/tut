@@ -21,7 +21,7 @@
                 {!! Form::open(['method'=>'POST','route'=>'admin.posts.store','files' => true]) !!}
                 {!! Form::submit('Thêm',['class'=>'btn btn-success']) !!}
                 <a class="btn btn-secondary text-white" onClick="window.location.reload();">Tải lại</a>
-                <a href="{{route('admin.posts.index')}}" class="btn btn-primary">Danh sách tin tức</a>
+                <a href="{{route('admin.posts.index')}}" class="btn btn-primary">DS tin tức</a>
             </div>
         </div><!-- /.card -->
     </div>

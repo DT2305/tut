@@ -9,7 +9,7 @@
                 <div class="card-header">
                     <a href="{{route('admin.courses.edit',$cor->id)}}" class="btn btn-success">Chỉnh sửa</a>
                     <a class="btn btn-secondary text-white" onClick="window.location.reload();">Tải lại</a>
-                    <a href="{{route('admin.courses.index')}}" class="btn btn-primary">Danh sách lớp</a>
+                    <a href="{{route('admin.courses.index')}}" class="btn btn-primary">DS lớp</a>
                 </div>
             </div>
         </div>
@@ -21,23 +21,28 @@
                 </div>
                 <div class="card-body">
                     <div class="row">
-
-                        <div class="col-md-4">
-                            <div class="form-group">
-                                {!! Form::label('name', 'Tên lớp:',['class'=>'required']) !!}
-                                {!! Form::text('name',$cor->name,['class'=>'form-control','required','disabled']) !!}
-                            </div>
-                        </div>
-                        <div class="col-md-4">
+                        <div class="col-md-6">
                             <div class="form-group">
                                 {!! Form::label('name', 'Thuộc ngành:',['class'=>'required']) !!}
                                 {!! Form::text('name',$cor->show_faculty->name,['class'=>'form-control','required','disabled']) !!}
                             </div>
                         </div>
-                        <div class="col-md-4">
+                        <div class="col-md-6">
                             <div class="form-group">
                                 {!! Form::label('name', 'Thuộc khoa:',['class'=>'required']) !!}
                                 {!! Form::text('name',$cor->show_faculty->show_department->name,['class'=>'form-control','required','disabled']) !!}
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                {!! Form::label('course_code', 'Mã lớp:',['class'=>'required']) !!}
+                                {!! Form::text('course_code',$cor->course_code,['class'=>'form-control','required','disabled']) !!}
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                {!! Form::label('name', 'Tên lớp:',['class'=>'required']) !!}
+                                {!! Form::text('name',$cor->name,['class'=>'form-control','required','disabled']) !!}
                             </div>
                         </div>
                         <div class="col-md-12">

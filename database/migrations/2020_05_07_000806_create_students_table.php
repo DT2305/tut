@@ -35,8 +35,8 @@ class CreateStudentsTable extends Migration
 
             $table->date('start_date')->nullable();             /*Ngày vào trường*/
             $table->string('school_name')->nullable();          /*Địa chỉ cơ sở học tập*/
-            $table->string('education_type')->nullable()->default(1);       /*Loại hình đào tạo*/
-            $table->string('education_level')->nullable()->default(1);      /*Bậc đào tạo*/
+            $table->string('education_type')->nullable();       /*Loại hình đào tạo*/
+            $table->string('education_level')->nullable();      /*Bậc đào tạo*/
 
             /*Nơi sinh*/
             $table->string('birth_province')->nullable()->default(1);       /*Tỉnh/Thành phố*/

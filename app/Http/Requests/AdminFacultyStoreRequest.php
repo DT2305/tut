@@ -24,7 +24,8 @@ class AdminFacultyStoreRequest extends FormRequest
     public function rules()
     {
         return [
-            'name'=>'required|unique:faculties,name',
+            'faculty_code'=>'required|unique:faculties,faculty_code',
+            'name'=>'required',
             'department_id'=>'required',
             'description'=>'',
         ];
@@ -32,7 +33,7 @@ class AdminFacultyStoreRequest extends FormRequest
     public function attributes()
     {
         return [
-
+            'faculty_code'=>'Mã ngành'
         ];
     }
 }

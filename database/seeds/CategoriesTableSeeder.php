@@ -13,29 +13,24 @@ class CategoriesTableSeeder extends Seeder
     {
         DB::table('categories')->insert([
             [
-                'cate_name' => 'Sự kiện',
+                'name' => 'Sự kiện',
                 'status' => '1',
-                'target' => '1',
             ],
             [
-                'cate_name' => 'Cơ hội việc làm',
+                'name' => 'Cơ hội việc làm',
                 'status' => '1',
-                'target' => '1',
             ],
             [
-                'cate_name' => 'Tuyển sinh',
+                'name' => 'Tuyển sinh',
                 'status' => '1',
-                'target' => '1',
             ],
             [
-                'cate_name' => 'Văn nghệ',
+                'name' => 'Hoạt động',
                 'status' => '1',
-                'target' => '2',
             ],
             [
-                'cate_name' => 'Thể thao',
+                'name' => 'Liên kết',
                 'status' => '1',
-                'target' => '2',
             ],
         ]);
     }

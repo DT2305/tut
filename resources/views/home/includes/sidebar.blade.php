@@ -9,7 +9,7 @@ $cat = Category::all();
     <ul>
         @foreach($cat as $val)
 {{--            @if($cate->target==1)--}}
-            <li><a href="{{route('home.get.category',$val->id)}}">{{$val->cate_name}} <span></span></a></li>
+            <li><a href="{{route('home.get.category',$val->id)}}">{{$val->name}} <span></span></a></li>
 
             {{--            @endif--}}
         @endforeach

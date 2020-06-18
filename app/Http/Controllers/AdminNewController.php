@@ -9,6 +9,10 @@ use Illuminate\Http\Request;
 
 class AdminNewController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('admin2')->except('index');
+    }
     public function index()
     {
         $new = News::all();
@@ -18,7 +22,7 @@ class AdminNewController extends Controller
     public function create()
     {
         // $cate = Category::all();
-        $cat = Category::pluck('cate_name','id');
+        $cat = Category::pluck('name','id');
         $auth = Auth::guard('admin')->user();
         $author = $auth['fullname'];
         return view('admin.pages.news.create',compact('cat','auth'));
@@ -78,7 +82,7 @@ class AdminNewController extends Controller
                 $new -> save();
 
                 return redirect()->route('admin.news.index');
-                
+
             }
             else{
                 return back()->with("error","Phải là file ảnh (jpg , png ,jpeg)");

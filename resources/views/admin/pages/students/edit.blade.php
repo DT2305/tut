@@ -11,7 +11,7 @@
                     {!! Form::open(['method'=>'POST','route'=>['admin.students.update',$std->id]]) !!}
                     {!! Form::submit('Cập nhật',['class'=>'btn btn-success']) !!}
                     <a class="btn btn-secondary text-white" onClick="window.location.reload();">Tải lại</a>
-                    <a href="{{route('admin.students.index')}}" class="btn btn-primary">Danh sách sinh viên</a>
+                    <a href="{{route('admin.students.index')}}" class="btn btn-primary">DS sinh viên</a>
                 </div>
             </div>
         </div>

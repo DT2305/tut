@@ -16,16 +16,17 @@ use Illuminate\Support\Str;
 class AdminPostController extends Controller
 {
 
+
     public function index()
     {
-        $pos = Post::orderBy('id', 'desc')->get();
+        $pos = Post::orderBy('created_at', 'desc')->get();
         return view('admin.pages.posts.list', compact('pos'));
     }
 
 
     public function create()
     {
-        $cat = Category::pluck('cate_name', 'id');
+        $cat = Category::pluck('name','id');
         $aut = Auth::guard('admin')->user();
 //        $author = $aut['full_name'];
         return view('admin.pages.posts.create', compact('cat', 'aut'));
@@ -49,14 +50,14 @@ class AdminPostController extends Controller
 
     public function show($id)
     {
-        $cat = Category::pluck('cate_name', 'id');
+        $cat = Category::pluck('name','id');
         $pos = Post::findOrFail($id);
         return view('admin.pages.posts.show', compact('pos', 'cat'));
     }
 
     public function edit($id)
     {
-        $cat = Category::pluck('cate_name', 'id');
+        $cat = Category::pluck('name','id');
         $aut = Auth::guard('admin')->user();
         $pos = Post::findOrFail($id);
         return view('admin.pages.posts.edit', compact('pos', 'cat', 'aut'));

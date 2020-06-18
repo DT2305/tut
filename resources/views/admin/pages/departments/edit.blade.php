@@ -11,7 +11,7 @@
                     {!! Form::open(['method'=>'POST','route'=>['admin.departments.update',$dep->id]]) !!}
                     {!! Form::submit('Cập nhật',['class'=>'btn btn-success']) !!}
                     <a class="btn btn-secondary text-white" onClick="window.location.reload();">Tải lại</a>
-                    <a href="{{route('admin.departments.index')}}" class="btn btn-primary">Danh sách khoa</a>
+                    <a href="{{route('admin.departments.index')}}" class="btn btn-primary">DS khoa</a>
                 </div>
             </div>
         </div>
@@ -24,6 +24,12 @@
                 </div>
                 <div class="card-body">
                     <div class="row">
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                {!! Form::label('department_code', 'Mã khoa:',['class'=>'required','required']) !!}
+                                {!! Form::text('department_code',$dep->department_code,['class'=>'form-control ','required' => 'required']) !!}
+                            </div>
+                        </div>
                         <div class="col-md-12">
                             <div class="form-group">
                                 {!! Form::label('name', 'Tên khoa:',['class'=>'required','required']) !!}

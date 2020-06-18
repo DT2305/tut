@@ -10,6 +10,10 @@ use Illuminate\Http\Request;
 
 class AdminCourseController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('admin2')->except('index');
+    }
 
     public function index()
     {
@@ -26,7 +30,8 @@ class AdminCourseController extends Controller
     public function store(AdminCourseStoreRequest $request)
     {
         $cor = Course::create($request->validated());
-        return redirect()->route('admin.courses.index')->with('success', 'Thêm Lớp thành công');
+//        return redirect()->route('admin.courses.index')->with('success', 'Thêm Lớp thành công');
+        return redirect()->route('admin.courses.show',$cor )->with('success', 'Thêm Lớp thành công');
     }
 
     public function show($id)

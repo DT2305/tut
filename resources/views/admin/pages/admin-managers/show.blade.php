@@ -11,7 +11,7 @@
                 <div class="card-header">
                     <a href="{{route('admin.managers.edit',$adm->id)}}" class="btn btn-success">Chỉnh sửa</a>
                     <a class="btn btn-secondary text-white" onClick="window.location.reload();">Tải lại</a>
-                    <a href="{{route('admin.managers.index')}}" class="btn btn-primary">Danh sách quản trị viên</a>
+                    <a href="{{route('admin.managers.index')}}" class="btn btn-primary">DS quản trị viên</a>
 
                 </div>
             </div>

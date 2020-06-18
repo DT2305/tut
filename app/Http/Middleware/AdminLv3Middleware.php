@@ -21,7 +21,7 @@ class AdminLv3Middleware
         $admin = admin::find($id);
         $level = $admin['level'];
         if($level < 3){
-            return back()->with('phanquyen','Tài khoản không đủ thẩm quyền thực hiện hành động này !');
+            return redirect()->back()->with('warning','Tài khoản không đủ thẩm quyền thực hiện hành động này !');
         }
         return $next($request);
     }

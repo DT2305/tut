@@ -149,7 +149,7 @@
                         <div class="col-md-12 col-lg-4 mb-3">
                             <div class="form-group">
                                 <i class="fas fa-id-card"></i>
-                                <label class="font-weight-bold" for="">Số chứng minh nhân dân:</label>
+                                <label class="font-weight-bold" for="">Số CNND:</label>
                                 <input type="tel" value="{{$usr['identity_number']}}" class="form-control" id=""
                                        name="identity_number">
                                 @error('identity_number')<p style="color: red">{{$message}}</p> @enderror

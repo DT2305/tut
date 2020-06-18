@@ -16,25 +16,29 @@ use Illuminate\Support\Facades\DB;
 
 class AdminStudentController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('admin2')->except('index');
+    }
     public function index()
     {
-        $std =Student::all('id','name','student_code','course_id')->sortByDesc('id');
-
+//        $std =Student::all('id','name','student_code','course_id')->sortByDesc('id');
+        $std = Student::orderBy('id','desc')->get();
         return view('admin.pages.students.list', compact('std'));
     }
 
     public function create()
     {
-        $isd = Issued_place::pluck('name');
-        $fal = Faculty::pluck('name');
-        $dep = Department::pluck('name');
-        $cor = Course::pluck('name');
+        $isd = Issued_place::pluck('name','id');
+        $fal = Faculty::pluck('name','id');
+        $dep = Department::pluck('name','id');
+        $cor = Course::pluck('name','id');
 
         $religions = DB::table('religions')->pluck('name', 'id');
         $nations = DB::table('nations')->pluck('name', 'id');
 
-        $edu_type = Education_type::pluck('name');
-        $edu_level = Education_level::pluck('name');
+        $edu_type = Education_type::pluck('name','id');
+        $edu_level = Education_level::pluck('name','id');
         $maxStuCode = Student::max('student_code');
 
         return view('admin.pages.students.create', compact('isd', 'fal', 'dep', 'cor', 'maxStuCode', 'edu_type', 'edu_level', 'religions', 'nations'));
@@ -45,7 +49,7 @@ class AdminStudentController extends Controller
         $std = Student::create($request->all());
         $std['password'] = bcrypt($request['password']);
         $std->save();
-        return redirect()->route('admin.students.index')->with('success', 'Thêm Sinh viên thành công');
+        return view('admin.pages.students.show', compact('std'))->with('success', 'Thêm Sinh viên thành công');
     }
 
     public function show($id)

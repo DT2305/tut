@@ -9,7 +9,7 @@
         <div class="col-lg-12">
             <div class="card card-primary card-outline">
                 <div class="card-header">
-                    <a class="btn btn-primary" href="{{route('admin.managers.create')}}">Thêm quản trị viên</a>
+                    <a class="btn btn-success" href="{{route('admin.managers.create')}}">Thêm quản trị viên</a>
                     <a class="btn btn-secondary text-white" onClick="window.location.reload();">Tải lại</a>
 
                 </div>
@@ -27,25 +27,40 @@
 
                         <thead>
                         <tr>
-                            <th>Tên đăng nhập</th>
+{{--                            <th>Tên đăng nhập</th>--}}
                             <th>Tên đầy đủ</th>
                             <th>Cấp bậc</th>
-                            <th>Trạng thái</th>
+{{--                            <th>Trạng thái</th>--}}
                             <th>Hành động</th>
                         </tr>
                         </thead>
                             <tbody>
                             @foreach($check as $val)
                                 <tr>
-                                <td>{{$val->username}}</td>
+{{--                                <td>{{$val->username}}</td>--}}
                                 <td>{{$val->full_name}}</td>
                                 <td>{{$val->level}}</td>
-                                <td>{{$val->status}}</td>
+{{--                                <td>{{$val->status}}</td>--}}
                                 <td>
-                                    <a class="btn btn-warning" href="{{route('admin.managers.show',$val->id)}}"><i class="fas fa-info-circle text-white"></i></a>
-                                    <a class="btn btn-success" href="{{route('admin.managers.edit',$val->id)}}"><i class="fas fa-pen"></i></a>
-                                    <a class="btn btn-danger confirmClick" href="{{route('admin.managers.destroy',$val->id)}}"><i class="fas fa-trash-alt"></i></a>
+{{--                                    <a class="btn btn-warning" href="{{route('admin.managers.show',$val->id)}}"><i class="fas fa-info-circle text-white"></i></a>--}}
+{{--                                    <a class="btn btn-success" href="{{route('admin.managers.edit',$val->id)}}"><i class="fas fa-pen"></i></a>--}}
+{{--                                    <a class="btn btn-danger confirmClick" href="{{route('admin.managers.destroy',$val->id)}}"><i class="fas fa-trash-alt"></i></a>--}}
 
+                                    <div class="dropdown dropleft float-right">
+                                        <button type="button" class="btn btn-primary btn-sm dropdown-toggle"
+                                                data-toggle="dropdown">
+                                            Hành động
+                                        </button>
+                                        <div class="dropdown-menu">
+                                            <a class="dropdown-item" href="{{route('admin.managers.show',$val->id)}}">
+                                                <i class="fas fa-info text-warning mr-2"></i>Xem chi tiết</a>
+                                            <a class="dropdown-item" href="{{route('admin.managers.edit',$val->id)}}">
+                                                <i class="fas fa-pen text-success mr-2"></i>Sửa</a>
+                                            <a class="dropdown-item confirmClick"
+                                               href="{{route('admin.managers.destroy',$val->id)}}">
+                                                <i class="fas fa-trash-alt text-danger mr-2"></i>Xóa</a>
+                                        </div>
+                                    </div>
 
                                 </td>
                             </tr>
@@ -53,10 +68,10 @@
                             </tbody>
                         <tfoot>
                         <tr>
-                            <th>Tên đăng nhập</th>
+{{--                            <th>Tên đăng nhập</th>--}}
                             <th>Tên đầy đủ</th>
                             <th>Cấp bậc</th>
-                            <th>Trạng thái</th>
+{{--                            <th>Trạng thái</th>--}}
                             <th>Hành động</th>
                         </tr>
                         </tfoot>

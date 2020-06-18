@@ -11,7 +11,7 @@
                     {!! Form::open(['method'=>'POST','route'=>['admin.courses.update',$cor->id]]) !!}
                     {!! Form::submit('Cập nhật',['class'=>'btn btn-success']) !!}
                     <a class="btn btn-secondary text-white" onClick="window.location.reload();">Tải lại</a>
-                    <a href="{{route('admin.courses.index')}}" class="btn btn-primary">Danh sách lớp</a>
+                    <a href="{{route('admin.courses.index')}}" class="btn btn-primary">DS lớp</a>
                 </div>
             </div>
         </div>
@@ -24,18 +24,28 @@
                 </div>
                 <div class="card-body">
                     <div class="row">
-                        <div class="col-md-4">
-                            <div class="form-group">
-                                {!! Form::label('name', 'Tên lớp:',['class'=>'required','required']) !!}
-                                {!! Form::text('name',$cor->name,['class'=>'form-control ','required' => 'required']) !!}
-                            </div>
-                        </div>
-                        <div class="col-md-4">
+                        <div class="col-md-6">
                             <div class="form-group">
                                 {!! Form::label('faculty_id', 'Thuộc ngành:',['class'=>'required']) !!}
                                 {!! Form::select('faculty_id',$fal,$cor->faculty_id, ['class' => 'form-control select2bs4' ,'style'=>'width: 100%;','required']) !!}
                             </div>
                         </div>
+                        <div class="col-md-6">
+
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                {!! Form::label('course_code', 'Mã lớp:',['class'=>'required','required']) !!}
+                                {!! Form::text('course_code',$cor->course_code,['class'=>'form-control ','required' => 'required']) !!}
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                {!! Form::label('name', 'Tên lớp:',['class'=>'required','required']) !!}
+                                {!! Form::text('name',$cor->name,['class'=>'form-control ','required' => 'required']) !!}
+                            </div>
+                        </div>
+
                         <div class="col-md-12">
                             <div class="form-group">
                                 {!! Form::label('description', 'Mô tả:') !!}

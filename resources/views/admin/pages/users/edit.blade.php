@@ -11,7 +11,7 @@
                     {!! Form::open(['method'=>'POST','route'=>['admin.users.update',$usr->id]]) !!}
                     {!! Form::submit('Cập nhật',['class'=>'btn btn-success']) !!}
                     <a class="btn btn-secondary text-white" onClick="window.location.reload();">Tải lại</a>
-                    <a href="{{route('admin.users.index')}}" class="btn btn-primary">Danh sách ứng viên</a>
+                    <a href="{{route('admin.users.index')}}" class="btn btn-primary">DS ứng viên</a>
                     <a href="{{route('admin.users.move',$usr->id)}}" class="btn btn-warning float-right">Chuyển sang sinh viên</a>
 
                 </div>

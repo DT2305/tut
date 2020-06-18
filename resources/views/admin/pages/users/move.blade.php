@@ -9,9 +9,9 @@
             <div class="card card-primary card-outline">
                 <div class="card-header">
                     {!! Form::open(['method'=>'POST','route'=>'admin.users.moved']) !!}
-                    <a href="{{route('admin.users.index')}}" class="btn btn-primary float-right">Danh sách ứng viên</a>
-                    {!! Form::submit('Thêm',['class'=>'btn btn-success']) !!}
-                    <input type="button" class="btn btn-secondary" value="Quay lại" onclick="history.back()">
+                    {!! Form::submit('Chuyển',['class'=>'btn btn-warning']) !!}
+                    <a class="btn btn-secondary text-white" onClick="window.location.reload();">Tải lại</a>
+                    <a href="{{route('admin.users.index')}}" class="btn btn-primary">DS ứng viên</a>
 
                 </div>
             </div>
@@ -85,21 +85,34 @@
                             </div>
                         </div>
                     </div>
-
                     <div class="row">
+                        {{-- Đổi mật khẩu--}}
+{{--                        <div class="col-md-12">--}}
+{{--                            <label class="checkbox">--}}
+{{--                                <input type="checkbox"--}}
+{{--                                       onchange="document.getElementById('password').disabled = !this.checked;"/>--}}
+{{--                                Đổi mật khẩu--}}
+{{--                            </label>--}}
+{{--                        </div>--}}
                         <div class="col-md-6">
                             <div class="form-group">
-                                {!! Form::label('password', 'Mật khẩu:',['class'=>'required']) !!}
-                                {!! Form::password('password',['class'=>'form-control ','required']) !!}
+                                {!! Form::label('password', 'Mật khẩu:') !!}
+                                {{--                                {!! Form::password('password',['class'=>'form-control']) !!}--}}
+                                {!! Form::input('password', 'password',$usr->password,['class'=>'form-control','required']) !!}
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="form-group">
-                                {!! Form::label('password_confirmation', 'Nhập lại mật khẩu:',['class'=>'required']) !!}
-                                {!! Form::password('password_confirmation',['class'=>'form-control','required']) !!}
+                                {!! Form::label('password_confirmation', 'Nhập lại mật khẩu:') !!}
+                                {{--                                {!! Form::password('password_confirmation',['class'=>'form-control' ]) !!}--}}
+                                {!! Form::input('password', 'password_confirmation',$usr->password,['class'=>'form-control','required']) !!}
+
                             </div>
                         </div>
+                        {{-- /Đổi mật khẩu--}}
                     </div>
+
+
                     <div class="row">
                         <div class="col-md-4">
                             <div class="form-group">
@@ -126,7 +139,7 @@
                             <div class="form-group">
                                 {!! Form::label('student_code', 'Mã số sinh viên:',['class'=>'required']) !!}
                                 {!! Form::text('student_code',$maxStuCode+1,['class'=>'form-control','required','readonly']) !!}
-{{--                                <b>MSSV lớn nhất hiện tại:{{$maxStuCode}}</b>--}}
+                                {{--                                <b>MSSV lớn nhất hiện tại:{{$maxStuCode}}</b>--}}
                             </div>
                         </div>
 
@@ -147,7 +160,7 @@
         <div class="col-lg-6">
             <div class="card card-primary card-outline">
                 <div class="card-header">
-                    <h4 class="m-0 text-center"> <b>Thông tin liên hệ</b></h4>
+                    <h4 class="m-0 text-center"><b>Thông tin liên hệ</b></h4>
                 </div>
                 <div class="card-body">
 
@@ -178,7 +191,8 @@
                             <div class="form-group">
                                 {!! Form::label('birth_province', 'Nơi sinh Tỉnh/TP:') !!}
                                 <select name="birth_province" id="birth_province" class="form-control select2bs4">
-                                    <option selected value="{{$usr->birth_province}}">{{$usr->show_birth_province->name}}</option>
+                                    <option selected
+                                            value="{{$usr->birth_province}}">{{$usr->show_birth_province->name}}</option>
                                     {{--                                    <option value="0">Chọn Tỉnh/TP</option>--}}
                                 </select>
                             </div>
@@ -187,7 +201,8 @@
                             <div class="form-group">
                                 {!! Form::label('birth_district', 'Nơi sinh Quận/Huyện:') !!}
                                 <select class="form-control select2bs4" id="birth_district" name="birth_district">
-                                    <option selected value="{{$usr->birth_district}}">{{$usr->show_birth_district->name}}</option>
+                                    <option selected
+                                            value="{{$usr->birth_district}}">{{$usr->show_birth_district->name}}</option>
                                     {{--                                    <option value="1">Chọn Quận/Huyện</option>--}}
                                 </select>
                             </div>
@@ -196,7 +211,8 @@
                             <div class="form-group">
                                 {!! Form::label('birth_ward', 'Nơi sinh Xã/Phường:') !!}
                                 <select class="form-control select2bs4" id="birth_ward" name="birth_ward">
-                                    <option selected readonly="readonly" value="{{$usr->birth_ward}}">{{$usr->show_birth_ward->name}}</option>
+                                    <option selected readonly="readonly"
+                                            value="{{$usr->birth_ward}}">{{$usr->show_birth_ward->name}}</option>
                                     {{--                                    <option value="1">Chọn Phường/Xã</option>--}}
                                 </select>
                             </div>

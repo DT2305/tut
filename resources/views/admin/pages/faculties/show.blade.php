@@ -9,7 +9,7 @@
                 <div class="card-header">
                     <a href="{{route('admin.faculties.edit',$fal->id)}}" class="btn btn-success">Chỉnh sửa</a>
                     <a class="btn btn-secondary text-white" onClick="window.location.reload();">Tải lại</a>
-                    <a href="{{route('admin.faculties.index')}}" class="btn btn-primary">Danh sách ngành</a>
+                    <a href="{{route('admin.faculties.index')}}" class="btn btn-primary">DS ngành</a>
 
                 </div>
             </div>
@@ -22,10 +22,16 @@
                 </div>
                 <div class="card-body">
                     <div class="row">
-                        <div class="col-md-6">
+                        <div class="col-md-12">
                             <div class="form-group">
                                 {!! Form::label('department_id', 'Ngành thuộc khoa:',['class'=>'required']) !!}
                                 {!! Form::text('name',$fal->show_department->name,['class'=>'form-control','required','disabled']) !!}
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                {!! Form::label('faculty_code', 'Mã ngành:',['class'=>'required']) !!}
+                                {!! Form::text('faculty_code',$fal->faculty_code,['class'=>'form-control','required','disabled']) !!}
                             </div>
                         </div>
                         <div class="col-md-6">

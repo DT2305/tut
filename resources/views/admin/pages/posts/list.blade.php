@@ -26,14 +26,11 @@
 
                         <thead>
                         <tr>
-{{--                            <th>STT</th>--}}
+                            <th>STT</th>
+                            <th>Ngày đăng</th>
                             <th>Tiêu đề</th>
-                            <th>Mô tả</th>
-                            <th>Tác giả</th>
                             <th>Thể loại</th>
                             <th>Đối tượng</th>
-                            <th>Ảnh bài đăng</th>
-                            <th>Trạng thái</th>
                             <th>Hành động</th>
                         </tr>
                         </thead>
@@ -41,11 +38,11 @@
                         @foreach($pos as $key=> $val)
 
                             <tr>
-{{--                                <td width="3%">{{$key}}</td>--}}
+                                <td width="3%">{{$key}}</td>
+                                <td>{{$val->created_at}}</td>
+                                {{--                                <td>{{ \Carbon\Carbon::parse($val->created_at)->format('d/m/Y')}}</td>--}}
                                 <td>{{$val->title}}</td>
-                                <td>{{$val->description}}</td>
-                                <td>{{$val->author}}</td>
-                                <td>{{$val->show_category->cate_name}}</td>
+                                <td>{{$val->show_category->name}}</td>
                                 <td>
                                     @if($val->target==1)
                                         <p class="text-red">Ứng viên</p>
@@ -53,16 +50,11 @@
                                         <p class="text-blue">Sinh viên</p>
                                     @endif
                                 </td>
-                                <td><img src="{{asset($val->avatar)}}" width="50px" height="50px"></td>
-                                <td>
-                                    @if($val->status==1)
-                                        <p class="text-black">Kích hoạt</p>
-                                    @else
-                                        <p class="text-gray">Ẩn</p>
-                                    @endif
-                                </td>
+
+                                {{--                                <td><img src="{{asset($val->avatar)}}" width="50px" height="50px"></td>--}}
+
                                 <td width="10%">
-                                    <div class="dropdown dropleft float-right">
+                                    <div class="dropdown dropleft">
                                         <button type="button" class="btn btn-primary btn-sm dropdown-toggle"
                                                 data-toggle="dropdown">
                                             Hành động
@@ -77,20 +69,23 @@
                                                 <i class="fas fa-trash-alt text-danger mr-2"></i>Xóa</a>
                                         </div>
                                     </div>
+                                    <b>Trạng thái</b>
+                                    @if($val->status==1)
+                                        <p class="text-black">Hiển thị</p>
+                                    @else
+                                        <p class="text-gray">Ẩn</p>
+                                    @endif
                                 </td>
                             </tr>
                         @endforeach
                         </tbody>
                         <tfoot>
                         <tr>
-{{--                            <th>STT</th>--}}
+                            <th>STT</th>
+                            <th>Ngày đăng</th>
                             <th>Tiêu đề</th>
-                            <th>Mô tả</th>
-                            <th>Tác giả</th>
                             <th>Thể loại</th>
                             <th>Đối tượng</th>
-                            <th>Ảnh bài đăng</th>
-                            <th>Trạng thái</th>
                             <th>Hành động</th>
                         </tr>
                         </tfoot>
@@ -121,7 +116,7 @@
                         "previous": "<",
                         "next": ">"
                     },
-                    "search":"Tìm kiếm",
+                    "search": "Tìm kiếm",
                 }
             });
 

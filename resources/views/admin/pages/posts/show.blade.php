@@ -21,7 +21,7 @@
                 <h5 class="card-title"></h5>
                 <a href="{{route('admin.posts.edit',$pos->id)}}" class="btn btn-success">Chỉnh sửa</a>
                 <a class="btn btn-secondary text-white" onClick="window.location.reload();">Tải lại</a>
-                <a href="{{route('admin.posts.index')}}" class="btn btn-primary">Danh sách tin tức</a>
+                <a href="{{route('admin.posts.index')}}" class="btn btn-primary">DS tin tức</a>
             </div>
         </div><!-- /.card -->
     </div>

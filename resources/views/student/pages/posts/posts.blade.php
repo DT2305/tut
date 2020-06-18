@@ -21,7 +21,7 @@
                     <div><a><span class="ion-android-person"></span> {{$val->origional_author}}</a>
                     </div>
                     <div><a><span class="ion-eye"></span> {{$val->view}}</a></div>
-                    <div><a><span class="ion-code"></span> {{$val->show_category->cate_name}}</a>
+                    <div><a><span class="ion-code"></span> {{$val->show_category->name}}</a>
                     </div>
                 </div>
             </div>

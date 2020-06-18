@@ -8,7 +8,7 @@
         <div class="col-lg-12">
             <div class="card card-primary card-outline">
                 <div class="card-header">
-                    <a class="btn btn-primary" href="{{route('admin.users.create')}}">Thêm ứng viên</a>
+                    <a class="btn btn-success" href="{{route('admin.users.create')}}">Thêm ứng viên</a>
                     <a class="btn btn-secondary text-white" onClick="window.location.reload();">Tải lại</a>
 
                 </div>
@@ -27,52 +27,54 @@
                         <thead>
                         <tr>
                             <th>STT</th>
+{{--                            <th>ID</th>--}}
                             <th>Họ và tên</th>
-{{--                            <th>Giới tính</th>--}}
+                            <th>Giới tính</th>
                             <th>Số điện thoại</th>
-                            <th>Email</th>
+                            {{--<th>Email</th>--}}
                             <th>Hành động</th>
                         </tr>
                         </thead>
                         <tbody>
                         @foreach($usr as $key=> $val)
-                            @if($val->is_student==null)
-                                <tr>
-                                    <td width="3%">{{$key}}</td>
-                                    <td>{{$val->name}}</td>
-                                    {{--                                <td>{{$val->gender}}</td>--}}
-                                    <td>{{$val->phone_number}}</td>
-                                    <td>{{$val->email}}</td>
-                                    <td>
-                                        <div class="dropdown dropleft float-right">
-                                            <button type="button" class="btn btn-primary btn-sm dropdown-toggle"
-                                                    data-toggle="dropdown">
-                                                Hành động
-                                            </button>
-                                            <div class="dropdown-menu">
-                                                <a class="dropdown-item" href="{{route('admin.users.show',$val->id)}}">
-                                                    <i class="fas fa-info text-warning mr-2"></i>Xem chi tiết</a>
-                                                <a class="dropdown-item" href="{{route('admin.users.edit',$val->id)}}">
-                                                    <i class="fas fa-pen text-success mr-2"></i>Sửa</a>
-                                                <a class="dropdown-item confirmClick" href="{{route('admin.users.destroy',$val->id)}}">
-                                                    <i class="fas fa-trash-alt text-danger mr-2"></i>Xóa</a>
-                                                <div class="dropdown-divider"></div>
-                                                <a class="dropdown-item" href="{{route('admin.users.move',$val->id)}}">
-                                                    <i class="fas fa-plus text-primary mr-2"></i>Thêm sinh viên</a>
-                                            </div>
+                            <tr>
+                                <td width="3%">{{$key}}</td>
+{{--                                <td>{{$val->id}}</td>--}}
+                                <td>{{$val->name}}</td>
+                                <td>{{$val->gender}}</td>
+                                <td>{{$val->phone_number}}</td>
+                                {{--<td>{{$val->email}}</td>--}}
+                                <td>
+                                    <div class="dropdown dropleft float-right">
+                                        <button type="button" class="btn btn-primary btn-sm dropdown-toggle"
+                                                data-toggle="dropdown">
+                                            Hành động
+                                        </button>
+                                        <div class="dropdown-menu">
+                                            <a class="dropdown-item" href="{{route('admin.users.show',$val->id)}}">
+                                                <i class="fas fa-info text-warning mr-2"></i>Xem chi tiết</a>
+                                            <a class="dropdown-item" href="{{route('admin.users.edit',$val->id)}}">
+                                                <i class="fas fa-pen text-success mr-2"></i>Sửa</a>
+                                            <a class="dropdown-item confirmClick"
+                                               href="{{route('admin.users.destroy',$val->id)}}">
+                                                <i class="fas fa-trash-alt text-danger mr-2"></i>Xóa</a>
+                                            <div class="dropdown-divider"></div>
+                                            <a class="dropdown-item" href="{{route('admin.users.move',$val->id)}}">
+                                                <i class="fas fa-plus text-primary mr-2"></i>Thêm sinh viên</a>
                                         </div>
-                                    </td>
-                                </tr>
-                            @endif
+                                    </div>
+                                </td>
+                            </tr>
                         @endforeach
                         </tbody>
                         <tfoot>
                         <tr>
                             <th>STT</th>
+{{--                            <th>ID</th>--}}
                             <th>Họ và tên</th>
-{{--                            <th>Giới tính</th>--}}
+                            {{--                            <th>Giới tính</th>--}}
                             <th>Số điện thoại</th>
-                            <th>Email</th>
+                            {{--                            <th>Email</th>--}}
                             <th>Hành động</th>
                         </tr>
                         </tfoot>
@@ -109,7 +111,7 @@
                         "previous": "<",
                         "next": ">"
                     },
-                    "search":"Tìm kiếm",
+                    "search": "Tìm kiếm",
                 }
 
                 // "columns": [
